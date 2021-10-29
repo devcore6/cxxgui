@@ -3,8 +3,9 @@
   <ItemGroup>
     <ClCompile Include="view\view.cpp" />
     <ClCompile Include="view\style.cpp" />
-    <ClCompile Include="font\font.cpp" />
     <ClCompile Include="window\null_function.cpp" />
+    <ClCompile Include="font\font.cpp" />
+    <ClCompile Include="text\text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />

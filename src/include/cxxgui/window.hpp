@@ -16,7 +16,7 @@ namespace cxxgui {
         std::promise<void> shut_down;
         std::mutex lock;
 
-        view content;
+        view* content;
 
         bool running = false;
         bool started = false;
@@ -31,6 +31,7 @@ namespace cxxgui {
             size_t width,
             size_t height,
             uint32_t flags,
+            float opacity,
             std::function<void(SDL_Event)> event_handler,
             std::function<bool(window_t*, void*)> main_loop,
             void* data
@@ -50,10 +51,12 @@ namespace cxxgui {
             glShadeModel(GL_SMOOTH);
             glEnable(GL_MULTISAMPLE);
             glDisable(GL_DEPTH_TEST);
+            glEnable(GL_SCISSOR_TEST);
 
             glClearColor(0, 0, 0, 1.0);
 
             SDL_SetWindowResizable(ptr->window, SDL_TRUE);
+            SDL_SetWindowOpacity(ptr->window, opacity);
             SDL_StopTextInput();
 
             ptr->running = true;
@@ -72,13 +75,12 @@ namespace cxxgui {
                 int w, h;
                 SDL_GetWindowSize(ptr->window, &w, &h);
 
+                ptr->content->init();
+
                 while(shut_down.wait_for(std::chrono::milliseconds(1000 / (ptr->refresh_rate > 0 ? ptr->refresh_rate : 1))) == std::future_status::timeout) {
                     glClear(GL_COLOR_BUFFER_BIT);
 
                     glLoadIdentity();
-
-                    int w, h;
-                    SDL_GetWindowSize(ptr->window, &w, &h);
 
                     gluOrtho2D(0.0, w, h, 0.0);
 
@@ -86,7 +88,7 @@ namespace cxxgui {
 
                     glPushMatrix();
                         ptr->lock.lock();
-                        ptr->content.render();
+                        ptr->content->render();
                         ptr->lock.unlock();
                     glPopMatrix();
 
@@ -97,6 +99,18 @@ namespace cxxgui {
                     while(SDL_PollEvent(&e) != 0) {
                         switch(e.type) {
                             case SDL_QUIT: return;
+
+                            case SDL_WINDOWEVENT: {
+
+                                if(e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
+                                    ptr->content->style.width = e.window.data1;
+                                    ptr->content->style.height = e.window.data2;
+                                    ptr->content->style.translate_y = h - e.window.data2;
+                                }
+
+                                [[fallthrough]];
+
+                            }
 
                             default: event_handler(e); break;
                         }
@@ -124,7 +138,7 @@ namespace cxxgui {
 
         bool is_open() { return running; }
 
-        void set_view(view c) {
+        void set_view(view* c) {
             lock.lock();
             content = c;
             lock.unlock();
@@ -137,16 +151,17 @@ namespace cxxgui {
             size_t width,
             size_t height,
             uint32_t flags,
-            view v,
+            view* v,
             std::function<void(SDL_Event)> event_handler,
+            float opacity = 1.0f,
             bool async = true,
             std::function<bool(window_t*, void*)> main_loop = null_function,
             void* data = nullptr
         ) : content(v),
             is_async(async) {
 
-            content.style.width = width;
-            content.style.height = height;
+            content->style.width = width;
+            content->style.height = height;
 
             if(!async) {
                 renderer_thread(
@@ -157,6 +172,7 @@ namespace cxxgui {
                     width,
                     height,
                     flags,
+                    opacity,
                     event_handler,
                     main_loop,
                     data
@@ -171,6 +187,7 @@ namespace cxxgui {
                     width,
                     height,
                     flags,
+                    opacity,
                     event_handler,
                     main_loop,
                     data

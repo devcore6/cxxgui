@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="font\font.cpp" />
+    <ClCompile Include="text\text.cpp" />
     <ClCompile Include="view\style.cpp" />
     <ClCompile Include="view\view.cpp" />
     <ClCompile Include="window\null_function.cpp" />

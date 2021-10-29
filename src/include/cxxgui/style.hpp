@@ -9,6 +9,13 @@ namespace cxxgui {
     extern float vw(float);
     extern float vh(float);
 
+    inline SDL_Color uint32_t_to_sdl_color(uint32_t color) { return SDL_Color{
+        static_cast<unsigned char>((color >> 24) & 0xFF),
+        static_cast<unsigned char>((color >> 16) & 0xFF),
+        static_cast<unsigned char>((color >> 8)  & 0xFF),
+        static_cast<unsigned char>( color        & 0xFF)
+    }; }
+
     struct style_t {
 
         float                    margin_top                 = 0.0f,
@@ -36,7 +43,7 @@ namespace cxxgui {
                                  border_bottom_right_radius = 0.0f,
                                  border_bottom_left_radius  = 0.0f;
 
-        float                    font_size                  = 19.0f;
+        uint32_t                 font_size                  = 19;
         std::vector<std::string> font_family                = { };
         uint16_t                 font_weight                = 400;
 
@@ -45,8 +52,8 @@ namespace cxxgui {
                                  overline                   = false,
                                  strikethrough              = false;
 
-        align                    vertical_align             = align::top,
-                                 horizontal_align           = align::left;
+        align                    vertical_align             = align::center,
+                                 horizontal_align           = align::center;
 
         uint32_t                 color                      = 0xFFFFFFFF;
         uint32_t                 background_color           = 0x00000000;
