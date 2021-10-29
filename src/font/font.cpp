@@ -32,8 +32,8 @@ namespace cxxgui {
     };
 #endif
 
-    font_t* try_load_font_from_path(std::string family, uint32_t size, uint16_t weight, std::string path) {
-        font_t font = { nullptr, family, size, weight, path };
+    font_t* try_load_font_from_path(std::string family, uint32_t size, uint16_t weight, bool italic, std::string path) {
+        font_t font = { nullptr, family, size, weight, italic, path };
 
         font.font = TTF_OpenFont(std::filesystem::canonical(path).string().c_str(), size);
 
@@ -44,17 +44,17 @@ namespace cxxgui {
         return &fonts[fonts.size() - 1];
     }
 
-    font_t* try_load_font(std::string family, uint32_t size, uint16_t weight) {
+    font_t* try_load_font(std::string family, uint32_t size, uint16_t weight, bool italic) {
         for(auto path : system_fonts) {
-            font_t* font = try_load_font_from_path(family, size, weight, (path / (family + ".ttf")).string());
+            font_t* font = try_load_font_from_path(family, size, weight, italic, (path / (family + ".ttf")).string());
             if(font != nullptr) return font;
         }
 
         return nullptr;
     }
 
-    font_t* try_register_font_path(std::string family, uint16_t weight, std::string path) {
-        return try_load_font_from_path(family, 12, weight, path);
+    font_t* try_register_font_path(std::string family, uint16_t weight, bool italic, std::string path) {
+        return try_load_font_from_path(family, 12, weight, italic, path);
     }
 
 }

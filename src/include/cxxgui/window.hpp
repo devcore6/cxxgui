@@ -51,7 +51,6 @@ namespace cxxgui {
             glShadeModel(GL_SMOOTH);
             glEnable(GL_MULTISAMPLE);
             glDisable(GL_DEPTH_TEST);
-            glEnable(GL_SCISSOR_TEST);
 
             glClearColor(0, 0, 0, 1.0);
 
@@ -82,6 +81,8 @@ namespace cxxgui {
 
                     glLoadIdentity();
 
+                    glViewport(0, 0, w, h);
+
                     gluOrtho2D(0.0, w, h, 0.0);
 
                     if(!main_loop(ptr, data)) return;
@@ -103,9 +104,10 @@ namespace cxxgui {
                             case SDL_WINDOWEVENT: {
 
                                 if(e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
+                                    w = e.window.data1;
+                                    h = e.window.data2;
                                     ptr->content->style.width = e.window.data1;
                                     ptr->content->style.height = e.window.data2;
-                                    ptr->content->style.translate_y = h - e.window.data2;
                                 }
 
                                 [[fallthrough]];

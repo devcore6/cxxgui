@@ -11,10 +11,13 @@ namespace cxxgui {
         size_t height = 0;
 
     public:
-        text(const char* str, const char* font_family, uint32_t font_size, uint16_t font_weight) : t(str) {
+        text(const char* str) : t(str) { }
+
+        text(const char* str, const char* font_family, uint32_t font_size, uint16_t font_weight, bool italic = false) : t(str) {
             style.font_family.push_back(font_family);
             style.font_size = font_size;
             style.font_weight = font_weight;
+            style.italic = italic;
         }
 
         void init();

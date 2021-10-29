@@ -54,7 +54,7 @@ struct content_view : cxxgui::view {
 
                 view->data = cxxgui::vstack({
                     []() -> cxxgui::text* {
-                        cxxgui::text* text = new cxxgui::text("Pretty cool, huh?", "SF Pro Text", 48, 400);
+                        cxxgui::text* text = new cxxgui::text("Pretty cool, huh?", "SF Pro Text", 48, 400, true);
 
                         text->style.border_top = 1;
                         text->style.border_right = 1;
@@ -86,7 +86,8 @@ struct content_view : cxxgui::view {
 int main(int argc, char* argv[]) {
     cxxgui::init();
 
-    cxxgui::try_register_font_path("SF Pro Text", 400, "fonts/SF-Pro-Text-Regular.ttf");
+    cxxgui::try_register_font_path("SF Pro Text", 400, false, "fonts/SF-Pro-Text-Regular.otf");
+    cxxgui::try_register_font_path("SF Pro Text", 400, true, "fonts/SF-Pro-Text-RegularItalic.otf");
 
     cxxgui::window_t window = cxxgui::window_t(
         "Test",

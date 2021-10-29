@@ -13,7 +13,7 @@ namespace cxxgui {
                 font_t* right_family = nullptr;
 
                 for(auto& f : fonts)
-                    if(f.family == style.font_family[i] && f.weight == style.font_weight) {
+                    if(f.family == style.font_family[i] && f.weight == style.font_weight && f.italic == style.italic) {
                         font_exists = true;
                         
                         if(f.size == style.font_size)
@@ -25,7 +25,7 @@ namespace cxxgui {
                     }
 
                 if(right_family != nullptr) {
-                    font_t* cur = try_load_font_from_path(style.font_family[i], style.font_size, style.font_weight, right_family->path);
+                    font_t* cur = try_load_font_from_path(style.font_family[i], style.font_size, style.font_weight, style.italic, right_family->path);
 
                     if(cur != nullptr) {
                         cur_fonts.push_back(cur);
@@ -35,7 +35,7 @@ namespace cxxgui {
 
                 if(font_exists) continue;
 
-                font_t* cur = try_load_font(style.font_family[i], style.font_size, style.font_weight);
+                font_t* cur = try_load_font(style.font_family[i], style.font_size, style.font_weight, style.italic);
 
                 if(cur != nullptr) cur_fonts.push_back(cur);
             }
