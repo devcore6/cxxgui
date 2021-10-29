@@ -9,10 +9,10 @@ namespace cxxgui {
         style_t style;
         std::pair<std::vector<view>, stack_direction> data;
 
-        virtual GLfloat get_content_width();
-        virtual GLfloat get_content_height();
-        virtual GLfloat get_width();
-        virtual GLfloat get_height();
+        virtual float get_content_width();
+        virtual float get_content_height();
+        virtual float get_width();
+        virtual float get_height();
         virtual void render();
     };
 

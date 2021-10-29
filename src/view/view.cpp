@@ -2,8 +2,8 @@
 
 namespace cxxgui {
 
-    GLfloat view::get_content_width() {
-        GLfloat content_width = style.width;
+    float view::get_content_width() {
+        float content_width = style.width;
 
         if(content_width == 0.0f)
             for(view v : data.first)
@@ -21,8 +21,8 @@ namespace cxxgui {
         return content_width;
     }
 
-    GLfloat view::get_content_height() {
-        GLfloat content_height = style.height;
+    float view::get_content_height() {
+        float content_height = style.height;
 
         if(content_height == 0.0f)
             for(view v : data.first)
@@ -40,7 +40,7 @@ namespace cxxgui {
         return content_height;
     }
 
-    GLfloat view::get_width() {
+    float view::get_width() {
         return style.margin_left
               + style.border_left
               + style.padding_left
@@ -50,7 +50,7 @@ namespace cxxgui {
               + style.margin_right;
     }
 
-    GLfloat view::get_height() {
+    float view::get_height() {
         return style.margin_top
               + style.border_top
               + style.padding_top
@@ -63,30 +63,107 @@ namespace cxxgui {
     void view::render() {
         glPushMatrix();
 
-            glTranslatef(style.translate_x, style.translate_y, 0.0f);
+            glTranslatef(style.translate_x + style.margin_left,
+                         style.translate_y + style.margin_top,
+                         1.0f);
             glRotatef(style.rotation, 0.0f, 0.0f, 1.0f);
 
-            // todo: do something to render borders here
+            // todo: do something about rounded borders here
 
-            GLfloat x_offset = 0.0f,
-                    y_offset = 0.0f,
-                    z_offset = 0.0f;
+            float width = get_content_width();
+            float height = get_content_height();
 
-            for(view v : data.first) {
-                glPushMatrix();
+            if(style.border_top > 0.0) {
+                glColor4f((float)(style.border_top_color >> 24 & 0xFF) / 255.0f,
+                          (float)(style.border_top_color >> 16 & 0xFF) / 255.0f,
+                          (float)(style.border_top_color >>  8 & 0xFF) / 255.0f,
+                          (float)(style.border_top_color & 0xFF) / 255.0f);
 
-                    glTranslatef(x_offset, y_offset, z_offset);
+                glBegin(GL_QUADS);
+                    
+                    glVertex2f(        style.border_top_left_radius,  0.0f);
+                    glVertex2f(width - style.border_top_right_radius, 0.0f);
+                    glVertex2f(width - style.border_top_right_radius, style.border_top);
+                    glVertex2f(        style.border_top_left_radius,  style.border_top);
 
-                    v.render();
-
-                glPopMatrix();
-
-                switch(data.second) {
-                    case stack_direction::horizontal: x_offset += v.get_width();  break;
-                    case stack_direction::vertical:   y_offset += v.get_height(); break;
-                    case stack_direction::depth:      z_offset ++;                break;
-                }
+                glEnd();
             }
+
+            if(style.border_right > 0.0) {
+                glColor4f((float)(style.border_right_color >> 24 & 0xFF) / 255.0f,
+                          (float)(style.border_right_color >> 16 & 0xFF) / 255.0f,
+                          (float)(style.border_right_color >>  8 & 0xFF)/ 255.0f,
+                          (float)(style.border_right_color & 0xFF) / 255.0f);
+
+                glBegin(GL_QUADS);
+
+                    glVertex2f(width,                               style.border_top_right_radius);
+                    glVertex2f(width + style.border_right,          style.border_top_right_radius);
+                    glVertex2f(width + style.border_right, height - style.border_bottom_right_radius);
+                    glVertex2f(width,                      height - style.border_bottom_right_radius);
+
+                glEnd();
+            }
+
+            if(style.border_bottom > 0.0) {
+                glColor4f((float)(style.border_bottom_color >> 24 & 0xFF) / 255.0f,
+                          (float)(style.border_bottom_color >> 16 & 0xFF) / 255.0f,
+                          (float)(style.border_bottom_color >>  8 & 0xFF) / 255.0f,
+                          (float)(style.border_bottom_color & 0xFF) / 255.0f);
+
+                glBegin(GL_QUADS);
+                    
+                    glVertex2f(        style.border_bottom_left_radius,  height + 0.0f);
+                    glVertex2f(width - style.border_bottom_right_radius, height + 0.0f);
+                    glVertex2f(width - style.border_bottom_right_radius, height + style.border_bottom);
+                    glVertex2f(        style.border_bottom_left_radius,  height + style.border_bottom);
+
+                glEnd();
+            }
+
+            if(style.border_left > 0.0) {
+                glColor4f((float)(style.border_left_color >> 24 & 0xFF) / 255.0f,
+                          (float)(style.border_left_color >> 16 & 0xFF) / 255.0f,
+                          (float)(style.border_left_color >>  8 & 0xFF)/ 255.0f,
+                          (float)(style.border_left_color & 0xFF) / 255.0f);
+
+                glBegin(GL_QUADS);
+
+                    glVertex2f(0.0f,                       style.border_top_left_radius);
+                    glVertex2f(style.border_left,          style.border_top_left_radius);
+                    glVertex2f(style.border_left, height - style.border_bottom_left_radius);
+                    glVertex2f(0.0f,              height - style.border_bottom_left_radius);
+
+                glEnd();
+            }
+
+            glPushMatrix();
+
+                glTranslatef(style.border_left + style.padding_left,
+                             style.border_top + style.padding_top,
+                             1.0f);
+
+                GLfloat x_offset = 0.0f,
+                        y_offset = 0.0f,
+                        z_offset = 0.0f;
+
+                for(view v : data.first) {
+                    glPushMatrix();
+
+                        glTranslatef(x_offset, y_offset, z_offset);
+
+                        v.render();
+
+                    glPopMatrix();
+
+                    switch(data.second) {
+                        case stack_direction::horizontal: x_offset += v.get_width();  break;
+                        case stack_direction::vertical:   y_offset += v.get_height(); break;
+                        case stack_direction::depth:      z_offset ++;                break;
+                    }
+                }
+
+            glPopMatrix();
 
         glPopMatrix();
     }

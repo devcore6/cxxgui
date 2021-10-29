@@ -3,11 +3,15 @@
   <ItemGroup>
     <ClCompile Include="view\view.cpp" />
     <ClCompile Include="view\style.cpp" />
+    <ClCompile Include="font\font.cpp" />
+    <ClCompile Include="window\null_function.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />
     <ClInclude Include="include\cxxgui\cxxgui.hpp" />
     <ClInclude Include="include\cxxgui\style.hpp" />
-    <ClInclude Include="include\cxxgui\opengl.hpp" />
+    <ClInclude Include="include\cxxgui\text.hpp" />
+    <ClInclude Include="include\cxxgui\font.hpp" />
+    <ClInclude Include="include\cxxgui\window.hpp" />
   </ItemGroup>
 </Project>
