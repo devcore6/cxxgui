@@ -6,100 +6,91 @@
 
 #include <cxxgui/cxxgui.hpp>
 
-struct content_view : cxxgui::view {
+using namespace cxxgui;
+
+class content_view : public view {
+public:
     content_view() {
-        data = cxxgui::hstack({
-            []() -> cxxgui::view* {
-                cxxgui::view* view = new cxxgui::view();
+        body = new hstack {
+            (new vstack {
+                (new text("We're no strangers to love"))
+                    ->font(monospace)
+                    ->font_size(12),
 
-                view->data = cxxgui::vstack({
-                    []() -> cxxgui::text* {
-                        cxxgui::text* text = new cxxgui::text("Hello World!", "SF Pro Text", 64, 400);
+                (new text("You know the rules, and so do I"))
+                    ->font(monospace)
+                    ->font_size(12),
 
-                        text->style.border_top = 1;
-                        text->style.border_right = 1;
-                        text->style.border_bottom = 1;
-                        text->style.border_left = 1;
-                        text->style.margin_bottom = 16;
+                (new text("A full commitment's what I'm thinking of"))
+                    ->font(monospace)
+                    ->font_size(12),
 
-                        return text;
-                    }(),
+                (new text("You wouldn't get this from any other guy"))
+                    ->font(monospace)
+                    ->foreground_color(0xFFAA00FF)
+            })
+                ->margin(0.0f, 16.0f, 0.0f, 0.0f),
 
-                    []() -> cxxgui::text* {
-                        cxxgui::text* text = new cxxgui::text("This is kinda cool!", "SF Pro Text", 32, 400);
+            (new vstack {
+                (new text("Title"))
+                    ->font(title),
 
-                        text->style.border_top = 1;
-                        text->style.border_right = 1;
-                        text->style.border_bottom = 1;
-                        text->style.border_left = 1;
-                        text->style.margin_top = 16;
-                        text->style.background_color = 0x444444FF;
+                (new text("Body aligned left"))
+                    ->border({ 1.0f, 0xFFFFFFFF },
+                             { 0.0f, 0x00000000 },
+                             { 0.0f, 0x00000000 },
+                             { 0.0f, 0x00000000 })
+                    ->margin(8.0f, 0.0f)
+                    ->padding(8.0f, 0.0f)
+                    ->frame(300.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::leading)
+                    ->background_color(0x12345678),
 
-                        return text;
-                    }()
-                });
+                (new text("Body aligned right"))
+                    ->border({ 0.0f, 0x00000000 },
+                             { 0.0f, 0x00000000 },
+                             { 1.0f, 0xFFFFFFFF },
+                             { 0.0f, 0x00000000 })
+                    ->margin(8.0f, 0.0f)
+                    ->padding(8.0f, 0.0f)
+                    ->frame(300.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::trailing),
 
-                view->style.border_top = 1;
-                view->style.border_right = 1;
-                view->style.border_bottom = 1;
-                view->style.border_left = 1;
-                view->style.margin_right = 16;
-                view->style.background_color = 0x222222FF;
+                (new text("Large title"))
+                    ->font(large_title),
 
-                return view;
-            }(),
-            
-            []() -> cxxgui::view* {
-                cxxgui::view* view = new cxxgui::view();
+                (new text("Headline"))
+                    ->font(headline),
 
-                view->data = cxxgui::vstack({
-                    []() -> cxxgui::text* {
-                        cxxgui::text* text = new cxxgui::text("Pretty cool, huh?", "SF Pro Text", 48, 400, true);
+                (new text("Subheadline"))
+                    ->font(subheadline),
 
-                        text->style.border_top = 1;
-                        text->style.border_right = 1;
-                        text->style.border_bottom = 1;
-                        text->style.border_left = 1;
-                        text->style.color = 0xFF8800FF;
-
-                        return text;
-                    }()
-                });
-
-                view->style.border_top = 1;
-                view->style.border_right = 1;
-                view->style.border_bottom = 1;
-                view->style.border_left = 1;
-                view->style.margin_left = 16;
-                view->style.background_color = 0x12345678;
-
-                return view;
-            }()
-        });
-
-        style.horizontal_align = cxxgui::align::right;
-        style.margin_right = 32;
-        style.background_color = 0x87654321;
+                (new text("Monospaced"))
+                    ->font(monospace)
+            })
+                ->margin(0.0f, 0.0f, 0.0f, 16.0f)
+                ->padding(0.0f, 0.0f, 0.0f, 16.0f)
+                ->border({ 0.0f, 0x00000000 },
+                         { 0.0f, 0x00000000 },
+                         { 0.0f, 0x00000000 },
+                         { 1.0f, 0xFFFFFFFF })
+        };
     }
 };
 
 int main(int argc, char* argv[]) {
-    cxxgui::init();
-
-    cxxgui::try_register_font_path("SF Pro Text", 400, false, "fonts/SF-Pro-Text-Regular.otf");
-    cxxgui::try_register_font_path("SF Pro Text", 400, true, "fonts/SF-Pro-Text-RegularItalic.otf");
-
-    cxxgui::window_t window = cxxgui::window_t(
+    window_t window = window_t(
         "Test",
         200,
         200,
         1280,
         720,
         SDL_WINDOW_SHOWN,
-        new content_view(),
+        (new content_view)
+            ->margin(32)
+            ->padding(32)
+            ->border({ 1, 0xFFFFFFFF })
+            ->frame(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::bottom_trailing),
         [](SDL_Event e) { },
-        0.95f,
-        false
+        0.95f
     );
 
     return 0;

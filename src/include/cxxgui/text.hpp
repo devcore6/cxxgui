@@ -3,26 +3,44 @@
 namespace cxxgui {
     class text : public view {
     private:
+        friend class font_t;
+
         std::string t = "";
-        std::vector<font_t*> cur_fonts;
-        bool has_font = true;
+        font_t* internal_font = nullptr;
         GLuint texture_id = 0;
-        size_t width = 0;
-        size_t height = 0;
+        float width = 0;
+        float height = 0;
 
-    public:
-        text(const char* str) : t(str) { }
-
-        text(const char* str, const char* font_family, uint32_t font_size, uint16_t font_weight, bool italic = false) : t(str) {
-            style.font_family.push_back(font_family);
-            style.font_size = font_size;
-            style.font_weight = font_weight;
-            style.italic = italic;
-        }
-
-        void init();
+    protected:
         float get_content_width();
         float get_content_height();
+
+    public:
+        text(const char* str) : t(str) { internal_font = cxxgui::body; }
+        text(const char* str, font_t* f) : t(str), internal_font(f) { }
+
         void render();
+
+        /*
+         * Layout
+         */
+
+        text* font(font_t* f);
+        text* toggle_italic();
+        text* font_size(uint32_t s);
+        text* font_weight(uint16_t w);
+
+        /*
+         * Concatenation
+         */
+        
+        text* operator+=(text* rhs);
+
+        /*
+         * Comparison
+         */
+
+        bool operator==(text* rhs);
+        bool operator!=(text* rhs);
     };
 }

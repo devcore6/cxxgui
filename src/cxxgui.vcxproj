@@ -24,6 +24,7 @@
     <ClCompile Include="view\style.cpp" />
     <ClCompile Include="view\view.cpp" />
     <ClCompile Include="window\null_function.cpp" />
+    <ClCompile Include="window\window_render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\cxxgui.hpp" />

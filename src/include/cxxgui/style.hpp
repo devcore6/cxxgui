@@ -2,7 +2,16 @@
 
 namespace cxxgui {
 
-    enum class align { left = 0, center, right, top, bottom };
+    enum class alignment_t {
+           top_leading,  top,      top_trailing,
+               leading, center,        trailing,
+        bottom_leading, bottom, bottom_trailing
+    };
+
+    struct border_t {
+        float stroke = 0.0f;
+        uint32_t color = 0x00000000;
+    };
 
     inline float pt(float px) { return px * 4.0f / 3.0f; }
     extern float em(float);
@@ -18,58 +27,43 @@ namespace cxxgui {
 
     struct style_t {
 
-        float                    margin_top                 = 0.0f,
-                                 margin_right               = 0.0f,
-                                 margin_left                = 0.0f,
-                                 margin_bottom              = 0.0f;
+        float       offset_x                    = 0.0f;
+        float       offset_y                    = 0.0f;
 
-        float                    padding_top                = 0.0f,
-                                 padding_right              = 0.0f,
-                                 padding_left               = 0.0f,
-                                 padding_bottom             = 0.0f;
+        float       margin_top                  = 0.0f;
+        float       margin_right                = 0.0f;
+        float       margin_left                 = 0.0f;
+        float       margin_bottom               = 0.0f;
 
-        float                    border_top                 = 0.0f,
-                                 border_right               = 0.0f,
-                                 border_left                = 0.0f,
-                                 border_bottom              = 0.0f;
+        float       padding_top                 = 0.0f;
+        float       padding_right               = 0.0f;
+        float       padding_left                = 0.0f;
+        float       padding_bottom              = 0.0f;
 
-        uint32_t                 border_top_color           = 0xFFFFFFFF,
-                                 border_right_color         = 0xFFFFFFFF,
-                                 border_bottom_color        = 0xFFFFFFFF,
-                                 border_left_color          = 0xFFFFFFFF;
+        border_t    border_top                  = { 0.0f, 0xFFFFFFFF };
+        border_t    border_right                = { 0.0f, 0xFFFFFFFF };
+        border_t    border_left                 = { 0.0f, 0xFFFFFFFF };
+        border_t    border_bottom               = { 0.0f, 0xFFFFFFFF };
 
-        float                    border_top_left_radius     = 0.0f,
-                                 border_top_right_radius    = 0.0f,
-                                 border_bottom_right_radius = 0.0f,
-                                 border_bottom_left_radius  = 0.0f;
+        float       border_top_left_radius      = 0.0f;
+        float       border_top_right_radius     = 0.0f;
+        float       border_bottom_right_radius  = 0.0f;
+        float       border_bottom_left_radius   = 0.0f;
 
-        uint32_t                 font_size                  = 19;
-        std::vector<std::string> font_family                = { };
-        uint16_t                 font_weight                = 400;
+        alignment_t alignment                   = alignment_t::center;
 
-        bool                     italic                     = false,
-                                 underline                  = false,
-                                 overline                   = false,
-                                 strikethrough              = false;
+        uint32_t    background_color            = 0x00000000;
+        uint32_t    color                       = 0xFFFFFFFF;
 
-        align                    vertical_align             = align::center,
-                                 horizontal_align           = align::center;
+        float       width                       = 0.0f;
+        float       height                      = 0.0f;
 
-        uint32_t                 color                      = 0xFFFFFFFF;
-        uint32_t                 background_color           = 0x00000000;
+        float       min_width                   = 0.0f;
+        float       max_width                   = 0.0f;
+        float       min_height                  = 0.0f;
+        float       max_height                  = 0.0f;
 
-        float                    translate_x                = 0.0f,
-                                 translate_y                = 0.0f;
-
-        float                    width                      = 0.0f,
-                                 height                     = 0.0f;
-
-        float                    min_width                  = 0.0f,
-                                 max_width                  = 0.0f,
-                                 min_height                 = 0.0f,
-                                 max_height                 = 0.0f;
-
-        float                    rotation                   = 0.0f;
+        float       rotation                    = 0.0f;
 
     };
 }

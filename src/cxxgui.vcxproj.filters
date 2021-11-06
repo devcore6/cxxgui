@@ -6,6 +6,7 @@
     <ClCompile Include="window\null_function.cpp" />
     <ClCompile Include="font\font.cpp" />
     <ClCompile Include="text\text.cpp" />
+    <ClCompile Include="window\window_render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />
