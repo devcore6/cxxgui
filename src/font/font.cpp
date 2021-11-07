@@ -57,7 +57,7 @@ namespace cxxgui {
         font->font = TTF_OpenFont(
             std::filesystem::canonical(
                 family->paths[font_weight_to_id(weight, italic, monospaced)]
-            ).string().c_str(), pt(size)
+            ).string().c_str(), size
         );
 
         if(!font->font) { delete font; return nullptr; }
@@ -68,7 +68,7 @@ namespace cxxgui {
 
     font_t* font_t::try_load_font_from_path(font_family_t *family, uint32_t size, uint16_t weight, bool italic, bool monospaced, std::string path) {
         font_t* font = new font_t(family, size, weight, italic, monospaced);
-        font->font = TTF_OpenFont(std::filesystem::canonical(path).string().c_str(), pt(size));
+        font->font = TTF_OpenFont(std::filesystem::canonical(path).string().c_str(), size);
 
         if(!font->font) { delete font; return nullptr; }
 
