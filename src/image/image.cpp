@@ -1,30 +1,14 @@
 #include <cxxgui/cxxgui.hpp>
 
 namespace cxxgui {
-    float text::get_content_width() { return width; }
-    float text::get_content_height() { return height; }
+	float image::get_content_width() { return width; }
+	float image::get_content_height() { return height; }
 
-    void text::render() {
-        if(internal_font) {
-            if(texture_id == 0) {
-                SDL_Surface* surface;
-                if(style.max_width == 0.0f)
-                    surface = TTF_RenderUTF8_Blended(
-                        internal_font->font,
-                        t.c_str(),
-                        uint32_t_to_sdl_color(style.color)
-                    );
-                else
-                    surface = TTF_RenderUTF8_Blended_Wrapped(
-                        internal_font->font,
-                        t.c_str(),
-                        uint32_t_to_sdl_color(style.color),
-                        style.max_width
-                    );
-
-                if(!surface) {
-                    return;
-                }
+	void image::render() {
+		if(path != "") {
+			if(texture_id == 0) {
+				SDL_Surface* surface = IMG_Load(path.c_str());
+				if(!surface) return;
 
                 int mode = GL_RGB;
                 if(surface->format->BytesPerPixel == 4) {
@@ -44,7 +28,7 @@ namespace cxxgui {
 
                 glTexImage2D(GL_TEXTURE_2D, 0, surface->format->BytesPerPixel, surface->w, surface->h, 0, mode, GL_UNSIGNED_BYTE, surface->pixels);
 
-                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
                 glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
                 glBindTexture(GL_TEXTURE_2D, 0);
@@ -53,7 +37,7 @@ namespace cxxgui {
                 height = (float)surface->h;
 
                 SDL_FreeSurface(surface);
-            }
+			}
 
             if(texture_id != 0) {
                 glPushMatrix();
@@ -120,19 +104,37 @@ namespace cxxgui {
                             glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
                             glBindTexture(GL_TEXTURE_2D, texture_id);
 
+                            float rendered_width = width;
+                            float rendered_height = height;
+                            float width_percentage = 1.0f;
+                            float height_percentage = 1.0f;
+
+                            if(is_resizable) {
+                                if(style.width != 0.0f) width = style.width;
+                                if(style.height != 0.0f) height = style.height;
+                                if(rendered_width < style.min_width) rendered_width = style.min_width;
+                                if(rendered_height < style.min_height) rendered_height = style.min_height;
+                                if(style.max_width != 0.0f && rendered_width > style.max_width)
+                                    rendered_width = style.max_width;
+                                if(style.max_height != 0.0f && rendered_height > style.max_height)
+                                    rendered_height = style.max_height;
+                            } else {
+                                // preserve aspect ratio or something here
+                            }
+
                             glBegin(GL_QUADS);
 
                                 glTexCoord2f(0.0f, 0.0f);
                                 glVertex2f(0.0f, 0.0f);
 
-                                glTexCoord2f(1.0f, 0.0f);
-                                glVertex2f(width, 0.0f);
+                                glTexCoord2f(width_percentage, 0.0f);
+                                glVertex2f(rendered_width, 0.0f);
 
-                                glTexCoord2f(1.0f, 1.0f);
-                                glVertex2f(width, height);
+                                glTexCoord2f(width_percentage, height_percentage);
+                                glVertex2f(rendered_width, rendered_height);
 
-                                glTexCoord2f(0.0f, 1.0f);
-                                glVertex2f(0.0f, height);
+                                glTexCoord2f(0.0f, height_percentage);
+                                glVertex2f(0.0f, rendered_height);
 
                             glEnd();
 
@@ -152,40 +154,11 @@ namespace cxxgui {
                 glPopMatrix();
 
             }
+		}
+	}
 
-        }
-    }
-
-    text* text::font(font_t* f) {
-        internal_font = f;
-        return this;
-    }
-
-    text* text::toggle_italic() {
-        internal_font = internal_font->toggle_italic();
-        return this;
-    }
-
-    text* text::font_size(uint32_t s) {
-        internal_font = internal_font->set_size(s);
-        return this;
-    }
-
-    text* text::font_weight(uint16_t w) {
-        internal_font = internal_font->set_weight(w);
-        return this;
-    }
-
-    text* text::operator+=(text* rhs) {
-        t += rhs->t;
-        return this;
-    }
-
-    /*
-     * Comparison
-     */
-
-    bool text::operator==(text* rhs) { return t == rhs->t; }
-    bool text::operator!=(text* rhs) { return t != rhs->t; }
-
+	image* image::resizable(bool can_resize) {
+		is_resizable = can_resize;
+		return this;
+	}
 }

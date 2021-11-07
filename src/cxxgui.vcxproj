@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="color\color-scheme.cpp" />
     <ClCompile Include="font\font.cpp" />
+    <ClCompile Include="image\image.cpp" />
     <ClCompile Include="settings\others.cpp" />
     <ClCompile Include="settings\windows.cpp" />
     <ClCompile Include="text\text.cpp" />
@@ -32,6 +33,7 @@
     <ClInclude Include="include\cxxgui\color.hpp" />
     <ClInclude Include="include\cxxgui\cxxgui.hpp" />
     <ClInclude Include="include\cxxgui\font.hpp" />
+    <ClInclude Include="include\cxxgui\image.hpp" />
     <ClInclude Include="include\cxxgui\settings.hpp" />
     <ClInclude Include="include\cxxgui\text.hpp" />
     <ClInclude Include="include\cxxgui\window.hpp" />

@@ -14,12 +14,11 @@ namespace cxxgui {
     protected:
         float get_content_width();
         float get_content_height();
+        void render();
 
     public:
         text(const char* str) : t(str) { internal_font = cxxgui::body; }
         text(const char* str, font_t* f) : t(str), internal_font(f) { }
-
-        void render();
 
         /*
          * Layout

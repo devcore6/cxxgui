@@ -9,6 +9,7 @@
     <ClCompile Include="settings\windows.cpp" />
     <ClCompile Include="settings\others.cpp" />
     <ClCompile Include="color\color-scheme.cpp" />
+    <ClCompile Include="image\image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />
@@ -19,5 +20,6 @@
     <ClInclude Include="include\cxxgui\window.hpp" />
     <ClInclude Include="include\cxxgui\settings.hpp" />
     <ClInclude Include="include\cxxgui\color.hpp" />
+    <ClInclude Include="include\cxxgui\image.hpp" />
   </ItemGroup>
 </Project>

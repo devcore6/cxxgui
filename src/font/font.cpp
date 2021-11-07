@@ -98,6 +98,9 @@ namespace cxxgui {
         if(TTF_Init() < 0) exit(EXIT_FAILURE);
         atexit(TTF_Quit);
 
+        if(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF | IMG_INIT_WEBP) < 0) exit(EXIT_FAILURE);
+        atexit(IMG_Quit);
+
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
         SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8);

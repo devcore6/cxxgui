@@ -15,6 +15,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
 #include <SDL/SDL_ttf.h>
+#include <SDL/SDL_image.h>
 
 #include <gl/GLU.h>
 
@@ -24,4 +25,5 @@
 #include "view.hpp"
 #include "font.hpp"
 #include "text.hpp"
+#include "image.hpp"
 #include "window.hpp"
