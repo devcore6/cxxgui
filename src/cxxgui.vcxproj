@@ -38,11 +38,6 @@
     <ClInclude Include="include\cxxgui\style.hpp" />
     <ClInclude Include="include\cxxgui\view.hpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="settings\macos.mm">
-      <FileType>CppCode</FileType>
-    </None>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

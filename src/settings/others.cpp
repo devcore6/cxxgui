@@ -3,8 +3,10 @@
 namespace cxxgui {
 
 	namespace settings {
+
 		bool supports_dark_mode() { return false; }
 		bool is_dark_mode() { return false; }
+
 	}
 
 }

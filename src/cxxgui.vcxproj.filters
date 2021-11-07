@@ -20,7 +20,4 @@
     <ClInclude Include="include\cxxgui\settings.hpp" />
     <ClInclude Include="include\cxxgui\color.hpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="settings\macos.mm" />
-  </ItemGroup>
 </Project>
