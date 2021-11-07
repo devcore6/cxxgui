@@ -22,7 +22,7 @@ namespace cxxgui {
         if(content_width > style.max_width && style.max_width != 0.0f)
             content_width = style.max_width;
 
-        return content_width + style.padding_left + style.padding_right;
+        return content_width + rendered_style->padding_left + rendered_style->padding_right;
     }
 
     float view::get_content_box_height() {
@@ -37,27 +37,27 @@ namespace cxxgui {
         if(content_height > style.max_height && style.max_height != 0.0f)
             content_height = style.max_height;
 
-        return content_height + style.padding_top + style.padding_bottom;
+        return content_height + rendered_style->padding_top + rendered_style->padding_bottom;
     }
 
     float view::get_width() {
-        return style.margin_left
-             + style.border_left.stroke
-             + style.padding_left
+        return rendered_style->margin_left
+             + rendered_style->border_left.stroke
+             + rendered_style->padding_left
              + get_content_box_width()
-             + style.padding_right
-             + style.border_right.stroke
-             + style.margin_right;
+             + rendered_style->padding_right
+             + rendered_style->border_right.stroke
+             + rendered_style->margin_right;
     }
 
     float view::get_height() {
-        return style.margin_top
-             + style.border_top.stroke
-             + style.padding_top
+        return rendered_style->margin_top
+             + rendered_style->border_top.stroke
+             + rendered_style->padding_top
              + get_content_box_height()
-             + style.padding_bottom
-             + style.border_bottom.stroke
-             + style.margin_bottom;
+             + rendered_style->padding_bottom
+             + rendered_style->border_bottom.stroke
+             + rendered_style->margin_bottom;
     }
 
     void view::render_background() {
@@ -68,10 +68,10 @@ namespace cxxgui {
 
         glBegin(GL_QUADS);
 
-            glColor4f((float)(style.background_color >> 24 & 0xFF) / 255.0f,
-                      (float)(style.background_color >> 16 & 0xFF) / 255.0f,
-                      (float)(style.background_color >> 8  & 0xFF) / 255.0f,
-                      (float)(style.background_color       & 0xFF) / 255.0f);
+            glColor4f((float)(rendered_style->background_color >> 24 & 0xFF) / 255.0f,
+                      (float)(rendered_style->background_color >> 16 & 0xFF) / 255.0f,
+                      (float)(rendered_style->background_color >> 8  & 0xFF) / 255.0f,
+                      (float)(rendered_style->background_color       & 0xFF) / 255.0f);
 
             glVertex2f(0.0f,  0.0f);
             glVertex2f(w, 0.0f);
@@ -87,66 +87,66 @@ namespace cxxgui {
         float w = get_content_box_width();
         float h = get_content_box_height();
 
-        if(style.border_top.stroke > 0.0) {
-            glColor4f((float)(style.border_top.color >> 24 & 0xFF) / 255.0f,
-                      (float)(style.border_top.color >> 16 & 0xFF) / 255.0f,
-                      (float)(style.border_top.color >>  8 & 0xFF) / 255.0f,
-                      (float)(style.border_top.color       & 0xFF) / 255.0f);
+        if(rendered_style->border_top.stroke > 0.0) {
+            glColor4f((float)(rendered_style->border_top.color >> 24 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_top.color >> 16 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_top.color >>  8 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_top.color       & 0xFF) / 255.0f);
 
             glBegin(GL_QUADS);
                     
-                glVertex2f(    style.border_top_left_radius,  0.0f);
-                glVertex2f(w - style.border_top_right_radius, 0.0f);
-                glVertex2f(w - style.border_top_right_radius, style.border_top.stroke);
-                glVertex2f(    style.border_top_left_radius,  style.border_top.stroke);
+                glVertex2f(    rendered_style->border_top_left_radius,  0.0f);
+                glVertex2f(w - rendered_style->border_top_right_radius, 0.0f);
+                glVertex2f(w - rendered_style->border_top_right_radius, rendered_style->border_top.stroke);
+                glVertex2f(    rendered_style->border_top_left_radius,  rendered_style->border_top.stroke);
 
             glEnd();
         }
 
-        if(style.border_right.stroke > 0.0) {
-            glColor4f((float)(style.border_right.color >> 24 & 0xFF) / 255.0f,
-                      (float)(style.border_right.color >> 16 & 0xFF) / 255.0f,
-                      (float)(style.border_right.color >>  8 & 0xFF) / 255.0f,
-                      (float)(style.border_right.color       & 0xFF) / 255.0f);
+        if(rendered_style->border_right.stroke > 0.0) {
+            glColor4f((float)(rendered_style->border_right.color >> 24 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_right.color >> 16 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_right.color >>  8 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_right.color       & 0xFF) / 255.0f);
 
             glBegin(GL_QUADS);
 
-                glVertex2f(w,                                 style.border_top_right_radius);
-                glVertex2f(w + style.border_right.stroke,     style.border_top_right_radius);
-                glVertex2f(w + style.border_right.stroke, h - style.border_bottom_right_radius);
-                glVertex2f(w,                             h - style.border_bottom_right_radius);
+                glVertex2f(w,                                           rendered_style->border_top_right_radius);
+                glVertex2f(w + rendered_style->border_right.stroke,     rendered_style->border_top_right_radius);
+                glVertex2f(w + rendered_style->border_right.stroke, h - rendered_style->border_bottom_right_radius);
+                glVertex2f(w,                                       h - rendered_style->border_bottom_right_radius);
 
             glEnd();
         }
 
-        if(style.border_bottom.stroke > 0.0) {
-            glColor4f((float)(style.border_bottom.color >> 24 & 0xFF) / 255.0f,
-                      (float)(style.border_bottom.color >> 16 & 0xFF) / 255.0f,
-                      (float)(style.border_bottom.color >>  8 & 0xFF) / 255.0f,
-                      (float)(style.border_bottom.color       & 0xFF) / 255.0f);
+        if(rendered_style->border_bottom.stroke > 0.0) {
+            glColor4f((float)(rendered_style->border_bottom.color >> 24 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_bottom.color >> 16 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_bottom.color >>  8 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_bottom.color       & 0xFF) / 255.0f);
 
             glBegin(GL_QUADS);
                     
-                glVertex2f(    style.border_bottom_left_radius,  h + 0.0f);
-                glVertex2f(w - style.border_bottom_right_radius, h + 0.0f);
-                glVertex2f(w - style.border_bottom_right_radius, h + style.border_bottom.stroke);
-                glVertex2f(    style.border_bottom_left_radius,  h + style.border_bottom.stroke);
+                glVertex2f(    rendered_style->border_bottom_left_radius,  h + 0.0f);
+                glVertex2f(w - rendered_style->border_bottom_right_radius, h + 0.0f);
+                glVertex2f(w - rendered_style->border_bottom_right_radius, h + rendered_style->border_bottom.stroke);
+                glVertex2f(    rendered_style->border_bottom_left_radius,  h + rendered_style->border_bottom.stroke);
 
             glEnd();
         }
 
-        if(style.border_left.stroke > 0.0) {
-            glColor4f((float)(style.border_left.color >> 24 & 0xFF) / 255.0f,
-                      (float)(style.border_left.color >> 16 & 0xFF) / 255.0f,
-                      (float)(style.border_left.color >>  8 & 0xFF) / 255.0f,
-                      (float)(style.border_left.color       & 0xFF) / 255.0f);
+        if(rendered_style->border_left.stroke > 0.0) {
+            glColor4f((float)(rendered_style->border_left.color >> 24 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_left.color >> 16 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_left.color >>  8 & 0xFF) / 255.0f,
+                      (float)(rendered_style->border_left.color       & 0xFF) / 255.0f);
 
             glBegin(GL_QUADS);
 
-                glVertex2f(0.0f,                         style.border_top_left_radius);
-                glVertex2f(style.border_left.stroke,     style.border_top_left_radius);
-                glVertex2f(style.border_left.stroke, h - style.border_bottom_left_radius);
-                glVertex2f(0.0f,                     h - style.border_bottom_left_radius);
+                glVertex2f(0.0f,                                   rendered_style->border_top_left_radius);
+                glVertex2f(rendered_style->border_left.stroke,     rendered_style->border_top_left_radius);
+                glVertex2f(rendered_style->border_left.stroke, h - rendered_style->border_bottom_left_radius);
+                glVertex2f(0.0f,                               h - rendered_style->border_bottom_left_radius);
 
             glEnd();
         }
@@ -155,10 +155,14 @@ namespace cxxgui {
     void view::render() {
         glPushMatrix();
 
-            glTranslatef(style.offset_x + style.margin_left,
-                         style.offset_y + style.margin_top,
+            glTranslatef(rendered_style->offset_x + rendered_style->margin_left,
+                         rendered_style->offset_y + rendered_style->margin_top,
                          0.0f);
-            glRotatef(style.rotation, 0.0f, 0.0f, 1.0f);
+            glRotatef(rendered_style->rotation, 0.0f, 0.0f, 1.0f);
+
+            // todo: this fully ignores rotation for now
+            float x_off = rendered_style->offset_x + rendered_style->margin_left;
+            float y_off = rendered_style->offset_y + rendered_style->margin_top;
 
             float w = get_content_box_width();
             float h = get_content_box_height();
@@ -166,9 +170,12 @@ namespace cxxgui {
             render_background();
             glPushMatrix();
 
-                glTranslatef(style.border_left.stroke + style.padding_left,
-                             style.border_top.stroke + style.padding_top,
+                glTranslatef(rendered_style->border_left.stroke + rendered_style->padding_left,
+                             rendered_style->border_top.stroke + rendered_style->padding_top,
                              0.0f);
+
+                x_off += rendered_style->border_left.stroke + rendered_style->padding_left;
+                y_off += rendered_style->border_top.stroke + rendered_style->padding_top;
 
                 int h_alignment = 0;
                 int v_alignment = 0;
@@ -193,10 +200,13 @@ namespace cxxgui {
                             (v_alignment == 0) ? 0 : ((v_alignment == 1) ? (h / 2) : h),
                             0.0f
                         );
+
+                        x_off += (h_alignment == 0) ? 0 : ((h_alignment == 1) ? (w / 2) : w);
+                        y_off += (v_alignment == 0) ? 0 : ((v_alignment == 1) ? (h / 2) : h);
                 }
 
-                float x_alignment_offset = body->get_width() + style.padding_left + style.padding_right,
-                      y_alignment_offset = body->get_height() + style.padding_top + style.padding_bottom;
+                float x_alignment_offset = body->get_width() + rendered_style->padding_left + rendered_style->padding_right,
+                      y_alignment_offset = body->get_height() + rendered_style->padding_top + rendered_style->padding_bottom;
 
                 glPushMatrix();
 
@@ -212,7 +222,14 @@ namespace cxxgui {
                         0
                     );
 
-                    body->render();
+                    x_off -= x_alignment_offset;
+                    y_off -= y_alignment_offset;
+
+                    // this is an awful solution, but I can't be bothered editing all the individual render functions right now
+                    // as such, it's fine and it'll do for now.
+                    // todo: change this later
+
+                    body->do_render(__rel_x - x_off, __rel_y - y_off, __clicking);
 
                 glPopMatrix();
 
@@ -224,6 +241,76 @@ namespace cxxgui {
             render_borders();
 
         glPopMatrix();
+    }
+
+    void view::do_render(float rel_x, float rel_y, bool clicking) {
+        if(hovering(rel_x, rel_y)) {
+            if(has_hover_style) rendered_style = &hover_style;
+
+            if(!was_hovering) {
+                was_hovering = true;
+                if(hover_action != nullptr) hover_action(this, hover_data);
+            }
+
+            if(clicking) {
+                if(has_active_style) rendered_style = &active_style;
+
+                if(!was_pressed)
+                    was_pressed = true;
+
+            } else if(was_pressed)  {
+                was_pressed = false;
+                if(click_action != nullptr) click_action(this, click_data);
+            }
+        } else {
+            rendered_style = &style;
+
+            if(was_hovering) {
+
+                was_hovering = false;
+                was_pressed = false;
+                if(leave_action != nullptr) leave_action(this, leave_data);
+
+            }
+        }
+
+        // this is an awful solution, but I can't be bothered editing all the individual render functions right now
+        // as such, it's fine and it'll do for now.
+        // todo: change this later
+
+        __rel_x = rel_x;
+        __rel_y = rel_y;
+        __clicking = clicking;
+
+        render();
+    }
+
+    view* view::on_hover(std::function<void(view*, void*)> callback, void* data) {
+        hover_action = callback;
+        hover_data = data;
+        return this;
+    }
+
+    view* view::on_leave(std::function<void(view*, void*)> callback, void* data) {
+        leave_action = callback;
+        leave_data = data;
+        return this;
+    }
+
+    view* view::on_click(std::function<void(view*, void*)> callback, void* data) {
+        click_action = callback;
+        click_data = data;
+        return this;
+    }
+
+    bool view::hovering(float rel_x, float rel_y) {
+        // todo: do something about rounded borders here
+        // todo: do something about rotation here
+        return 
+            rel_x >= rendered_style->offset_x + rendered_style->margin_left &&
+            rel_x <= rendered_style->offset_x + get_width() - rendered_style->margin_right &&
+            rel_y >= rendered_style->offset_y + rendered_style->margin_top &&
+            rel_y <= rendered_style->offset_y + get_height() - rendered_style->margin_bottom;
     }
 
     view* view::frame(float min_w, float ideal_w, float max_w,
@@ -350,6 +437,344 @@ namespace cxxgui {
         return this;
     }
 
+    view* view::hover_offset(float x, float y) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.offset_x = x;
+        hover_style.offset_y = y;
+        return this;
+    }
+
+    view* view::hover_margin(float margin) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.margin_top = margin;
+        hover_style.margin_right = margin;
+        hover_style.margin_bottom = margin;
+        hover_style.margin_left = margin;
+        return this;
+    }
+
+    view* view::hover_margin(float vertical, float horizontal) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.margin_top = vertical;
+        hover_style.margin_right = horizontal;
+        hover_style.margin_bottom = vertical;
+        hover_style.margin_left = horizontal;
+        return this;
+    }
+
+    view* view::hover_margin(float top, float right, float bottom, float left) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.margin_top = top;
+        hover_style.margin_right = right;
+        hover_style.margin_bottom = bottom;
+        hover_style.margin_left = left;
+        return this;
+    }
+
+    view* view::hover_padding(float padding) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.padding_top = padding;
+        hover_style.padding_right = padding;
+        hover_style.padding_bottom = padding;
+        hover_style.padding_left = padding;
+        return this;
+    }
+
+    view* view::hover_padding(float vertical, float horizontal) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.padding_top = vertical;
+        hover_style.padding_right = horizontal;
+        hover_style.padding_bottom = vertical;
+        hover_style.padding_left = horizontal;
+        return this;
+    }
+
+    view* view::hover_padding(float top, float right, float bottom, float left) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.padding_top = top;
+        hover_style.padding_right = right;
+        hover_style.padding_bottom = bottom;
+        hover_style.padding_left = left;
+        return this;
+    }
+
+    view* view::hover_border(border_t border) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.border_top = border;
+        hover_style.border_right = border;
+        hover_style.border_bottom = border;
+        hover_style.border_left = border;
+        return this;
+    }
+
+    view* view::hover_border(border_t vertical, border_t horizontal) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.border_top = vertical;
+        hover_style.border_right = horizontal;
+        hover_style.border_bottom = vertical;
+        hover_style.border_left = horizontal;
+        return this;
+    }
+
+    view* view::hover_border(border_t top, border_t right, border_t bottom, border_t left) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.border_top = top;
+        hover_style.border_right = right;
+        hover_style.border_bottom = bottom;
+        hover_style.border_left = left;
+        return this;
+    }
+
+    view* view::hover_border_radius(float radius) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.border_top_left_radius = radius;
+        hover_style.border_top_right_radius = radius;
+        hover_style.border_bottom_right_radius = radius;
+        hover_style.border_bottom_left_radius = radius;
+        return this;
+    }
+
+    view* view::hover_border_radius(float top_left, float top_right, float bottom_right, float bottom_left) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.border_top_left_radius = top_left;
+        hover_style.border_top_right_radius = top_right;
+        hover_style.border_bottom_right_radius = bottom_right;
+        hover_style.border_bottom_left_radius = bottom_left;
+        return this;
+    }
+
+    view* view::hover_background_color(uint32_t color) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.background_color = color;
+        return this;
+    }
+
+    view* view::hover_foreground_color(uint32_t color) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.color = color;
+        return this;
+    }
+
+    view* view::hover_rotation(float degrees) {
+        if(!has_hover_style) {
+            has_hover_style = true;
+            hover_style = style;
+        }
+        hover_style.rotation = degrees;
+        return this;
+    }
+
+    view* view::active_offset(float x, float y) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.offset_x = x;
+        active_style.offset_y = y;
+        return this;
+    }
+
+    view* view::active_margin(float margin) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.margin_top = margin;
+        active_style.margin_right = margin;
+        active_style.margin_bottom = margin;
+        active_style.margin_left = margin;
+        return this;
+    }
+
+    view* view::active_margin(float vertical, float horizontal) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.margin_top = vertical;
+        active_style.margin_right = horizontal;
+        active_style.margin_bottom = vertical;
+        active_style.margin_left = horizontal;
+        return this;
+    }
+
+    view* view::active_margin(float top, float right, float bottom, float left) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.margin_top = top;
+        active_style.margin_right = right;
+        active_style.margin_bottom = bottom;
+        active_style.margin_left = left;
+        return this;
+    }
+
+    view* view::active_padding(float padding) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.padding_top = padding;
+        active_style.padding_right = padding;
+        active_style.padding_bottom = padding;
+        active_style.padding_left = padding;
+        return this;
+    }
+
+    view* view::active_padding(float vertical, float horizontal) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.padding_top = vertical;
+        active_style.padding_right = horizontal;
+        active_style.padding_bottom = vertical;
+        active_style.padding_left = horizontal;
+        return this;
+    }
+
+    view* view::active_padding(float top, float right, float bottom, float left) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.padding_top = top;
+        active_style.padding_right = right;
+        active_style.padding_bottom = bottom;
+        active_style.padding_left = left;
+        return this;
+    }
+
+    view* view::active_border(border_t border) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.border_top = border;
+        active_style.border_right = border;
+        active_style.border_bottom = border;
+        active_style.border_left = border;
+        return this;
+    }
+
+    view* view::active_border(border_t vertical, border_t horizontal) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.border_top = vertical;
+        active_style.border_right = horizontal;
+        active_style.border_bottom = vertical;
+        active_style.border_left = horizontal;
+        return this;
+    }
+
+    view* view::active_border(border_t top, border_t right, border_t bottom, border_t left) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.border_top = top;
+        active_style.border_right = right;
+        active_style.border_bottom = bottom;
+        active_style.border_left = left;
+        return this;
+    }
+
+    view* view::active_border_radius(float radius) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.border_top_left_radius = radius;
+        active_style.border_top_right_radius = radius;
+        active_style.border_bottom_right_radius = radius;
+        active_style.border_bottom_left_radius = radius;
+        return this;
+    }
+
+    view* view::active_border_radius(float top_left, float top_right, float bottom_right, float bottom_left) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.border_top_left_radius = top_left;
+        active_style.border_top_right_radius = top_right;
+        active_style.border_bottom_right_radius = bottom_right;
+        active_style.border_bottom_left_radius = bottom_left;
+        return this;
+    }
+
+    view* view::active_background_color(uint32_t color) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.background_color = color;
+        return this;
+    }
+
+    view* view::active_foreground_color(uint32_t color) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.color = color;
+        return this;
+    }
+
+    view* view::active_rotation(float degrees) {
+        if(!has_active_style) {
+            has_active_style = true;
+            active_style = style;
+        }
+        active_style.rotation = degrees;
+        return this;
+    }
+
     /*
      * View stacks
      */
@@ -381,10 +806,13 @@ namespace cxxgui {
     void stack::render() {
         glPushMatrix();
 
-            glTranslatef(style.offset_x + style.margin_left,
-                         style.offset_y + style.margin_top,
+            glTranslatef(rendered_style->offset_x + rendered_style->margin_left,
+                         rendered_style->offset_y + rendered_style->margin_top,
                          0.0f);
-            glRotatef(style.rotation, 0.0f, 0.0f, 1.0f);
+            glRotatef(rendered_style->rotation, 0.0f, 0.0f, 1.0f);
+
+            float x_off = rendered_style->offset_x + rendered_style->margin_left;
+            float y_off = rendered_style->offset_y + rendered_style->margin_top;
 
             float w = get_content_box_width();
             float h = get_content_box_height();
@@ -393,9 +821,12 @@ namespace cxxgui {
 
             glPushMatrix();
 
-                glTranslatef(style.border_left.stroke + style.padding_left,
-                             style.border_top.stroke + style.padding_top,
+                glTranslatef(rendered_style->border_left.stroke + rendered_style->padding_left,
+                             rendered_style->border_top.stroke + rendered_style->padding_top,
                              0.0f);
+
+                x_off += rendered_style->border_left.stroke + rendered_style->padding_left;
+                y_off += rendered_style->border_top.stroke + rendered_style->padding_top;
 
                 float x_offset = 0.0f,
                       y_offset = 0.0f,
@@ -428,6 +859,9 @@ namespace cxxgui {
                                 (v_alignment == 0) ? 0 : ((v_alignment == 1) ? (h / 2) : h),
                                 0.0f
                             );
+
+                            x_off += (h_alignment == 0) ? 0 : ((h_alignment == 1) ? (w / 2) : w);
+                            y_off += (v_alignment == 0) ? 0 : ((v_alignment == 1) ? (h / 2) : h);
                     }
 
                     float w = v->get_width(),
@@ -449,11 +883,14 @@ namespace cxxgui {
 
                         glTranslatef(
                             x_offset - x_alignment_offset,
-                            y_offset - y_alignment_offset ,
+                            y_offset - y_alignment_offset,
                             z_offset
                         );
 
-                        v->render();
+                        x_off += x_offset - x_alignment_offset;
+                        y_off += y_offset - y_alignment_offset;
+
+                        v->do_render(__rel_x - x_off, __rel_y - y_off, __clicking);
 
                     glPopMatrix();
 

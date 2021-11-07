@@ -100,7 +100,6 @@ namespace cxxgui {
                             );
 
                             glEnable(GL_TEXTURE_2D);
-
                             glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
                             glBindTexture(GL_TEXTURE_2D, texture_id);
 
@@ -161,4 +160,5 @@ namespace cxxgui {
 		is_resizable = can_resize;
 		return this;
 	}
+
 }

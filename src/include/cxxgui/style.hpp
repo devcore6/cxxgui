@@ -3,7 +3,7 @@
 namespace cxxgui {
 
     enum class alignment_t {
-           top_leading,  top,      top_trailing,
+           top_leading, top,       top_trailing,
                leading, center,        trailing,
         bottom_leading, bottom, bottom_trailing
     };

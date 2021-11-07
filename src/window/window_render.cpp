@@ -63,6 +63,8 @@ namespace cxxgui {
             int w, h;
             SDL_GetWindowSize(window, &w, &h);
 
+            bool clicking = false;
+
             while(true) {
                 glClear(GL_COLOR_BUFFER_BIT);
 
@@ -89,7 +91,9 @@ namespace cxxgui {
                 glEnd();
 
                 glPushMatrix();
-                    content->render();
+                    int mx = 0, my = 0;
+                    SDL_GetMouseState(&mx, &my);
+                    content->do_render(mx, my, clicking);
                 glPopMatrix();
 
                 glFlush();
@@ -99,6 +103,16 @@ namespace cxxgui {
                 while(SDL_PollEvent(&e) != 0) {
                     switch(e.type) {
                         case SDL_QUIT: return;
+
+                        case SDL_MOUSEBUTTONDOWN: {
+                            if(e.button.button == SDL_BUTTON_LEFT) clicking = true;
+                            break;
+                        }
+
+                        case SDL_MOUSEBUTTONUP: {
+                            if(e.button.button == SDL_BUTTON_LEFT) clicking = false;
+                            break;
+                        }
 
                         case SDL_WINDOWEVENT: {
 

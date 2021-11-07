@@ -1,4 +1,5 @@
 #include <cxxgui/cxxgui.hpp>
+#include <iostream>
 
 using namespace cxxgui;
 
@@ -8,7 +9,17 @@ public:
         body = new vstack {
             (new image("../cxxgui.png"))
                 ->resizable(true)
-                ->frame(0.0f, 960.0f, 0.0f, 0.0f, 480.0f, 0.0f, alignment_t::center),
+                ->hover_background_color(0x12345678)
+                ->frame(0.0f, 960.0f, 0.0f, 0.0f, 480.0f, 0.0f, alignment_t::center)
+                ->on_hover([](view* v, void* data) {
+                    std::cout << "Entered focus" << std::endl;
+                })
+                ->on_leave([](view* v, void* data) {
+                    std::cout << "Left focus" << std::endl;
+                })
+                ->on_click([](view* v, void* data) {
+                    std::cout << "Clicked" << std::endl;
+                }),
             new hstack {
                 (new text("Writing GUI code"))
                     ->font(large_title),
