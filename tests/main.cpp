@@ -9,8 +9,9 @@ public:
         body = new vstack {
             (new image("../cxxgui.png"))
                 ->resizable(true)
-                ->hover_background_color(0x12345678)
                 ->frame(0.0f, 960.0f, 0.0f, 0.0f, 480.0f, 0.0f, alignment_t::center)
+                ->hover_background_color(color::evergreen)
+                ->active_background_color(color::sapphire)
                 ->on_hover([](view* v, void* data) {
                     std::cout << "Entered focus" << std::endl;
                 })
