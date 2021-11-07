@@ -18,6 +18,8 @@
 
 #include <gl/GLU.h>
 
+#include "settings.hpp"
+#include "color.hpp"
 #include "style.hpp"
 #include "view.hpp"
 #include "font.hpp"

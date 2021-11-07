@@ -15,19 +15,22 @@ public:
             (new vstack {
                 (new text("We're no strangers to love"))
                     ->font(monospace)
-                    ->font_size(12),
+                    ->font_size(12)
+                    ->foreground_color(color::blue),
 
                 (new text("You know the rules, and so do I"))
                     ->font(monospace)
-                    ->font_size(12),
+                    ->font_size(12)
+                    ->foreground_color(color::cyan),
 
                 (new text("A full commitment's what I'm thinking of"))
                     ->font(monospace)
-                    ->font_size(12),
+                    ->font_size(12)
+                    ->foreground_color(color::teal),
 
                 (new text("You wouldn't get this from any other guy"))
                     ->font(monospace)
-                    ->foreground_color(0xFFAA00FF)
+                    ->foreground_color(color::orange)
             })
                 ->margin(0.0f, 16.0f, 0.0f, 0.0f),
 
@@ -77,6 +80,7 @@ public:
 };
 
 int main(int argc, char* argv[]) {
+
     window_t window = window_t(
         "Test",
         200,

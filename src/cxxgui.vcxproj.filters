@@ -2,11 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="view\view.cpp" />
-    <ClCompile Include="view\style.cpp" />
     <ClCompile Include="window\null_function.cpp" />
     <ClCompile Include="font\font.cpp" />
     <ClCompile Include="text\text.cpp" />
     <ClCompile Include="window\window_render.cpp" />
+    <ClCompile Include="settings\windows.cpp" />
+    <ClCompile Include="settings\others.cpp" />
+    <ClCompile Include="color\color-scheme.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />
@@ -15,5 +17,10 @@
     <ClInclude Include="include\cxxgui\text.hpp" />
     <ClInclude Include="include\cxxgui\font.hpp" />
     <ClInclude Include="include\cxxgui\window.hpp" />
+    <ClInclude Include="include\cxxgui\settings.hpp" />
+    <ClInclude Include="include\cxxgui\color.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="settings\macos.mm" />
   </ItemGroup>
 </Project>

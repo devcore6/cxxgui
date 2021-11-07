@@ -52,8 +52,8 @@ namespace cxxgui {
 
         alignment_t alignment                   = alignment_t::center;
 
-        uint32_t    background_color            = 0x00000000;
-        uint32_t    color                       = 0xFFFFFFFF;
+        uint32_t    background_color            = color::clear;
+        uint32_t    color                       = color::foreground();
 
         float       width                       = 0.0f;
         float       height                      = 0.0f;

@@ -19,20 +19,29 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="color\color-scheme.cpp" />
     <ClCompile Include="font\font.cpp" />
+    <ClCompile Include="settings\others.cpp" />
+    <ClCompile Include="settings\windows.cpp" />
     <ClCompile Include="text\text.cpp" />
-    <ClCompile Include="view\style.cpp" />
     <ClCompile Include="view\view.cpp" />
     <ClCompile Include="window\null_function.cpp" />
     <ClCompile Include="window\window_render.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\cxxgui\color.hpp" />
     <ClInclude Include="include\cxxgui\cxxgui.hpp" />
     <ClInclude Include="include\cxxgui\font.hpp" />
+    <ClInclude Include="include\cxxgui\settings.hpp" />
     <ClInclude Include="include\cxxgui\text.hpp" />
     <ClInclude Include="include\cxxgui\window.hpp" />
     <ClInclude Include="include\cxxgui\style.hpp" />
     <ClInclude Include="include\cxxgui\view.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="settings\macos.mm">
+      <FileType>CppCode</FileType>
+    </None>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

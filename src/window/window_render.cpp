@@ -38,6 +38,9 @@ namespace cxxgui {
         running = true;
         started = true;
 
+        content->style.background_color = color::background();
+        content->style.color = color::foreground();
+
         content->style.width  = width
                               - content->style.margin_left
                               - content->style.border_left.stroke
@@ -70,6 +73,20 @@ namespace cxxgui {
                 gluOrtho2D(0.0, w, h, 0.0);
 
                 if(!main_loop(this, data)) return;
+
+                glBegin(GL_QUADS);
+                    glColor4f(
+                        (float)(content->style.background_color >> 24 & 0xFF) / 255.0f,
+                        (float)(content->style.background_color >> 16 & 0xFF) / 255.0f,
+                        (float)(content->style.background_color >> 8  & 0xFF) / 255.0f,
+                        (float)(content->style.background_color       & 0xFF) / 255.0f
+                    );
+
+                    glVertex2f(0.0f, 0.0f);
+                    glVertex2f(w, 0.0f);
+                    glVertex2f(w, h);
+                    glVertex2f(0.0f, h);
+                glEnd();
 
                 glPushMatrix();
                     content->render();
