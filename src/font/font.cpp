@@ -192,27 +192,27 @@ namespace cxxgui {
                 "seguibli.ttf",             // Heavy doesn't exist, use black
                 "seguibli.ttf",
 
-                "consolas.ttf",             // Thin doesn't exist, use regular
-                "consolas.ttf",             // Ultra light doesn't exist, use regular
-                "consolas.ttf",             // Light doesn't exist, use regular
-                "consolas.ttf",
-                "consolas.ttf",             // Medium doesn't exist, use regular
-                "consolasb.ttf",            // Semibold doesn't exist, use bold
-                "consolasb.ttf",
-                "consolasb.ttf",            // Heavy doesn't exist, use bold
-                "consolasb.ttf",            // Black doesn't exist, use bold
+                "consola.ttf",             // Thin doesn't exist, use regular
+                "consola.ttf",             // Ultra light doesn't exist, use regular
+                "consola.ttf",             // Light doesn't exist, use regular
+                "consola.ttf",
+                "consola.ttf",             // Medium doesn't exist, use regular
+                "consolab.ttf",            // Semibold doesn't exist, use bold
+                "consolab.ttf",
+                "consolab.ttf",            // Heavy doesn't exist, use bold
+                "consolab.ttf",            // Black doesn't exist, use bold
 
                                             // Consolas doesn't have italic fonts, use normal fonts
 
-                "consolasi.ttf",            // Thin doesn't exist, use regular
-                "consolasi.ttf",            // Ultra light doesn't exist, use regular
-                "consolasi.ttf",            // Light doesn't exist, use regular
-                "consolasi.ttf",
-                "consolasi.ttf",            // Medium doesn't exist, use regular
-                "consolasz.ttf",            // Semibold doesn't exist, use bold
-                "consolasz.ttf",
-                "consolasz.ttf",            // Heavy doesn't exist, use bold
-                "consolasz.ttf",            // Black doesn't exist, use bold
+                "consolai.ttf",            // Thin doesn't exist, use regular
+                "consolai.ttf",            // Ultra light doesn't exist, use regular
+                "consolai.ttf",            // Light doesn't exist, use regular
+                "consolai.ttf",
+                "consolai.ttf",            // Medium doesn't exist, use regular
+                "consolaz.ttf",            // Semibold doesn't exist, use bold
+                "consolaz.ttf",
+                "consolaz.ttf",            // Heavy doesn't exist, use bold
+                "consolaz.ttf",            // Black doesn't exist, use bold
             }
         };
 
