@@ -56,6 +56,8 @@ namespace cxxgui {
     public:
         view* body = nullptr;
 
+        ~view() { if(body) delete body; }
+
         /*
          * Action executed on hover
          */
@@ -177,6 +179,7 @@ namespace cxxgui {
             for(auto v : data) v->parent = this;
             content = data;
         }
+        ~stack() { for(auto v : content) delete v; }
 
     };
 

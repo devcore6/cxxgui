@@ -27,6 +27,7 @@ namespace cxxgui {
             size_t width,
             size_t height,
             uint32_t flags,
+            uint16_t refresh_rate,
             float opacity,
             std::function<void(SDL_Event)> event_handler,
             std::function<bool(window_t*, void*)> main_loop,
@@ -34,8 +35,6 @@ namespace cxxgui {
         );
 
     public:
-
-        size_t refresh_rate = 60;
 
         window_t(
             const char* title,
@@ -46,6 +45,7 @@ namespace cxxgui {
             uint32_t flags,
             view* v,
             std::function<void(SDL_Event)> event_handler,
+            uint16_t refresh_rate = 60,
             float opacity = 1.0f,
             std::function<bool(window_t*, void*)> main_loop = null_function,
             void* data = nullptr
@@ -60,6 +60,7 @@ namespace cxxgui {
                 width,
                 height,
                 flags,
+                refresh_rate,
                 opacity,
                 event_handler,
                 main_loop,

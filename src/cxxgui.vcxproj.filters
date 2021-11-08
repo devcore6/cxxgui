@@ -10,6 +10,8 @@
     <ClCompile Include="settings\others.cpp" />
     <ClCompile Include="color\color-scheme.cpp" />
     <ClCompile Include="image\image.cpp" />
+    <ClCompile Include="symbols\symbol_renderer.cpp" />
+    <ClCompile Include="symbols\ui_basics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />
@@ -21,5 +23,7 @@
     <ClInclude Include="include\cxxgui\settings.hpp" />
     <ClInclude Include="include\cxxgui\color.hpp" />
     <ClInclude Include="include\cxxgui\image.hpp" />
+    <ClInclude Include="include\cxxgui\input.hpp" />
+    <ClInclude Include="include\cxxgui\symbols.hpp" />
   </ItemGroup>
 </Project>

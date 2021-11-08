@@ -5,7 +5,6 @@ namespace cxxgui {
     namespace color {
 
         // Shades of white to black
-        constexpr uint32_t clear            = 0x00000000;
         constexpr uint32_t full_black       = 0x000000FF;
         constexpr uint32_t black            = 0x101010FF;
         constexpr uint32_t dark_gray        = 0x424245FF;
@@ -90,8 +89,11 @@ namespace cxxgui {
         constexpr uint32_t chartreuse       = 0xDFFF00FF;
         constexpr uint32_t olive            = 0x808000FF;
 
-        extern uint32_t foreground();
-        extern uint32_t background();
+        constexpr uint32_t clear            = 0x00000000;
+
+        extern    uint32_t foreground;
+        extern    uint32_t background;
+        extern    uint32_t accent_color;
 
     }
 

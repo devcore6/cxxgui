@@ -22,6 +22,7 @@ public:
                     std::cout << "Clicked" << std::endl;
                 }),
             new hstack {
+                symbols::plus_circle(),
                 (new text("Writing GUI code"))
                     ->font(large_title),
                 (new text(" has never been this easy"))
@@ -34,7 +35,7 @@ public:
 };
 
 int main(int argc, char* argv[]) {
-
+   
     window_t window = window_t(
         "CXXGUI Test",
         200,
@@ -43,8 +44,7 @@ int main(int argc, char* argv[]) {
         720,
         SDL_WINDOW_SHOWN,
         new content_view,
-        [](SDL_Event e) { },
-        0.95f
+        [](SDL_Event e) { }
     );
 
     return 0;

@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="860">
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#000000" y="0"   x="8"   />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#101010" y="0"   x="88"  />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#424245" y="0"   x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#979799" y="0"   x="248" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#D5D7D8" y="0"   x="328" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FFFFFF" y="0"   x="408" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="78" x="40">full_black</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="78" x="120">black</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="78" x="200">dark_gray</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="78" x="280">gray</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="78" x="360">light_gray</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="78" x="440">white</text>
+
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FF3037" y="86"  x="8"   />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#DC143C" y="86"  x="88"  />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#DA2C43" y="86"  x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#65000B" y="86"  x="248" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#A45953" y="86"  x="328" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#E34234" y="86"  x="408" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#660000" y="86"  x="488" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FF2400" y="86"  x="568" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#9B111E" y="86"  x="648" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="164" x="40">red</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="164" x="120">crimson</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="164" x="200">rusty_red</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="164" x="280">rosewood</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="164" x="360">redwood</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="164" x="440">vermillion</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="164" x="520">blood_red</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="164" x="600">scarlet</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="164" x="680">ruby</text>
+
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#03A10E" y="172" x="8" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#006400" y="172" x="88" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#05472A" y="172" x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#29AB87" y="172" x="248" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#50C878" y="172" x="328" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#AAF0D1" y="172" x="408" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#2E8B57" y="172" x="488" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#32CD32" y="172" x="568" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="250" x="40">green</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="250" x="120">dark_green</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="250" x="200">evergreen</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="250" x="280">jungle_green</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="250" x="360">emerald</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="250" x="440">mint</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="250" x="520">sea_green</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="250" x="600">lime</text>
+
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#0071E3" y="258" x="8" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#00FFAA" y="258" x="88" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#00C2BB" y="258" x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#4000FF" y="258" x="248" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#4B61D1" y="258" x="328" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#000080" y="258" x="408" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#191970" y="258" x="488" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#B0E0E6" y="258" x="568" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#082567" y="258" x="648" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#4B0082" y="258" x="728" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="40">blue</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="120">cyan</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="200">teal</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="280">ultramarine</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="360">savoy_blue</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="440">navy_blue</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="520">midnight_blue</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="600">powder_blue</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="680">sapphire</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="336" x="760">indigo</text>
+
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#F14BF1" y="344" x="8" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#7851A9" y="344" x="88" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#E0B0FF" y="344" x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#C54B8C" y="344" x="248" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#6C3082" y="344" x="328" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#702963" y="344" x="408" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="422" x="40">purple</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="422" x="120">royal_purple</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="422" x="200">mauve</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="422" x="280">mulberry</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="422" x="360">eminence</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="422" x="440">byzantium</text>
+
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#4E3423" y="430" x="8" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#BC8F8F" y="430" x="88" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#8A3324" y="430" x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#954535" y="430" x="248" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#EDC9AF" y="430" x="328" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#5C5248" y="430" x="408" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#D2B48C" y="430" x="488" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#C3B091" y="430" x="568" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="508" x="40">brown</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="508" x="120">rosy_brown</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="508" x="200">burnt_umber</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="508" x="280">chestnut</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="508" x="360">desert_sand</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="508" x="440">walnut</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="508" x="520">tan</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="508" x="600">khaki</text>
+
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#F56300" y="516" x="8" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FF7900" y="516" x="88" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FFE5B4" y="516" x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FF9966" y="516" x="248" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FF9F00" y="516" x="328" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#F4C430" y="516" x="408" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="594" x="40">orange</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="594" x="120">safety_orange</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="594" x="200">peach</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="594" x="280">tangerine</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="594" x="360">orange_peel</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="594" x="440">saffron</text>
+
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#F24B9E" y="602" x="8" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FF69B4" y="602" x="88" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#F1DDCF" y="602" x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#F4C2C2" y="602" x="248" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FBAED2" y="602" x="328" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FF9899" y="602" x="408" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#F88379" y="602" x="488" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FB607F" y="602" x="568" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="680" x="40">pink</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="680" x="120">hot_pink</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="680" x="200">champagne_pink</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="680" x="280">baby_pink</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="680" x="360">lavender_pink</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="680" x="440">american_pink</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="680" x="520">coral_pink</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="680" x="600">bright_pink</text>
+
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#AD8200" y="688" x="8" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FDFF00" y="688" x="88" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FADA5E" y="688" x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#EED202" y="688" x="248" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#DFFF00" y="688" x="328" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#808000" y="688" x="408" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="766" x="40">yellow</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="766" x="120">lemon_yellow</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="766" x="200">royal_yellow</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="766" x="280">safety_yellow</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="766" x="360">chartreuse</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="766" x="440">olive</text>
+
+    <rect width="16" height="16" fill="#E0E0E0" y="774" x="8"  />
+    <rect width="16" height="16" fill="#B0B0B0" y="774" x="24" />
+    <rect width="16" height="16" fill="#E0E0E0" y="774" x="40" />
+    <rect width="16" height="16" fill="#B0B0B0" y="774" x="56" />
+
+    <rect width="16" height="16" fill="#B0B0B0" y="790" x="8"  />
+    <rect width="16" height="16" fill="#E0E0E0" y="790" x="24" />
+    <rect width="16" height="16" fill="#B0B0B0" y="790" x="40" />
+    <rect width="16" height="16" fill="#E0E0E0" y="790" x="56" />
+
+    <rect width="16" height="16" fill="#E0E0E0" y="806" x="8"  />
+    <rect width="16" height="16" fill="#B0B0B0" y="806" x="24" />
+    <rect width="16" height="16" fill="#E0E0E0" y="806" x="40" />
+    <rect width="16" height="16" fill="#B0B0B0" y="806" x="56" />
+
+    <rect width="16" height="16" fill="#B0B0B0" y="822" x="8"  />
+    <rect width="16" height="16" fill="#E0E0E0" y="822" x="24" />
+    <rect width="16" height="16" fill="#B0B0B0" y="822" x="40" />
+    <rect width="16" height="16" fill="#E0E0E0" y="822" x="56" />
+
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#00000000" y="774" x="8" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#101010" y="774" x="88" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FFFFFF" y="774" x="168" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#0071E3" y="774" x="248" />
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="852" x="40">clear</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="852" x="120">background</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="852" x="200">foreground</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="852" x="280">accent</text>
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" y="836" x="326">accent color determined by user settings</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" y="852" x="326">background and foreground are swapped in dark mode</text>
+
+</svg>

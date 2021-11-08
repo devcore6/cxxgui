@@ -26,4 +26,6 @@
 #include "font.hpp"
 #include "text.hpp"
 #include "image.hpp"
+#include "symbols.hpp"
+#include "input.hpp"
 #include "window.hpp"

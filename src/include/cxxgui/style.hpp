@@ -14,9 +14,6 @@ namespace cxxgui {
     };
 
     inline float pt(float px) { return px * 4.0f / 3.0f; }
-    extern float em(float);
-    extern float vw(float);
-    extern float vh(float);
 
     inline SDL_Color uint32_t_to_sdl_color(uint32_t color) { return SDL_Color{
         static_cast<unsigned char>((color >> 24) & 0xFF),
@@ -53,7 +50,7 @@ namespace cxxgui {
         alignment_t alignment                   = alignment_t::center;
 
         uint32_t    background_color            = color::clear;
-        uint32_t    color                       = color::foreground();
+        uint32_t    color                       = color::foreground;
 
         float       width                       = 0.0f;
         float       height                      = 0.0f;

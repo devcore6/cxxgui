@@ -24,6 +24,8 @@
     <ClCompile Include="image\image.cpp" />
     <ClCompile Include="settings\others.cpp" />
     <ClCompile Include="settings\windows.cpp" />
+    <ClCompile Include="symbols\symbol_renderer.cpp" />
+    <ClCompile Include="symbols\ui_basics.cpp" />
     <ClCompile Include="text\text.cpp" />
     <ClCompile Include="view\view.cpp" />
     <ClCompile Include="window\null_function.cpp" />
@@ -35,7 +37,9 @@
     <ClInclude Include="include\cxxgui\font.hpp" />
     <ClInclude Include="include\cxxgui\image.hpp" />
     <ClInclude Include="include\cxxgui\settings.hpp" />
+    <ClInclude Include="include\cxxgui\symbols.hpp" />
     <ClInclude Include="include\cxxgui\text.hpp" />
+    <ClInclude Include="include\cxxgui\input.hpp" />
     <ClInclude Include="include\cxxgui\window.hpp" />
     <ClInclude Include="include\cxxgui\style.hpp" />
     <ClInclude Include="include\cxxgui\view.hpp" />
@@ -114,7 +118,7 @@
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/MP /await %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -123,8 +127,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;opengl32.lib;glu32.lib;WindowsApp.lib;</AdditionalDependencies>
       <AdditionalLibraryDirectories>lib32</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -140,7 +143,7 @@
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/MP /await %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -151,8 +154,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;opengl32.lib;glu32.lib;WindowsApp.lib;</AdditionalDependencies>
       <AdditionalLibraryDirectories>lib32</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -166,7 +168,7 @@
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/MP /await %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -175,8 +177,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;opengl32.lib;glu32.lib;WindowsApp.lib;</AdditionalDependencies>
       <AdditionalLibraryDirectories>lib64</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -192,7 +193,7 @@
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/MP /await %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -203,8 +204,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;opengl32.lib;glu32.lib;WindowsApp.lib;</AdditionalDependencies>
       <AdditionalLibraryDirectories>lib64</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>

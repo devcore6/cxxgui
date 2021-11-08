@@ -1,8 +1,35 @@
 #include <cxxgui/cxxgui.hpp>
 
 namespace cxxgui {
-	float image::get_content_width() { return width; }
-	float image::get_content_height() { return height; }
+	float image::get_content_width() {
+        float rendered_width = width;
+
+        if(is_resizable) {
+            if(style.width != 0.0f) width = style.width;
+            if(rendered_width < style.min_width) rendered_width = style.min_width;
+            if(style.max_width != 0.0f && rendered_width > style.max_width)
+                rendered_width = style.max_width;
+        } else {
+            // preserve aspect ratio or something here
+        }
+
+        return rendered_width;
+    }
+
+	float image::get_content_height() {
+        float rendered_height = height;
+
+        if(is_resizable) {
+            if(style.height != 0.0f) height = style.height;
+            if(rendered_height < style.min_height) rendered_height = style.min_height;
+            if(style.max_height != 0.0f && rendered_height > style.max_height)
+                rendered_height = style.max_height;
+        } else {
+            // preserve aspect ratio or something here
+        }
+
+        return rendered_height;
+    }
 
 	void image::render() {
 		if(path != "") {
@@ -28,7 +55,7 @@ namespace cxxgui {
 
                 glTexImage2D(GL_TEXTURE_2D, 0, surface->format->BytesPerPixel, surface->w, surface->h, 0, mode, GL_UNSIGNED_BYTE, surface->pixels);
 
-                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
                 glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
                 glBindTexture(GL_TEXTURE_2D, 0);
@@ -82,8 +109,11 @@ namespace cxxgui {
                                 );
                         }
 
-                        float x_alignment_offset = width + style.padding_left + style.padding_right,
-                              y_alignment_offset = height + style.padding_top + style.padding_bottom;
+                        float rendered_width  = get_content_width();
+                        float rendered_height = get_content_height();
+
+                        float x_alignment_offset = rendered_width  + style.padding_left + style.padding_right,
+                              y_alignment_offset = rendered_height + style.padding_top  + style.padding_bottom;
 
                         glPushMatrix();
 
@@ -103,23 +133,8 @@ namespace cxxgui {
                             glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
                             glBindTexture(GL_TEXTURE_2D, texture_id);
 
-                            float rendered_width = width;
-                            float rendered_height = height;
                             float width_percentage = 1.0f;
                             float height_percentage = 1.0f;
-
-                            if(is_resizable) {
-                                if(style.width != 0.0f) width = style.width;
-                                if(style.height != 0.0f) height = style.height;
-                                if(rendered_width < style.min_width) rendered_width = style.min_width;
-                                if(rendered_height < style.min_height) rendered_height = style.min_height;
-                                if(style.max_width != 0.0f && rendered_width > style.max_width)
-                                    rendered_width = style.max_width;
-                                if(style.max_height != 0.0f && rendered_height > style.max_height)
-                                    rendered_height = style.max_height;
-                            } else {
-                                // preserve aspect ratio or something here
-                            }
 
                             glBegin(GL_QUADS);
 

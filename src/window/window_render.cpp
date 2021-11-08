@@ -8,6 +8,7 @@ namespace cxxgui {
         size_t width,
         size_t height,
         uint32_t flags,
+        uint16_t refresh_rate,
         float opacity,
         std::function<void(SDL_Event)> event_handler,
         std::function<bool(window_t*, void*)> main_loop,
@@ -38,8 +39,7 @@ namespace cxxgui {
         running = true;
         started = true;
 
-        content->style.background_color = color::background();
-        content->style.color = color::foreground();
+        content->style.background_color = color::background;
 
         content->style.width  = width
                               - content->style.margin_left
@@ -57,7 +57,7 @@ namespace cxxgui {
                               - content->style.border_bottom.stroke
                               - content->style.margin_bottom;
 
-        [this, event_handler, pos_x, pos_y, main_loop, data]() { // Lambda to allow us to break through both loops at once
+        [this, event_handler, pos_x, pos_y, main_loop, data, refresh_rate]() { // Lambda to allow us to break through both loops at once
             size_t x = pos_x, y = pos_y;
 
             int w, h;
@@ -145,7 +145,7 @@ namespace cxxgui {
                     }
                 }
 
-                std::this_thread::sleep_for(std::chrono::milliseconds(4));
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000 / refresh_rate));
             }
         }();
 
