@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="336" height="256">
+    
+    <image width="64" height="64" href="symbols/circle.svg"       x="8"   y="8"/>
+    <image width="64" height="64" href="symbols/circle.fill.svg"  x="88"  y="8"/>
+    <image width="64" height="64" href="symbols/circle.inset.svg" x="168" y="8"/>
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="80" x="40">circle</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="80" x="120">circle.fill</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="80" x="200">circle.inset</text>
+
+    <image width="64" height="64" href="symbols/plus.svg"       x="8"   y="88"/>
+    <image width="64" height="64" href="symbols/plus.fill.svg"  x="88"  y="88"/>
+    <image width="64" height="64" href="symbols/plus.circle.svg" x="168" y="88"/>
+    <image width="64" height="64" href="symbols/plus.circle.fill.svg" x="248" y="88"/>
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="160" x="40">plus</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="160" x="120">plus.fill</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="160" x="200">plus.circle</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="160" x="280">plus.circle.fill</text>
+
+    <image width="64" height="64" href="symbols/minus.svg"       x="8"   y="168"/>
+    <image width="64" height="64" href="symbols/minus.fill.svg"  x="88"  y="168"/>
+    <image width="64" height="64" href="symbols/minus.circle.svg" x="168" y="168"/>
+    <image width="64" height="64" href="symbols/minus.circle.fill.svg" x="248" y="168"/>
+
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="240" x="40">minus</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="240" x="120">minus.fill</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="240" x="200">minus.circle</text>
+    <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="240" x="280">minus.circle.fill</text>
+
+</svg>
