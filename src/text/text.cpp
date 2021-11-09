@@ -19,7 +19,7 @@ namespace cxxgui {
                         internal_font->font,
                         t.c_str(),
                         uint32_t_to_sdl_color(style.color),
-                        style.max_width
+                        (uint32_t)style.max_width
                     );
 
                 if(!surface) {

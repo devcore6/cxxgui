@@ -1,5 +1,9 @@
 #include <cxxgui/cxxgui.hpp>
 
+#if defined(_WIN32) || defined(_WIN64)
+PFNGLGENERATEMIPMAPPROC glGenerateMipmap;
+#endif
+
 namespace cxxgui {
 	float image::get_content_width() {
         float rendered_width = width;
@@ -53,10 +57,17 @@ namespace cxxgui {
                 glGenTextures(1, &texture_id);
                 glBindTexture(GL_TEXTURE_2D, texture_id);
 
+                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+
                 glTexImage2D(GL_TEXTURE_2D, 0, surface->format->BytesPerPixel, surface->w, surface->h, 0, mode, GL_UNSIGNED_BYTE, surface->pixels);
 
-                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+#if defined(_WIN32) || defined(_WIN64)
+                if(!glGenerateMipmap) glGenerateMipmap = (PFNGLGENERATEMIPMAPPROC)wglGetProcAddress("glGenerateMipmap");
+                if(glGenerateMipmap) glGenerateMipmap(GL_TEXTURE_2D);
+#else
+                glGenerateMipmap(GL_TEXTURE_2D);
+#endif
 
                 glBindTexture(GL_TEXTURE_2D, 0);
 

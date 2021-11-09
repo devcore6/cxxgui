@@ -85,15 +85,15 @@ namespace cxxgui {
                     );
 
                     glVertex2f(0.0f, 0.0f);
-                    glVertex2f(w, 0.0f);
-                    glVertex2f(w, h);
-                    glVertex2f(0.0f, h);
+                    glVertex2f((float)w, 0.0f);
+                    glVertex2f((float)w, (float)h);
+                    glVertex2f(0.0f, (float)h);
                 glEnd();
 
                 glPushMatrix();
                     int mx = 0, my = 0;
                     SDL_GetMouseState(&mx, &my);
-                    content->do_render(mx, my, clicking);
+                    content->do_render((float)mx, (float)my, clicking);
                 glPopMatrix();
 
                 glFlush();

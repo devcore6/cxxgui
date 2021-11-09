@@ -159,7 +159,7 @@ namespace cxxgui {
         };
 
         bool found = true;
-        for(size_t i = 0; i < 9; i++) {
+        for(uint16_t i = 0; i < 9; i++) {
             if(!try_load_system_font(&ret, (i + 1) * 100, false, false)) { found = false; break; }
             if(!try_load_system_font(&ret, (i + 1) * 100, true, false)) { found = false; break; }
             if(!try_load_system_font(&ret, (i + 1) * 100, false, true)) { found = false; break; }
@@ -220,7 +220,7 @@ namespace cxxgui {
         };
 
         found = true;
-        for(size_t i = 0; i < 9; i++) {
+        for(uint16_t i = 0; i < 9; i++) {
             if(!try_load_system_font(&ret, (i + 1) * 100, false, false)) { found = false; break; }
             if(!try_load_system_font(&ret, (i + 1) * 100, true, false)) { found = false; break; }
             if(!try_load_system_font(&ret, (i + 1) * 100, false, true)) { found = false; break; }
@@ -284,7 +284,7 @@ namespace cxxgui {
         };
 
         found = true;
-        for(size_t i = 0; i < 9; i++) {
+        for(uint16_t i = 0; i < 9; i++) {
             if(!try_load_system_font(&ret, (i + 1) * 100, false, false)) { found = false; break; }
             if(!try_load_system_font(&ret, (i + 1) * 100, true, false)) { found = false; break; }
             if(!try_load_system_font(&ret, (i + 1) * 100, false, true)) { found = false; break; }
