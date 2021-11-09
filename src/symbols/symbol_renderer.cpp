@@ -17,7 +17,7 @@ namespace cxxgui {
     float symbol::get_content_width() {
         float rendered_width = 32.0f;
 
-        if(style.width != 0.0f) width = style.width;
+        if(style.width != 0.0f) rendered_width = style.width;
         if(rendered_width < style.min_width) rendered_width = style.min_width;
         if(style.max_width != 0.0f && rendered_width > style.max_width)
             rendered_width = style.max_width;
@@ -28,7 +28,7 @@ namespace cxxgui {
     float symbol::get_content_height() {
         float rendered_height = 32.0f;
 
-        if(style.height != 0.0f) height = style.height;
+        if(style.height != 0.0f) rendered_height = style.height;
         if(rendered_height < style.min_height) rendered_height = style.min_height;
         if(style.max_height != 0.0f && rendered_height > style.max_height)
             rendered_height = style.max_height;
