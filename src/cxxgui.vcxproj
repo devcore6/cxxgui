@@ -24,6 +24,7 @@
     <ClCompile Include="image\image.cpp" />
     <ClCompile Include="settings\others.cpp" />
     <ClCompile Include="settings\windows.cpp" />
+    <ClCompile Include="symbols\math.cpp" />
     <ClCompile Include="symbols\symbol_renderer.cpp" />
     <ClCompile Include="symbols\ui_base.cpp" />
     <ClCompile Include="text\text.cpp" />

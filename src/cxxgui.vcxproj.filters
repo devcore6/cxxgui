@@ -12,6 +12,7 @@
     <ClCompile Include="image\image.cpp" />
     <ClCompile Include="symbols\symbol_renderer.cpp" />
     <ClCompile Include="symbols\ui_base.cpp" />
+    <ClCompile Include="symbols\math.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />
