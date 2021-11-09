@@ -205,8 +205,8 @@ namespace cxxgui {
                         y_off += (v_alignment == 0) ? 0 : ((v_alignment == 1) ? (h / 2) : h);
                 }
 
-                float x_alignment_offset = body->get_width() + rendered_style->padding_left + rendered_style->padding_right,
-                      y_alignment_offset = body->get_height() + rendered_style->padding_top + rendered_style->padding_bottom;
+                float x_alignment_offset = body ? body->get_width() : 0 + rendered_style->padding_left + rendered_style->padding_right,
+                      y_alignment_offset = body ? body->get_height() : 0 + rendered_style->padding_top + rendered_style->padding_bottom;
 
                 glPushMatrix();
 
@@ -229,7 +229,7 @@ namespace cxxgui {
                     // as such, it's fine and it'll do for now.
                     // todo: change this later
 
-                    body->do_render(__rel_x - x_off, __rel_y - y_off, __clicking);
+                    if(body) body->do_render(__rel_x - x_off, __rel_y - y_off, __clicking);
 
                 glPopMatrix();
 

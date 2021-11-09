@@ -21,6 +21,8 @@ Documentation coming in the future once the project has progressed farther.
 Each individual color of the symbols can be individually addressed by setting the rendering mode to palette.
 There are currently few symbols, but more will be added as development continues.
 
+![Symbols page 1](symbols1.png "Symbols page 1")
+
 # Notes for Linux users
 
 Since Linux doesn't have a standardized system font across all distros, and since I am not going to use a different font library just to accomodate Linux users better, CXXGUI uses DejaVu Sans and DejaVu Sans Mono on Linux as default font (this is also the default font on Ubuntu), as such, you're going to have to install those two fonts if you don't have them.

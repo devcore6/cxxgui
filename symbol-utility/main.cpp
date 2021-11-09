@@ -86,6 +86,7 @@ int main(int argc, const char* argv[]) {
             data = replace(data, "<!-- Generator: Gravit.io -->", "");
             data = replace(data, " vector-effect=\"non - scaling - stroke\"", "");
             data = replace(data, "fill=\"white\"", "fill=\"none\"");
+            data = replace(data, "fill=\"black\"", "fill=\"none\"");
             data = replace(data, "<mask ", "<!--<mask ");
             data = replace(data, "</mask>", "</mask>-->");
             data = replace(data, "stroke-width=\"64\"", "stroke-width=\"32\"");

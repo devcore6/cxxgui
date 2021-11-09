@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="868">
+
+    <rect width="800" height="868" fill="#FFFFFF" />
+    
     <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#000000" y="8"   x="8"   />
     <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#101010" y="8"   x="88"  />
     <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#424245" y="8"   x="168" />
@@ -137,7 +140,7 @@
     <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="688" x="520">coral_pink</text>
     <text font-size="12" font-family="SF Pro Text, Helvetica Neue, Helvetica, Arial" text-anchor="middle" y="688" x="600">bright_pink</text>
 
-    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#AD8200" y="696" x="8" />
+    <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FFFF80" y="696" x="8" />
     <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FDFF00" y="696" x="88" />
     <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#FADA5E" y="696" x="168" />
     <rect stroke="#808080" stroke-width="1" width="64" height="64" fill="#EED202" y="696" x="248" />

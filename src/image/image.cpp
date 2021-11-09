@@ -9,7 +9,7 @@ namespace cxxgui {
         float rendered_width = width;
 
         if(is_resizable) {
-            if(style.width != 0.0f) width = style.width;
+            if(style.width != 0.0f) rendered_width = style.width;
             if(rendered_width < style.min_width) rendered_width = style.min_width;
             if(style.max_width != 0.0f && rendered_width > style.max_width)
                 rendered_width = style.max_width;
@@ -24,7 +24,7 @@ namespace cxxgui {
         float rendered_height = height;
 
         if(is_resizable) {
-            if(style.height != 0.0f) height = style.height;
+            if(style.height != 0.0f) rendered_height = style.height;
             if(rendered_height < style.min_height) rendered_height = style.min_height;
             if(style.max_height != 0.0f && rendered_height > style.max_height)
                 rendered_height = style.max_height;
@@ -58,7 +58,7 @@ namespace cxxgui {
                 glBindTexture(GL_TEXTURE_2D, texture_id);
 
                 glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
                 glTexImage2D(GL_TEXTURE_2D, 0, surface->format->BytesPerPixel, surface->w, surface->h, 0, mode, GL_UNSIGNED_BYTE, surface->pixels);
 

@@ -160,6 +160,8 @@ namespace cxxgui {
 
         extern symbol* circle_fill();
 
+        extern symbol* circle_inset_fill();
+
         extern symbol* circle_inset_thin();
         extern symbol* circle_inset_extralight();
         extern symbol* circle_inset_light();

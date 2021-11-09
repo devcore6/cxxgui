@@ -82,7 +82,7 @@ namespace cxxgui {
         constexpr uint32_t bright_pink      = 0xFB607FFF;
 
         // Shades of yellow
-        constexpr uint32_t yellow           = 0xAD8200FF;
+        constexpr uint32_t yellow           = 0xFFFF80FF;
         constexpr uint32_t lemon_yellow     = 0xFDFF00FF;
         constexpr uint32_t royal_yellow     = 0xFADA5EFF;
         constexpr uint32_t safety_yellow    = 0xEED202FF;
