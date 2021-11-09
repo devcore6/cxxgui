@@ -22,6 +22,7 @@ Each individual color of the symbols can be individually addressed by setting th
 There are currently few symbols, but more will be added as development continues.
 
 ![Symbols page 1](symbols1.png "Symbols page 1")
+![Symbols page 2](symbols2.png "Symbols page 2")
 
 # Notes for Linux users
 

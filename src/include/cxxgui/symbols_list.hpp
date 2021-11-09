@@ -134,6 +134,30 @@ namespace cxxgui {
          * ui_base
          */
 
+        extern symbol* action_fill();
+
+        extern symbol* action_thin();
+        extern symbol* action_extralight();
+        extern symbol* action_light();
+        extern symbol* action();
+        extern symbol* action_medium();
+        extern symbol* action_semibold();
+        extern symbol* action_bold();
+        extern symbol* action_extrabold();
+        extern symbol* action_black();
+
+        extern symbol* backward_fill();
+
+        extern symbol* backward_thin();
+        extern symbol* backward_extralight();
+        extern symbol* backward_light();
+        extern symbol* backward();
+        extern symbol* backward_medium();
+        extern symbol* backward_semibold();
+        extern symbol* backward_bold();
+        extern symbol* backward_extrabold();
+        extern symbol* backward_black();
+
         extern symbol* checkmark_circle_fill();
 
         extern symbol* checkmark_circle_thin();
@@ -206,6 +230,162 @@ namespace cxxgui {
         extern symbol* cross_extrabold();
         extern symbol* cross_black();
 
+        extern symbol* eject_fill();
+
+        extern symbol* eject_thin();
+        extern symbol* eject_extralight();
+        extern symbol* eject_light();
+        extern symbol* eject();
+        extern symbol* eject_medium();
+        extern symbol* eject_semibold();
+        extern symbol* eject_bold();
+        extern symbol* eject_extrabold();
+        extern symbol* eject_black();
+
+        extern symbol* folder_fill();
+
+        extern symbol* folder_thin();
+        extern symbol* folder_extralight();
+        extern symbol* folder_light();
+        extern symbol* folder();
+        extern symbol* folder_medium();
+        extern symbol* folder_semibold();
+        extern symbol* folder_bold();
+        extern symbol* folder_extrabold();
+        extern symbol* folder_black();
+
+        extern symbol* forward_fill();
+
+        extern symbol* forward_thin();
+        extern symbol* forward_extralight();
+        extern symbol* forward_light();
+        extern symbol* forward();
+        extern symbol* forward_medium();
+        extern symbol* forward_semibold();
+        extern symbol* forward_bold();
+        extern symbol* forward_extrabold();
+        extern symbol* forward_black();
+
+        extern symbol* pause_fill();
+
+        extern symbol* pause_thin();
+        extern symbol* pause_extralight();
+        extern symbol* pause_light();
+        extern symbol* pause();
+        extern symbol* pause_medium();
+        extern symbol* pause_semibold();
+        extern symbol* pause_bold();
+        extern symbol* pause_extrabold();
+        extern symbol* pause_black();
+
+        extern symbol* play_fill();
+
+        extern symbol* play_thin();
+        extern symbol* play_extralight();
+        extern symbol* play_light();
+        extern symbol* play();
+        extern symbol* play_medium();
+        extern symbol* play_semibold();
+        extern symbol* play_bold();
+        extern symbol* play_extrabold();
+        extern symbol* play_black();
+
+        extern symbol* record_fill();
+
+        extern symbol* record_thin();
+        extern symbol* record_extralight();
+        extern symbol* record_light();
+        extern symbol* record();
+        extern symbol* record_medium();
+        extern symbol* record_semibold();
+        extern symbol* record_bold();
+        extern symbol* record_extrabold();
+        extern symbol* record_black();
+
+        extern symbol* repeat_1_fill();
+
+        extern symbol* repeat_1_thin();
+        extern symbol* repeat_1_extralight();
+        extern symbol* repeat_1_light();
+        extern symbol* repeat_1();
+        extern symbol* repeat_1_medium();
+        extern symbol* repeat_1_semibold();
+        extern symbol* repeat_1_bold();
+        extern symbol* repeat_1_extrabold();
+        extern symbol* repeat_1_black();
+
+        extern symbol* repeat_fill();
+
+        extern symbol* repeat_thin();
+        extern symbol* repeat_extralight();
+        extern symbol* repeat_light();
+        extern symbol* repeat();
+        extern symbol* repeat_medium();
+        extern symbol* repeat_semibold();
+        extern symbol* repeat_bold();
+        extern symbol* repeat_extrabold();
+        extern symbol* repeat_black();
+
+        extern symbol* shuffle_fill();
+
+        extern symbol* shuffle_thin();
+        extern symbol* shuffle_extralight();
+        extern symbol* shuffle_light();
+        extern symbol* shuffle();
+        extern symbol* shuffle_medium();
+        extern symbol* shuffle_semibold();
+        extern symbol* shuffle_bold();
+        extern symbol* shuffle_extrabold();
+        extern symbol* shuffle_black();
+
+        extern symbol* stop_fill();
+
+        extern symbol* stop_thin();
+        extern symbol* stop_extralight();
+        extern symbol* stop_light();
+        extern symbol* stop();
+        extern symbol* stop_medium();
+        extern symbol* stop_semibold();
+        extern symbol* stop_bold();
+        extern symbol* stop_extrabold();
+        extern symbol* stop_black();
+
+        extern symbol* volume_0_fill();
+
+        extern symbol* volume_0_thin();
+        extern symbol* volume_0_extralight();
+        extern symbol* volume_0_light();
+        extern symbol* volume_0();
+        extern symbol* volume_0_medium();
+        extern symbol* volume_0_semibold();
+        extern symbol* volume_0_bold();
+        extern symbol* volume_0_extrabold();
+        extern symbol* volume_0_black();
+
+        extern symbol* volume_1_fill();
+
+        extern symbol* volume_1_thin();
+        extern symbol* volume_1_extralight();
+        extern symbol* volume_1_light();
+        extern symbol* volume_1();
+        extern symbol* volume_1_medium();
+        extern symbol* volume_1_semibold();
+        extern symbol* volume_1_bold();
+        extern symbol* volume_1_extrabold();
+        extern symbol* volume_1_black();
+
+        extern symbol* volume_2_fill();
+
+        extern symbol* volume_2_thin();
+        extern symbol* volume_2_extralight();
+        extern symbol* volume_2_light();
+        extern symbol* volume_2();
+        extern symbol* volume_2_medium();
+        extern symbol* volume_2_semibold();
+        extern symbol* volume_2_bold();
+        extern symbol* volume_2_extrabold();
+        extern symbol* volume_2_black();
+
         extern symbol* warning_fill();
 
         extern symbol* warning_thin();
@@ -217,6 +397,18 @@ namespace cxxgui {
         extern symbol* warning_bold();
         extern symbol* warning_extrabold();
         extern symbol* warning_black();
+
+        extern symbol* wifi_fill();
+
+        extern symbol* wifi_thin();
+        extern symbol* wifi_extralight();
+        extern symbol* wifi_light();
+        extern symbol* wifi();
+        extern symbol* wifi_medium();
+        extern symbol* wifi_semibold();
+        extern symbol* wifi_bold();
+        extern symbol* wifi_extrabold();
+        extern symbol* wifi_black();
 
     }
 
