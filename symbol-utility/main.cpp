@@ -89,7 +89,7 @@ int main(int argc, const char* argv[]) {
             data = replace(data, "fill=\"black\"", "fill=\"none\"");
             data = replace(data, "<mask ", "<!--<mask ");
             data = replace(data, "</mask>", "</mask>-->");
-            data = replace(data, "stroke-width=\"64\"", "stroke-width=\"32\"");
+            data = replace(data, "stroke-width=\"64\"", "stroke-width=\"16\"");
 
             std::string symbol_name = svg.path().string().substr(folder.path().string().length() + 1);
             symbol_name = replace(symbol_name, ".", "_");
@@ -120,7 +120,7 @@ int main(int argc, const char* argv[]) {
                     exit(EXIT_FAILURE);
                 }
 
-                data = replace(data, "stroke-width=\"32\"", "stroke-width=\"14\"");
+                data = replace(data, "stroke-width=\"16\"", "stroke-width=\"4\"");
 
                 svgout << data;
                 svgout.close();
@@ -147,7 +147,7 @@ int main(int argc, const char* argv[]) {
                     exit(EXIT_FAILURE);
                 }
 
-                data = replace(data, "stroke-width=\"14\"", "stroke-width=\"20\"");
+                data = replace(data, "stroke-width=\"4\"", "stroke-width=\"8\"");
 
                 svgout << data;
                 svgout.close();
@@ -174,7 +174,7 @@ int main(int argc, const char* argv[]) {
                     exit(EXIT_FAILURE);
                 }
 
-                data = replace(data, "stroke-width=\"20\"", "stroke-width=\"26\"");
+                data = replace(data, "stroke-width=\"8\"", "stroke-width=\"12\"");
 
                 svgout << data;
                 svgout.close();
@@ -189,7 +189,7 @@ int main(int argc, const char* argv[]) {
                              << symbol_name
                              << "();\n";
 
-                data = replace(data, "stroke-width=\"26\"", "stroke-width=\"32\"");
+                data = replace(data, "stroke-width=\"12\"", "stroke-width=\"16\"");
 
                 output << "        symbol* "
                        << old_name
@@ -213,7 +213,7 @@ int main(int argc, const char* argv[]) {
                     exit(EXIT_FAILURE);
                 }
 
-                data = replace(data, "stroke-width=\"32\"", "stroke-width=\"38\"");
+                data = replace(data, "stroke-width=\"16\"", "stroke-width=\"20\"");
 
                 svgout << data;
                 svgout.close();
@@ -240,7 +240,7 @@ int main(int argc, const char* argv[]) {
                     exit(EXIT_FAILURE);
                 }
 
-                data = replace(data, "stroke-width=\"38\"", "stroke-width=\"44\"");
+                data = replace(data, "stroke-width=\"20\"", "stroke-width=\"24\"");
 
                 svgout << data;
                 svgout.close();
@@ -267,7 +267,7 @@ int main(int argc, const char* argv[]) {
                     exit(EXIT_FAILURE);
                 }
 
-                data = replace(data, "stroke-width=\"44\"", "stroke-width=\"50\"");
+                data = replace(data, "stroke-width=\"24\"", "stroke-width=\"28\"");
 
                 svgout << data;
                 svgout.close();
@@ -294,7 +294,7 @@ int main(int argc, const char* argv[]) {
                     exit(EXIT_FAILURE);
                 }
 
-                data = replace(data, "stroke-width=\"50\"", "stroke-width=\"56\"");
+                data = replace(data, "stroke-width=\"28\"", "stroke-width=\"32\"");
 
                 svgout << data;
                 svgout.close();
@@ -321,7 +321,7 @@ int main(int argc, const char* argv[]) {
                     exit(EXIT_FAILURE);
                 }
 
-                data = replace(data, "stroke-width=\"56\"", "stroke-width=\"62\"");
+                data = replace(data, "stroke-width=\"32\"", "stroke-width=\"36\"");
 
                 svgout << data;
                 svgout.close();
