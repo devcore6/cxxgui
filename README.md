@@ -19,7 +19,8 @@ Documentation coming in the future once the project has progressed farther.
 ## Symbols
 
 Each individual color of the symbols can be individually addressed by setting the rendering mode to palette.
-There are currently few symbols, but more will be added as development continues.
+
+There are currently few symbols, but more will be added as development continues. Each symbol also comes in 9 weights plus an extra filled variety.
 
 ![Symbols page 1](symbols1.png "Symbols page 1")
 ![Symbols page 2](symbols2.png "Symbols page 2")
