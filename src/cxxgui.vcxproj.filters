@@ -14,6 +14,8 @@
     <ClCompile Include="symbols\ui_base.cpp" />
     <ClCompile Include="symbols\math.cpp" />
     <ClCompile Include="symbols\media_controls.cpp" />
+    <ClCompile Include="symbols\other.cpp" />
+    <ClCompile Include="symbols\ui_input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />
@@ -28,5 +30,6 @@
     <ClInclude Include="include\cxxgui\input.hpp" />
     <ClInclude Include="include\cxxgui\symbols.hpp" />
     <ClInclude Include="include\cxxgui\symbols_list.hpp" />
+    <ClInclude Include="include\cxxgui\animation.hpp" />
   </ItemGroup>
 </Project>

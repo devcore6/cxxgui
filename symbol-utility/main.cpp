@@ -89,6 +89,7 @@ int main(int argc, const char* argv[]) {
             data = replace(data, "fill=\"black\"", "fill=\"none\"");
             data = replace(data, "<mask ", "<!--<mask ");
             data = replace(data, "</mask>", "</mask>-->");
+            data = replace(data, "stroke-width=\"128\"", "stroke-width=\"16\"");
             data = replace(data, "stroke-width=\"64\"", "stroke-width=\"16\"");
 
             std::string symbol_name = svg.path().string().substr(folder.path().string().length() + 1);

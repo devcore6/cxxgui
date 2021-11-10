@@ -1,4 +1,10 @@
-## r30
+## r32
+
+- Animations
+- Toggle switches
+- Added a few more symbols
+
+## r31
 
 - Centered warning symbol
 - Fixed size of checkmark symbol

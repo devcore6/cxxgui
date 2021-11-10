@@ -46,6 +46,7 @@ namespace cxxgui {
                 color2 = color1;
                 color3 = color1;
                 color4 = color1;
+                color5 = color1;
             }
 
             /*
@@ -96,6 +97,17 @@ namespace cxxgui {
                     to_hex((color4 >> 24) & 0xFF) +
                     to_hex((color4 >> 16) & 0xFF) +
                     to_hex((color4 >> 8) & 0xFF)
+                );
+            }
+
+            while((pos = svg_data.find("rgb(255,255,255)")) != std::string::npos) {
+                svg_data.erase(pos, 16);
+                svg_data.insert(
+                    pos,
+                    std::string("#") +
+                    to_hex((color5 >> 24) & 0xFF) +
+                    to_hex((color5 >> 16) & 0xFF) +
+                    to_hex((color5 >> 8) & 0xFF)
                 );
             }
 

@@ -2,6 +2,10 @@
 
 namespace cxxgui {
 
+    float linear(float step, float pos) {
+        return pos + step;
+    }
+
     float view::get_content_width() {
         return body ? body->get_content_width() : 0.0f;
     }
@@ -434,6 +438,11 @@ namespace cxxgui {
 
     view* view::rotation(float degrees) {
         style.rotation = degrees;
+        return this;
+    }
+
+    view* view::set_style(style_t s) {
+        style = s;
         return this;
     }
 

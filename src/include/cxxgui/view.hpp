@@ -103,6 +103,8 @@ namespace cxxgui {
 
         view* rotation(float degrees);
 
+        view* set_style(style_t s);
+
         /*
          * Layout on-hover
          */

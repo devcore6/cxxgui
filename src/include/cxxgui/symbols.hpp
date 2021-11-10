@@ -6,6 +6,8 @@ namespace cxxgui {
 
     class symbol : public view {
     private:
+        friend class toggle;
+
         std::string svg_data = "";
         GLuint texture_id = 0;
 
@@ -13,6 +15,7 @@ namespace cxxgui {
         uint32_t color2 = color::accent_color;
         uint32_t color3 = color::accent_color;
         uint32_t color4 = color::accent_color;
+        uint32_t color5 = color::accent_color;
 
         float width = 0;
         float height = 0;
@@ -32,6 +35,7 @@ namespace cxxgui {
         symbol* secondary_color(uint32_t color) { color2 = color; return this; }
         symbol* tertiary_color(uint32_t color) { color3 = color; return this; }
         symbol* quarternary_color(uint32_t color) { color4 = color; return this; }
+        symbol* quinary_color(uint32_t color) { color5 = color; return this; }
 
         symbol* symbol_rendering_mode(symbol_rendering_modes mode) { render_mode = mode; return this; }
 

@@ -10,6 +10,7 @@
 #include <mutex>
 #include <chrono>
 #include <functional>
+#include <concepts>
 
 #define SDL_MAIN_HANDLED
 #include <SDL/SDL.h>
@@ -28,5 +29,6 @@
 #include "image.hpp"
 #include "symbols.hpp"
 #include "symbols_list.hpp"
+#include "animation.hpp"
 #include "input.hpp"
 #include "window.hpp"

@@ -267,6 +267,34 @@ namespace cxxgui {
         extern symbol* volume_2_black();
 
         /*
+         * other
+         */
+
+        extern symbol* apple_logo_fill();
+
+        extern symbol* apple_logo_thin();
+        extern symbol* apple_logo_extralight();
+        extern symbol* apple_logo_light();
+        extern symbol* apple_logo();
+        extern symbol* apple_logo_medium();
+        extern symbol* apple_logo_semibold();
+        extern symbol* apple_logo_bold();
+        extern symbol* apple_logo_extrabold();
+        extern symbol* apple_logo_black();
+
+        extern symbol* windows_logo_fill();
+
+        extern symbol* windows_logo_thin();
+        extern symbol* windows_logo_extralight();
+        extern symbol* windows_logo_light();
+        extern symbol* windows_logo();
+        extern symbol* windows_logo_medium();
+        extern symbol* windows_logo_semibold();
+        extern symbol* windows_logo_bold();
+        extern symbol* windows_logo_extrabold();
+        extern symbol* windows_logo_black();
+
+        /*
          * ui_base
          */
 
@@ -413,6 +441,28 @@ namespace cxxgui {
         extern symbol* wifi_bold();
         extern symbol* wifi_extrabold();
         extern symbol* wifi_black();
+
+        /*
+         * ui_input
+         */
+
+        extern symbol* toggle_circle_checkmark_fill();
+
+        extern symbol* toggle_circle_cross_fill();
+
+        extern symbol* toggle_circle_fill();
+
+        extern symbol* toggle_frame_fill();
+
+        extern symbol* toggle_frame_thin();
+        extern symbol* toggle_frame_extralight();
+        extern symbol* toggle_frame_light();
+        extern symbol* toggle_frame();
+        extern symbol* toggle_frame_medium();
+        extern symbol* toggle_frame_semibold();
+        extern symbol* toggle_frame_bold();
+        extern symbol* toggle_frame_extrabold();
+        extern symbol* toggle_frame_black();
 
     }
 

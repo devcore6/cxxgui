@@ -26,14 +26,17 @@
     <ClCompile Include="settings\windows.cpp" />
     <ClCompile Include="symbols\math.cpp" />
     <ClCompile Include="symbols\media_controls.cpp" />
+    <ClCompile Include="symbols\other.cpp" />
     <ClCompile Include="symbols\symbol_renderer.cpp" />
     <ClCompile Include="symbols\ui_base.cpp" />
+    <ClCompile Include="symbols\ui_input.cpp" />
     <ClCompile Include="text\text.cpp" />
     <ClCompile Include="view\view.cpp" />
     <ClCompile Include="window\null_function.cpp" />
     <ClCompile Include="window\window_render.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\cxxgui\animation.hpp" />
     <ClInclude Include="include\cxxgui\color.hpp" />
     <ClInclude Include="include\cxxgui\cxxgui.hpp" />
     <ClInclude Include="include\cxxgui\font.hpp" />
