@@ -22,6 +22,7 @@ namespace cxxgui {
         constexpr uint32_t blood_red        = 0x660000FF;
         constexpr uint32_t scarlet          = 0xFF2400FF;
         constexpr uint32_t ruby             = 0x9B111EFF;
+        constexpr uint32_t pastel_red       = 0xFF6962FF;
 
         // Shades of green
         constexpr uint32_t green            = 0x03A10EFF;
@@ -46,7 +47,7 @@ namespace cxxgui {
         constexpr uint32_t indigo           = 0x4B0082FF;
 
         // Shades of purple
-        constexpr uint32_t purple           = 0xF14BF1FF;
+        constexpr uint32_t purple           = 0xD14BD1FF;
         constexpr uint32_t royal_purple     = 0x7851A9FF;
         constexpr uint32_t mauve            = 0xE0B0FFFF;
         constexpr uint32_t mulberry         = 0xC54B8CFF;

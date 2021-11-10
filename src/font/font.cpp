@@ -116,8 +116,8 @@ namespace cxxgui {
             "SF Pro Text",
             "SF Mono",
             {
-                "SF-Pro-Text-Thin.otf",
                 "SF-Pro-Text-UltraLight.otf",
+                "SF-Pro-Text-Thin.otf",
                 "SF-Pro-Text-Light.otf",
                 "SF-Pro-Text-Regular.otf",
                 "SF-Pro-Text-Medium.otf",
@@ -126,8 +126,8 @@ namespace cxxgui {
                 "SF-Pro-Text-Heavy.otf",
                 "SF-Pro-Text-Black.otf",
 
-                "SF-Pro-Text-UltralightItalic.otf",
                 "SF-Pro-Text-ThinItalic.otf",
+                "SF-Pro-Text-UltralightItalic.otf",
                 "SF-Pro-Text-LightItalic.otf",
                 "SF-Pro-Text-RegularItalic.otf",
                 "SF-Pro-Text-MediumItalic.otf",

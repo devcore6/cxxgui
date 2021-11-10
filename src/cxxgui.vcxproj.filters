@@ -13,6 +13,7 @@
     <ClCompile Include="symbols\symbol_renderer.cpp" />
     <ClCompile Include="symbols\ui_base.cpp" />
     <ClCompile Include="symbols\math.cpp" />
+    <ClCompile Include="symbols\media_controls.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />

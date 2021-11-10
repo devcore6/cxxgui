@@ -18,6 +18,38 @@ public:
                             ->font_size(100)
                     },
                     new hstack {
+                        (new text("thin"))
+                            ->font_weight(100)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("extralight"))
+                            ->font_weight(200)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("light"))
+                            ->font_weight(300)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("regular"))
+                            ->font_weight(400)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("medium"))
+                            ->font_weight(500)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("semibold"))
+                            ->font_weight(600)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("bold"))
+                            ->font_weight(700)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("extrabold"))
+                            ->font_weight(800)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("black"))
+                            ->font_weight(900)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("fill"))
+                            ->font_weight(900)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center)
+                    },
+                    new hstack {
                         symbols::divide_2_thin()
                             ->symbol_rendering_mode(symbol_rendering_modes::palette)
                             ->primary_color(color::white)
@@ -383,6 +415,38 @@ public:
                 },
 
                 new vstack {
+                    new hstack {    
+                        (new text("thin"))
+                            ->font_weight(100)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("extralight"))
+                            ->font_weight(200)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("light"))
+                            ->font_weight(300)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("regular"))
+                            ->font_weight(400)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("medium"))
+                            ->font_weight(500)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("semibold"))
+                            ->font_weight(600)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("bold"))
+                            ->font_weight(700)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("extrabold"))
+                            ->font_weight(800)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("black"))
+                            ->font_weight(900)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center),
+                        (new text("fill"))
+                            ->font_weight(900)
+                            ->frame(92.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, alignment_t::center)
+                    },
                     new hstack {
                         symbols::percent_thin()
                             ->symbol_rendering_mode(symbol_rendering_modes::palette)

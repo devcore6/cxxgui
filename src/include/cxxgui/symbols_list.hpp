@@ -131,128 +131,8 @@ namespace cxxgui {
         extern symbol* plus_black();
 
         /*
-         * ui_base
+         * media_controls
          */
-
-        extern symbol* action_fill();
-
-        extern symbol* action_thin();
-        extern symbol* action_extralight();
-        extern symbol* action_light();
-        extern symbol* action();
-        extern symbol* action_medium();
-        extern symbol* action_semibold();
-        extern symbol* action_bold();
-        extern symbol* action_extrabold();
-        extern symbol* action_black();
-
-        extern symbol* backward_fill();
-
-        extern symbol* backward_thin();
-        extern symbol* backward_extralight();
-        extern symbol* backward_light();
-        extern symbol* backward();
-        extern symbol* backward_medium();
-        extern symbol* backward_semibold();
-        extern symbol* backward_bold();
-        extern symbol* backward_extrabold();
-        extern symbol* backward_black();
-
-        extern symbol* checkmark_circle_fill();
-
-        extern symbol* checkmark_circle_thin();
-        extern symbol* checkmark_circle_extralight();
-        extern symbol* checkmark_circle_light();
-        extern symbol* checkmark_circle();
-        extern symbol* checkmark_circle_medium();
-        extern symbol* checkmark_circle_semibold();
-        extern symbol* checkmark_circle_bold();
-        extern symbol* checkmark_circle_extrabold();
-        extern symbol* checkmark_circle_black();
-
-        extern symbol* checkmark_fill();
-
-        extern symbol* checkmark_thin();
-        extern symbol* checkmark_extralight();
-        extern symbol* checkmark_light();
-        extern symbol* checkmark();
-        extern symbol* checkmark_medium();
-        extern symbol* checkmark_semibold();
-        extern symbol* checkmark_bold();
-        extern symbol* checkmark_extrabold();
-        extern symbol* checkmark_black();
-
-        extern symbol* circle_fill();
-
-        extern symbol* circle_inset_fill();
-
-        extern symbol* circle_inset_thin();
-        extern symbol* circle_inset_extralight();
-        extern symbol* circle_inset_light();
-        extern symbol* circle_inset();
-        extern symbol* circle_inset_medium();
-        extern symbol* circle_inset_semibold();
-        extern symbol* circle_inset_bold();
-        extern symbol* circle_inset_extrabold();
-        extern symbol* circle_inset_black();
-
-        extern symbol* circle_thin();
-        extern symbol* circle_extralight();
-        extern symbol* circle_light();
-        extern symbol* circle();
-        extern symbol* circle_medium();
-        extern symbol* circle_semibold();
-        extern symbol* circle_bold();
-        extern symbol* circle_extrabold();
-        extern symbol* circle_black();
-
-        extern symbol* cross_circle_fill();
-
-        extern symbol* cross_circle_thin();
-        extern symbol* cross_circle_extralight();
-        extern symbol* cross_circle_light();
-        extern symbol* cross_circle();
-        extern symbol* cross_circle_medium();
-        extern symbol* cross_circle_semibold();
-        extern symbol* cross_circle_bold();
-        extern symbol* cross_circle_extrabold();
-        extern symbol* cross_circle_black();
-
-        extern symbol* cross_fill();
-
-        extern symbol* cross_thin();
-        extern symbol* cross_extralight();
-        extern symbol* cross_light();
-        extern symbol* cross();
-        extern symbol* cross_medium();
-        extern symbol* cross_semibold();
-        extern symbol* cross_bold();
-        extern symbol* cross_extrabold();
-        extern symbol* cross_black();
-
-        extern symbol* eject_fill();
-
-        extern symbol* eject_thin();
-        extern symbol* eject_extralight();
-        extern symbol* eject_light();
-        extern symbol* eject();
-        extern symbol* eject_medium();
-        extern symbol* eject_semibold();
-        extern symbol* eject_bold();
-        extern symbol* eject_extrabold();
-        extern symbol* eject_black();
-
-        extern symbol* folder_fill();
-
-        extern symbol* folder_thin();
-        extern symbol* folder_extralight();
-        extern symbol* folder_light();
-        extern symbol* folder();
-        extern symbol* folder_medium();
-        extern symbol* folder_semibold();
-        extern symbol* folder_bold();
-        extern symbol* folder_extrabold();
-        extern symbol* folder_black();
 
         extern symbol* forward_fill();
 
@@ -385,6 +265,130 @@ namespace cxxgui {
         extern symbol* volume_2_bold();
         extern symbol* volume_2_extrabold();
         extern symbol* volume_2_black();
+
+        /*
+         * ui_base
+         */
+
+        extern symbol* action_fill();
+
+        extern symbol* action_thin();
+        extern symbol* action_extralight();
+        extern symbol* action_light();
+        extern symbol* action();
+        extern symbol* action_medium();
+        extern symbol* action_semibold();
+        extern symbol* action_bold();
+        extern symbol* action_extrabold();
+        extern symbol* action_black();
+
+        extern symbol* backward_fill();
+
+        extern symbol* backward_thin();
+        extern symbol* backward_extralight();
+        extern symbol* backward_light();
+        extern symbol* backward();
+        extern symbol* backward_medium();
+        extern symbol* backward_semibold();
+        extern symbol* backward_bold();
+        extern symbol* backward_extrabold();
+        extern symbol* backward_black();
+
+        extern symbol* checkmark_circle_fill();
+
+        extern symbol* checkmark_circle_thin();
+        extern symbol* checkmark_circle_extralight();
+        extern symbol* checkmark_circle_light();
+        extern symbol* checkmark_circle();
+        extern symbol* checkmark_circle_medium();
+        extern symbol* checkmark_circle_semibold();
+        extern symbol* checkmark_circle_bold();
+        extern symbol* checkmark_circle_extrabold();
+        extern symbol* checkmark_circle_black();
+
+        extern symbol* checkmark_fill();
+
+        extern symbol* checkmark_thin();
+        extern symbol* checkmark_extralight();
+        extern symbol* checkmark_light();
+        extern symbol* checkmark();
+        extern symbol* checkmark_medium();
+        extern symbol* checkmark_semibold();
+        extern symbol* checkmark_bold();
+        extern symbol* checkmark_extrabold();
+        extern symbol* checkmark_black();
+
+        extern symbol* circle_fill();
+
+        extern symbol* circle_inset_fill();
+
+        extern symbol* circle_inset_thin();
+        extern symbol* circle_inset_extralight();
+        extern symbol* circle_inset_light();
+        extern symbol* circle_inset();
+        extern symbol* circle_inset_medium();
+        extern symbol* circle_inset_semibold();
+        extern symbol* circle_inset_bold();
+        extern symbol* circle_inset_extrabold();
+        extern symbol* circle_inset_black();
+
+        extern symbol* circle_thin();
+        extern symbol* circle_extralight();
+        extern symbol* circle_light();
+        extern symbol* circle();
+        extern symbol* circle_medium();
+        extern symbol* circle_semibold();
+        extern symbol* circle_bold();
+        extern symbol* circle_extrabold();
+        extern symbol* circle_black();
+
+        extern symbol* cross_circle_fill();
+
+        extern symbol* cross_circle_thin();
+        extern symbol* cross_circle_extralight();
+        extern symbol* cross_circle_light();
+        extern symbol* cross_circle();
+        extern symbol* cross_circle_medium();
+        extern symbol* cross_circle_semibold();
+        extern symbol* cross_circle_bold();
+        extern symbol* cross_circle_extrabold();
+        extern symbol* cross_circle_black();
+
+        extern symbol* cross_fill();
+
+        extern symbol* cross_thin();
+        extern symbol* cross_extralight();
+        extern symbol* cross_light();
+        extern symbol* cross();
+        extern symbol* cross_medium();
+        extern symbol* cross_semibold();
+        extern symbol* cross_bold();
+        extern symbol* cross_extrabold();
+        extern symbol* cross_black();
+
+        extern symbol* eject_fill();
+
+        extern symbol* eject_thin();
+        extern symbol* eject_extralight();
+        extern symbol* eject_light();
+        extern symbol* eject();
+        extern symbol* eject_medium();
+        extern symbol* eject_semibold();
+        extern symbol* eject_bold();
+        extern symbol* eject_extrabold();
+        extern symbol* eject_black();
+
+        extern symbol* folder_fill();
+
+        extern symbol* folder_thin();
+        extern symbol* folder_extralight();
+        extern symbol* folder_light();
+        extern symbol* folder();
+        extern symbol* folder_medium();
+        extern symbol* folder_semibold();
+        extern symbol* folder_bold();
+        extern symbol* folder_extrabold();
+        extern symbol* folder_black();
 
         extern symbol* warning_fill();
 
