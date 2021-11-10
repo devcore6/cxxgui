@@ -7,8 +7,30 @@ class content_view : public view {
 public:
     content_view() {
         body = new vstack {
-            new toggle(0, [](bool state) { std::cout << std::boolalpha << state << std::endl; }),
-            new toggle(0, true, [](bool state) { std::cout << std::boolalpha << state << std::endl; })
+            new hstack {
+                (new toggle(100, [](bool state) {})),
+                (new toggle(200, [](bool state) {})),
+                (new toggle(300, [](bool state) {})),
+                (new toggle(400, [](bool state) {})),
+                (new toggle(500, [](bool state) {})),
+                (new toggle(600, [](bool state) {})),
+                (new toggle(700, [](bool state) {})),
+                (new toggle(800, [](bool state) {})),
+                (new toggle(900, [](bool state) {})),
+                (new toggle(0, [](bool state) {}))
+            },
+            new hstack {
+                (new toggle(100, true, [](bool state) {})),
+                (new toggle(200, true, [](bool state) {})),
+                (new toggle(300, true, [](bool state) {})),
+                (new toggle(400, true, [](bool state) {})),
+                (new toggle(500, true, [](bool state) {})),
+                (new toggle(600, true, [](bool state) {})),
+                (new toggle(700, true, [](bool state) {})),
+                (new toggle(800, true, [](bool state) {})),
+                (new toggle(900, true, [](bool state) {})),
+                (new toggle(0, true, [](bool state) {}))
+            }
         };
     }
 };

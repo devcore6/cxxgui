@@ -22,6 +22,7 @@
     <ClCompile Include="color\color-scheme.cpp" />
     <ClCompile Include="font\font.cpp" />
     <ClCompile Include="image\image.cpp" />
+    <ClCompile Include="input\toggle.cpp" />
     <ClCompile Include="settings\others.cpp" />
     <ClCompile Include="settings\windows.cpp" />
     <ClCompile Include="symbols\math.cpp" />

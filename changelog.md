@@ -1,3 +1,9 @@
+## r33
+
+- Fixed a bug in how horizontal and vertical stacks are rendered which resulted in bounding boxes being offset on subsequent items
+- Fixed spacing of toggle button (internal circle was overlapping the edges)
+- Moved toggle buttons code out of the header file
+
 ## r32
 
 - Animations

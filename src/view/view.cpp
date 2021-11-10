@@ -841,6 +841,9 @@ namespace cxxgui {
                       y_offset = 0.0f,
                       z_offset = 0.0f;
 
+                float x_prev_offset = 0.0f,
+                      y_prev_offset = 0.0f;
+
                 for(view* v : content) {
 
                     //glScissor(0, 0, width, height); doesn't work - will have to google how glScissor works I suppose
@@ -896,8 +899,8 @@ namespace cxxgui {
                             z_offset
                         );
 
-                        x_off += x_offset - x_alignment_offset;
-                        y_off += y_offset - y_alignment_offset;
+                        x_off += x_offset - x_prev_offset - x_alignment_offset;
+                        y_off += y_offset - y_prev_offset - y_alignment_offset;
 
                         v->do_render(__rel_x - x_off, __rel_y - y_off, __clicking);
 
@@ -908,9 +911,9 @@ namespace cxxgui {
                     }
 
                     switch(dir) {
-                        case stack_direction::horizontal: x_offset += w; break;
-                        case stack_direction::vertical:   y_offset += h; break;
-                        case stack_direction::depth:                     break;
+                        case stack_direction::horizontal: { x_prev_offset = x_offset; x_offset += w; break; }
+                        case stack_direction::vertical:   { y_prev_offset = y_offset; y_offset += h; break; }
+                        case stack_direction::depth:                                                 break;
                     }
                 }
 
