@@ -1,3 +1,7 @@
+## r35
+
+- Minor touch ups here and there
+
 ## r34
 
 - Massively reduced VRAM usage of symbols.

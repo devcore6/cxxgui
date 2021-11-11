@@ -39,13 +39,10 @@ int main(int argc, char* argv[]) {
 
     window_t window = window_t(
         "CXXGUI Test",
-        200,
-        200,
         1280,
         720,
         SDL_WINDOW_SHOWN,
-        new content_view,
-        [](SDL_Event e) {}
+        new content_view
     );
 
     return 0;

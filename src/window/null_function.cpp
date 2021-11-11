@@ -17,4 +17,6 @@ namespace cxxgui {
 	bool null_function(window_t* self, void* data) {
 		return true;
 	}
+
+	void null_handler(SDL_Event e) { }
 }
