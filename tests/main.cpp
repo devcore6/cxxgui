@@ -41,7 +41,6 @@ int main(int argc, char* argv[]) {
         "CXXGUI Test",
         1280,
         720,
-        SDL_WINDOW_SHOWN,
         new content_view
     );
 

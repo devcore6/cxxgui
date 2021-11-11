@@ -1,3 +1,7 @@
+## r36
+
+- Made window flags optional
+
 ## r35
 
 - Minor touch ups here and there
