@@ -32,5 +32,6 @@
     <ClInclude Include="include\cxxgui\symbols.hpp" />
     <ClInclude Include="include\cxxgui\symbols_list.hpp" />
     <ClInclude Include="include\cxxgui\animation.hpp" />
+    <ClInclude Include="include\cxxgui\utilities.hpp" />
   </ItemGroup>
 </Project>

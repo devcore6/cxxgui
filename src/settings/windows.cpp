@@ -1,5 +1,13 @@
-#include <cxxgui/cxxgui.hpp>
 #if defined(_WIN32) || defined(_WIN64)
+# include <thread>
+# include <chrono>
+
+# define SDL_MAIN_HANDLED
+# include <SDL/SDL.h>
+
+# include <cxxgui/settings.hpp>
+# include <cxxgui/color.hpp>
+
 # include <Windows.h>
 # include <VersionHelpers.h>
 

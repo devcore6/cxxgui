@@ -1,4 +1,18 @@
-#include <cxxgui/cxxgui.hpp>
+#include <string>
+#include <vector>
+#include <initializer_list>
+#include <functional>
+
+#define SDL_MAIN_HANDLED
+#include <SDL/SDL.h>
+#include <SDL/SDL_opengl.h>
+#include <SDL/SDL_ttf.h>
+
+#include <cxxgui/color.hpp>
+#include <cxxgui/style.hpp>
+#include <cxxgui/view.hpp>
+#include <cxxgui/font.hpp>
+#include <cxxgui/text.hpp>
 
 namespace cxxgui {
     float text::get_content_width() { return width; }

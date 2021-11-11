@@ -1,4 +1,10 @@
-#include <cxxgui/cxxgui.hpp>
+#include <cstdint>
+
+#define SDL_MAIN_HANDLED
+#include <SDL/SDL.h>
+
+#include <cxxgui/settings.hpp>
+#include <cxxgui/color.hpp>
 
 namespace cxxgui {
 

@@ -1,4 +1,23 @@
-#include <cxxgui/cxxgui.hpp>
+#include <string>
+#include <vector>
+#include <initializer_list>
+#include <iomanip>
+#include <sstream>
+#include <functional>
+
+#define SDL_MAIN_HANDLED
+#include <SDL/SDL.h>
+#include <SDL/SDL_opengl.h>
+
+#include <cxxgui/utilities.hpp>
+#include <cxxgui/settings.hpp>
+#include <cxxgui/color.hpp>
+#include <cxxgui/style.hpp>
+#include <cxxgui/view.hpp>
+#include <cxxgui/animation.hpp>
+#include <cxxgui/input.hpp> 
+#include <cxxgui/symbols.hpp>
+#include <cxxgui/symbols_list.hpp>
 
 namespace cxxgui {
 

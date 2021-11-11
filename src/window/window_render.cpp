@@ -1,4 +1,20 @@
-#include <cxxgui/cxxgui.hpp>
+#include <string>
+#include <vector>
+#include <initializer_list>
+#include <functional>
+#include <thread>
+#include <chrono>
+
+#define SDL_MAIN_HANDLED
+#include <SDL/SDL.h>
+#include <SDL/SDL_opengl.h>
+
+#include <gl/GLU.h>
+
+#include <cxxgui/color.hpp>
+#include <cxxgui/style.hpp>
+#include <cxxgui/view.hpp>
+#include <cxxgui/window.hpp>
 
 namespace cxxgui {
 	void window_t::render(

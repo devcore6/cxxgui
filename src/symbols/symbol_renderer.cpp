@@ -1,18 +1,22 @@
-#include <cxxgui/cxxgui.hpp>
-#include <iomanip>
+#include <string>
+#include <vector>
+#include <initializer_list>
 #include <sstream>
+#include <iomanip>
+#include <functional>
+
+#define SDL_MAIN_HANDLED
+#include <SDL/SDL.h>
+#include <SDL/SDL_opengl.h>
+#include <SDL/SDL_image.h>
+
+#include <cxxgui/utilities.hpp>
+#include <cxxgui/color.hpp>
+#include <cxxgui/style.hpp>
+#include <cxxgui/view.hpp>
+#include <cxxgui/symbols.hpp>
 
 namespace cxxgui {
-
-    template<typename T>
-    std::string to_hex(T i) {
-        std::stringstream stream;
-        stream << std::setfill('0')
-               << std::setw(2)
-               << std::hex
-               << i;
-        return stream.str();
-    }
 
     float symbol::get_content_width() {
         float rendered_width = 32.0f;
@@ -49,10 +53,15 @@ namespace cxxgui {
                 color5 = color1;
             }
 
+            float w = get_content_width();
+            float h = get_content_width();
+
             /*
              * Warning: jank alert
              * Weak minds look away
              */
+
+            float scale_factor = w / 512.0f;
 
             size_t pos = std::string::npos;
 
@@ -111,6 +120,8 @@ namespace cxxgui {
                 );
             }
 
+            svg_data = modify_numbers<float>(svg_data, [scale_factor](float i) -> float { return i * scale_factor; }, true, svg_data.find("viewBox"));
+
             SDL_RWops* mem = SDL_RWFromConstMem(svg_data.data(), (int)svg_data.capacity());
             if(!mem) return;
 
@@ -136,15 +147,9 @@ namespace cxxgui {
             glBindTexture(GL_TEXTURE_2D, texture_id);
 
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+            glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
             glTexImage2D(GL_TEXTURE_2D, 0, surface->format->BytesPerPixel, surface->w, surface->h, 0, mode, GL_UNSIGNED_BYTE, surface->pixels);
-
-#if defined(_WIN32) || defined(_WIN64)
-            ((PFNGLGENERATEMIPMAPPROC)wglGetProcAddress("glGenerateMipmap"))(GL_TEXTURE_2D);
-#else
-            glGenerateMipmap(GL_TEXTURE_2D);
-#endif
 
             glBindTexture(GL_TEXTURE_2D, 0);
 
@@ -172,10 +177,6 @@ namespace cxxgui {
                                  style.border_top.stroke + style.padding_top,
                                  0.0f);
 
-
-                    float rendered_width  = get_content_width();
-                    float rendered_height = get_content_height();
-
                     glEnable(GL_TEXTURE_2D);
 
                     // temporarily setting the alpha value in here
@@ -192,13 +193,13 @@ namespace cxxgui {
                         glVertex2f(0.0f, 0.0f);
 
                         glTexCoord2f(1.0f, 0.0f);
-                        glVertex2f(rendered_width * 1.3334f, 0.0f);
+                        glVertex2f(width, 0.0f);
 
                         glTexCoord2f(1.0f, 1.0f);
-                        glVertex2f(rendered_width * 1.3334f, rendered_height * 1.3334f);
+                        glVertex2f(width, height);
 
                         glTexCoord2f(0.0f, 1.0f);
-                        glVertex2f(0.0f, rendered_height * 1.3334f);
+                        glVertex2f(0.0f, height);
 
                     glEnd();
 

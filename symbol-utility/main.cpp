@@ -24,6 +24,24 @@ std::string replace(std::string str, std::string to_replace, std::string replace
     return ret;
 }
 
+std::string replace_until(std::string str, std::string to_replace_start, std::string to_replace_end, std::string replace_with) {
+    std::string ret = str;
+
+    size_t last_pos = 0;
+    size_t pos = std::string::npos;
+    size_t end_pos = std::string::npos;
+
+    while(
+        ((pos = ret.find(to_replace_start, last_pos)) != std::string::npos) &&
+        ((end_pos = ret.find(to_replace_end, pos + to_replace_start.length())) != std::string::npos)
+    ) {
+        ret = ret.replace(pos, end_pos - pos + to_replace_end.length(), replace_with);
+        last_pos = pos - to_replace_start.length() + replace_with.length() + 1;
+    }
+
+    return ret;
+}
+typedef char T;
 int main(int argc, const char* argv[]) {
     std::ofstream symbols_list;
     symbols_list.open("../src/include/cxxgui/symbols_list.hpp", std::ios::out);
@@ -60,7 +78,18 @@ int main(int argc, const char* argv[]) {
                   " * Generated with symbol-utility\n"
                   " */\n"
                   "\n"
-                  "#include <cxxgui/cxxgui.hpp>\n"
+                  "#include <string>\n"
+                  "#include <vector>\n"
+                  "#include <initializer_list>\n"
+                  "#include <functional>\n"
+                  "\n"
+                  "#include <SDL/SDL_opengl.h>\n"
+                  "#include <SDL/SDL_image.h>\n"
+                  "\n"
+                  "#include <cxxgui/color.hpp>\n"
+                  "#include <cxxgui/style.hpp>\n"
+                  "#include <cxxgui/view.hpp>\n"
+                  "#include <cxxgui/symbols.hpp>\n"
                   "\n"
                   "namespace cxxgui {\n"
                   "\n"
@@ -87,10 +116,18 @@ int main(int argc, const char* argv[]) {
             data = replace(data, " vector-effect=\"non - scaling - stroke\"", "");
             data = replace(data, "fill=\"white\"", "fill=\"none\"");
             data = replace(data, "fill=\"black\"", "fill=\"none\"");
-            data = replace(data, "<mask ", "<!--<mask ");
-            data = replace(data, "</mask>", "</mask>-->");
+            data = replace(data, "\"512pt\"", "\"512\"");
             data = replace(data, "stroke-width=\"128\"", "stroke-width=\"16\"");
             data = replace(data, "stroke-width=\"64\"", "stroke-width=\"16\"");
+
+            data = replace_until(data, "<defs>", "</defs>", "");
+            data = replace_until(data, "<mask ", "</mask>", "");
+            data = replace_until(data, "<g clip-path", ">", "<g>");
+            data = replace_until(data, "mask=\"", "\"", "");
+
+            data = replace(data, "<g>", "");
+            data = replace(data, "</g>", "");
+            data = replace(data, " stroke-miterlimit=\"3\"", "");
 
             std::string symbol_name = svg.path().string().substr(folder.path().string().length() + 1);
             symbol_name = replace(symbol_name, ".", "_");

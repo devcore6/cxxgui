@@ -1,4 +1,14 @@
-#include <cxxgui/cxxgui.hpp>
+#include <string>
+#include <vector>
+#include <filesystem>
+
+#define SDL_MAIN_HANDLED
+#include <SDL/SDL.h>
+#include <SDL/SDL_opengl.h>
+#include <SDL/SDL_image.h>
+#include <SDL/SDL_ttf.h>
+
+#include <cxxgui/font.hpp>
 
 namespace cxxgui {
 

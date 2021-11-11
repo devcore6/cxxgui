@@ -47,6 +47,7 @@
     <ClInclude Include="include\cxxgui\symbols_list.hpp" />
     <ClInclude Include="include\cxxgui\text.hpp" />
     <ClInclude Include="include\cxxgui\input.hpp" />
+    <ClInclude Include="include\cxxgui\utilities.hpp" />
     <ClInclude Include="include\cxxgui\window.hpp" />
     <ClInclude Include="include\cxxgui\style.hpp" />
     <ClInclude Include="include\cxxgui\view.hpp" />

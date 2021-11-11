@@ -1,7 +1,8 @@
-#include <cxxgui/cxxgui.hpp>
-# import <CoreServices/CoreServices.h>
-# import <Foundation/Foundation.h>
-# import <AppKit/AppKit.h>
+#include <cxxgui/settings.hpp>
+#include <cxxgui/color.hpp>
+#import <CoreServices/CoreServices.h>
+#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 
 namespace cxxgui {
 

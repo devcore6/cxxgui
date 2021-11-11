@@ -4,12 +4,6 @@ namespace cxxgui {
 
     extern float linear(float step, float pos);
 
-    template<typename T>
-    concept numeric_type = std::integral<T> || std::floating_point<T>;
-
-    template<numeric_type T>
-    T clamp(T min, T val, T max) { return (val < min) ? min : ((val > max) ? max : val); }
-
     template<size_t duration> requires(duration != 0)
     class animation {
     private:

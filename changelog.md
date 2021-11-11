@@ -1,3 +1,8 @@
+## r34
+
+- Massively reduced VRAM usage of symbols.
+- Massively reduced compilation time by removing amount of headers included in each file.
+
 ## r33
 
 - Fixed a bug in how horizontal and vertical stacks are rendered which resulted in bounding boxes being offset on subsequent items

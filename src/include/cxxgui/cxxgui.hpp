@@ -2,24 +2,17 @@
 
 #include <string>
 #include <vector>
+#include <sstream>
+#include <iomanip>
 #include <initializer_list>
-#include <filesystem>
-#include <thread>
-#include <atomic>
-#include <future>
-#include <mutex>
-#include <chrono>
 #include <functional>
-#include <concepts>
 
 #define SDL_MAIN_HANDLED
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
 #include <SDL/SDL_ttf.h>
-#include <SDL/SDL_image.h>
 
-#include <gl/GLU.h>
-
+#include "utilities.hpp"
 #include "settings.hpp"
 #include "color.hpp"
 #include "style.hpp"
