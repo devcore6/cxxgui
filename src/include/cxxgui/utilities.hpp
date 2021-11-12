@@ -77,7 +77,7 @@ namespace cxxgui {
         bool skipping = false;
 
         for(char c = ret[pos]; ret[pos]; ++pos, c = ret[pos]) {
-            if(!found_number && c == '#' && skip_colors) { skipping = true; continue; }
+            if(!found_number && (c == '#' || c == 'x' || c == 'y') && skip_colors) { skipping = true; continue; }
             if(!found_number && c == '-') { sign = true; continue; }
             if(c == '.' && !decimal) { decimal = true; decimal_factor = 10; continue; }
             if(isdigit(c)) {

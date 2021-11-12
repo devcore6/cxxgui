@@ -119,6 +119,8 @@ int main(int argc, const char* argv[]) {
             data = replace(data, "\"512pt\"", "\"512\"");
             data = replace(data, "stroke-width=\"128\"", "stroke-width=\"16\"");
             data = replace(data, "stroke-width=\"64\"", "stroke-width=\"16\"");
+            data = replace(data, "stroke-linejoin=\"miter\"", "stroke-linejoin=\"round\"");
+            data = replace(data, "stroke-linecap=\"square\"", "stroke-linecap=\"round\"");
 
             data = replace_until(data, "<defs>", "</defs>", "");
             data = replace_until(data, "<mask ", "</mask>", "");

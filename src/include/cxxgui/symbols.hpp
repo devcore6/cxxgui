@@ -25,11 +25,13 @@ namespace cxxgui {
     protected:
         float get_content_width();
         float get_content_height();
+        
+    public:
         void render();
 
-    public:
         symbol() { }
         symbol(std::string data) : svg_data(data) { }
+        ~symbol() { if(texture_id != 0) glDeleteTextures(1, &texture_id); }
 
         symbol* primary_color(uint32_t color) { color1 = color; return this; }
         symbol* secondary_color(uint32_t color) { color2 = color; return this; }

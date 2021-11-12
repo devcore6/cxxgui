@@ -15,16 +15,16 @@
 #include <cxxgui/style.hpp>
 #include <cxxgui/view.hpp>
 #include <cxxgui/animation.hpp>
-#include <cxxgui/input.hpp> 
 #include <cxxgui/symbols.hpp>
 #include <cxxgui/symbols_list.hpp>
+#include <cxxgui/input.hpp> 
 
 namespace cxxgui {
 
-    void toggle::toggle_action(view* v, void* n) {
+    void toggle::toggle_action(view* v, float x, float y, void* n) {
         toggle* self = dynamic_cast<toggle*>(v);
         self->state = !self->state;
-        self->f(self->state);
+        self->f(v, self->state);
         self->switch_on.reset();
         self->switch_off.reset();
         self->switching = true;
@@ -36,7 +36,7 @@ namespace cxxgui {
     }
 
     float toggle::get_content_height() {
-        return 64.0f;
+        return 32.0f;
     }
 
     void toggle::render() {
@@ -83,7 +83,7 @@ namespace cxxgui {
         }
 
         float x_alignment_offset = 64.0f + style.padding_left + style.padding_right,
-            y_alignment_offset = 64.0f + style.padding_top + style.padding_bottom;
+              y_alignment_offset = 64.0f + style.padding_top + style.padding_bottom;
 
         glPushMatrix();
 
@@ -145,7 +145,7 @@ namespace cxxgui {
         glPopMatrix();
     }
 
-    toggle::toggle(uint16_t weight, std::function<void(bool)> _f) : f(_f) {
+    toggle::toggle(uint16_t weight, std::function<void(view*, bool)> _f) : f(_f) {
         view::click_action = toggle_action;
 
         on_style.offset_x = 12;
@@ -154,6 +154,9 @@ namespace cxxgui {
         off_style.offset_x = -12;
         off_style.width = 64;
         off_style.height = 64;
+
+        style.margin_bottom = 4;
+        style.margin_top = 4;
 
         switch_on.start_value = off_style;
         switch_on.end_value = on_style;
@@ -244,7 +247,7 @@ namespace cxxgui {
         circle_on->size(64)->set_style(on_style);
     }
 
-    toggle::toggle(uint16_t weight, bool checkmarks, std::function<void(bool)> _f) : f(_f) {
+    toggle::toggle(uint16_t weight, bool checkmarks, std::function<void(view*, bool)> _f) : f(_f) {
         view::click_action = toggle_action;
 
         on_style.offset_x = 12;
@@ -253,6 +256,9 @@ namespace cxxgui {
         off_style.offset_x = -12;
         off_style.width = 64;
         off_style.height = 64;
+
+        style.margin_bottom = 4;
+        style.margin_top = 4;
 
         switch_on.start_value = off_style;
         switch_on.end_value = on_style;
@@ -350,7 +356,7 @@ namespace cxxgui {
         circle_on->size(64)->set_style(on_style);
     }
 
-    void toggle::set_value(bool v) { if(v != state) toggle_action(this, nullptr); }
+    void toggle::set_value(bool v) { if(v != state) toggle_action(this, 0.0f, 0.0f, nullptr); }
 
     toggle::~toggle() {
         if(frame_off) delete frame_off;

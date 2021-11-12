@@ -264,7 +264,7 @@ namespace cxxgui {
 
             if(!was_hovering) {
                 was_hovering = true;
-                if(hover_action != nullptr) hover_action(this, hover_data);
+                if(hover_action != nullptr) hover_action(this, rel_x, rel_y, hover_data);
             }
 
             if(clicking) {
@@ -275,7 +275,7 @@ namespace cxxgui {
 
             } else if(was_pressed)  {
                 was_pressed = false;
-                if(click_action != nullptr) click_action(this, click_data);
+                if(click_action != nullptr) click_action(this, rel_x, rel_y, click_data);
             }
         } else {
             rendered_style = &style;
@@ -284,7 +284,7 @@ namespace cxxgui {
 
                 was_hovering = false;
                 was_pressed = false;
-                if(leave_action != nullptr) leave_action(this, leave_data);
+                if(leave_action != nullptr) leave_action(this, rel_x, rel_y, leave_data);
 
             }
         }
@@ -300,19 +300,19 @@ namespace cxxgui {
         render();
     }
 
-    view* view::on_hover(std::function<void(view*, void*)> callback, void* data) {
+    view* view::on_hover(std::function<void(view*, float, float, void*)> callback, void* data) {
         hover_action = callback;
         hover_data = data;
         return this;
     }
 
-    view* view::on_leave(std::function<void(view*, void*)> callback, void* data) {
+    view* view::on_leave(std::function<void(view*, float, float, void*)> callback, void* data) {
         leave_action = callback;
         leave_data = data;
         return this;
     }
 
-    view* view::on_click(std::function<void(view*, void*)> callback, void* data) {
+    view* view::on_click(std::function<void(view*, float, float, void*)> callback, void* data) {
         click_action = callback;
         click_data = data;
         return this;
@@ -856,8 +856,6 @@ namespace cxxgui {
                       y_prev_offset = 0.0f;
 
                 for(view* v : content) {
-
-                    //glScissor(0, 0, width, height); doesn't work - will have to google how glScissor works I suppose
                     
                     int h_alignment = 0;
                     int v_alignment = 0;

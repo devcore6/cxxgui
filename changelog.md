@@ -1,3 +1,13 @@
+## r37
+
+- Redrawn most symbols to have unified proportions
+- Added steppers
+- Added method to modify text after creation
+- Made destructors free up any remaining textures
+- Click/hover/leave handlers now pass relative mouse position too
+- Made new test project to showcase all symbols and to showcase how steppers can be used
+- Fixed an error that resulted in the destructor of the base view class being called instead of the one of the derived classes
+
 ## r36
 
 - Made window flags optional

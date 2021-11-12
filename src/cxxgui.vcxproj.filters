@@ -14,9 +14,10 @@
     <ClCompile Include="symbols\ui_base.cpp" />
     <ClCompile Include="symbols\math.cpp" />
     <ClCompile Include="symbols\media_controls.cpp" />
-    <ClCompile Include="symbols\other.cpp" />
     <ClCompile Include="symbols\ui_input.cpp" />
     <ClCompile Include="input\toggle.cpp" />
+    <ClCompile Include="symbols\ui_shapes.cpp" />
+    <ClCompile Include="symbols\ui_connectivity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />

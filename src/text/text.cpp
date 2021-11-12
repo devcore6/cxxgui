@@ -170,6 +170,13 @@ namespace cxxgui {
         }
     }
 
+    text* text::set_text(const char* str) {
+        t = str;
+        if(texture_id != 0)
+            glDeleteTextures(1, &texture_id);
+        return this;
+    }
+
     text* text::font(font_t* f) {
         internal_font = f;
         return this;

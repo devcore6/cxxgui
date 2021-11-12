@@ -16,6 +16,7 @@ namespace cxxgui {
 
     public:
         image(const char* p) : path(p) { }
+        ~image() { if(texture_id != 0) glDeleteTextures(1, &texture_id); }
 
         image* resizable(bool can_resize);
 

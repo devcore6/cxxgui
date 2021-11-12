@@ -9,9 +9,9 @@ namespace cxxgui {
 
         view* parent = nullptr;
 
-        std::function<void(view*, void*)> hover_action = nullptr;
-        std::function<void(view*, void*)> leave_action = nullptr;
-        std::function<void(view*, void*)> click_action = nullptr;
+        std::function<void(view*, float, float, void*)> hover_action = nullptr;
+        std::function<void(view*, float, float, void*)> leave_action = nullptr;
+        std::function<void(view*, float, float, void*)> click_action = nullptr;
         void* hover_data = nullptr;
         void* leave_data = nullptr;
         void* click_data = nullptr;
@@ -56,22 +56,22 @@ namespace cxxgui {
     public:
         view* body = nullptr;
 
-        ~view() { if(body) delete body; }
+        virtual ~view() { if(body) delete body; }
 
         /*
          * Action executed on hover
          */
-        view* on_hover(std::function<void(view*, void*)> callback, void* data = nullptr);
+        view* on_hover(std::function<void(view*, float, float, void*)> callback, void* data = nullptr);
 
         /*
          * Action executed when leaving hover
          */
-        view* on_leave(std::function<void(view*, void*)> callback, void* data = nullptr);
+        view* on_leave(std::function<void(view*, float, float, void*)> callback, void* data = nullptr);
 
         /*
          * Actiopn executed on click
          */
-        view* on_click(std::function<void(view*, void*)> callback, void* data = nullptr);
+        view* on_click(std::function<void(view*, float, float, void*)> callback, void* data = nullptr);
 
         /*
          * Layout
@@ -175,13 +175,21 @@ namespace cxxgui {
         float get_content_width();
         float get_content_height();
 
+        bool scrollbar_x = false;
+        bool scrollbar_y = false;
+
     public:
         void render();
         stack(std::initializer_list<view*> data) {
             for(auto v : data) v->parent = this;
             content = data;
         }
-        ~stack() { for(auto v : content) delete v; }
+        ~stack() {
+            for(auto v : content) if(v) { delete v; v = nullptr; }
+        }
+
+        bool overflow(bool enable) { scrollbar_x = enable; scrollbar_y = enable; }
+        bool overflow(bool enable_y, bool enable_x) { scrollbar_x = enable_x; scrollbar_y = enable_y; }
 
     };
 

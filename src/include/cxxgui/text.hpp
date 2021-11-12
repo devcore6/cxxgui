@@ -18,7 +18,16 @@ namespace cxxgui {
 
     public:
         text(const char* str) : t(str) { internal_font = cxxgui::body; }
+        text(std::string str) : t(str) { internal_font = cxxgui::body; }
         text(const char* str, font_t* f) : t(str), internal_font(f) { }
+        text(std::string str, font_t* f) : t(str), internal_font(f) {}
+        ~text() { if(texture_id != 0) glDeleteTextures(1, &texture_id); }
+
+        /*
+         * Update text
+         */
+
+        text* set_text(const char* str);
 
         /*
          * Layout

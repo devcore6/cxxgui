@@ -10,7 +10,17 @@ namespace cxxgui {
          * math
          */
 
-        extern symbol* divide_2_fill();
+        extern symbol* divide_2_circle_fill();
+
+        extern symbol* divide_2_circle_thin();
+        extern symbol* divide_2_circle_extralight();
+        extern symbol* divide_2_circle_light();
+        extern symbol* divide_2_circle();
+        extern symbol* divide_2_circle_medium();
+        extern symbol* divide_2_circle_semibold();
+        extern symbol* divide_2_circle_bold();
+        extern symbol* divide_2_circle_extrabold();
+        extern symbol* divide_2_circle_black();
 
         extern symbol* divide_2_thin();
         extern symbol* divide_2_extralight();
@@ -34,8 +44,6 @@ namespace cxxgui {
         extern symbol* divide_circle_extrabold();
         extern symbol* divide_circle_black();
 
-        extern symbol* divide_fill();
-
         extern symbol* divide_thin();
         extern symbol* divide_extralight();
         extern symbol* divide_light();
@@ -57,8 +65,6 @@ namespace cxxgui {
         extern symbol* minus_circle_bold();
         extern symbol* minus_circle_extrabold();
         extern symbol* minus_circle_black();
-
-        extern symbol* minus_fill();
 
         extern symbol* minus_thin();
         extern symbol* minus_extralight();
@@ -92,9 +98,17 @@ namespace cxxgui {
         extern symbol* multiply_extrabold();
         extern symbol* multiply_black();
 
-        extern symbol* mulyiply_fill();
+        extern symbol* percent_circle_fill();
 
-        extern symbol* percent_fill();
+        extern symbol* percent_circle_thin();
+        extern symbol* percent_circle_extralight();
+        extern symbol* percent_circle_light();
+        extern symbol* percent_circle();
+        extern symbol* percent_circle_medium();
+        extern symbol* percent_circle_semibold();
+        extern symbol* percent_circle_bold();
+        extern symbol* percent_circle_extrabold();
+        extern symbol* percent_circle_black();
 
         extern symbol* percent_thin();
         extern symbol* percent_extralight();
@@ -118,8 +132,6 @@ namespace cxxgui {
         extern symbol* plus_circle_extrabold();
         extern symbol* plus_circle_black();
 
-        extern symbol* plus_fill();
-
         extern symbol* plus_thin();
         extern symbol* plus_extralight();
         extern symbol* plus_light();
@@ -134,6 +146,18 @@ namespace cxxgui {
          * media_controls
          */
 
+        extern symbol* backward_fill();
+
+        extern symbol* backward_thin();
+        extern symbol* backward_extralight();
+        extern symbol* backward_light();
+        extern symbol* backward();
+        extern symbol* backward_medium();
+        extern symbol* backward_semibold();
+        extern symbol* backward_bold();
+        extern symbol* backward_extrabold();
+        extern symbol* backward_black();
+
         extern symbol* forward_fill();
 
         extern symbol* forward_thin();
@@ -145,8 +169,6 @@ namespace cxxgui {
         extern symbol* forward_bold();
         extern symbol* forward_extrabold();
         extern symbol* forward_black();
-
-        extern symbol* pause_fill();
 
         extern symbol* pause_thin();
         extern symbol* pause_extralight();
@@ -182,19 +204,15 @@ namespace cxxgui {
         extern symbol* record_extrabold();
         extern symbol* record_black();
 
-        extern symbol* repeat_1_fill();
-
-        extern symbol* repeat_1_thin();
-        extern symbol* repeat_1_extralight();
-        extern symbol* repeat_1_light();
-        extern symbol* repeat_1();
-        extern symbol* repeat_1_medium();
-        extern symbol* repeat_1_semibold();
-        extern symbol* repeat_1_bold();
-        extern symbol* repeat_1_extrabold();
-        extern symbol* repeat_1_black();
-
-        extern symbol* repeat_fill();
+        extern symbol* repeat_one_thin();
+        extern symbol* repeat_one_extralight();
+        extern symbol* repeat_one_light();
+        extern symbol* repeat_one();
+        extern symbol* repeat_one_medium();
+        extern symbol* repeat_one_semibold();
+        extern symbol* repeat_one_bold();
+        extern symbol* repeat_one_extrabold();
+        extern symbol* repeat_one_black();
 
         extern symbol* repeat_thin();
         extern symbol* repeat_extralight();
@@ -205,8 +223,6 @@ namespace cxxgui {
         extern symbol* repeat_bold();
         extern symbol* repeat_extrabold();
         extern symbol* repeat_black();
-
-        extern symbol* shuffle_fill();
 
         extern symbol* shuffle_thin();
         extern symbol* shuffle_extralight();
@@ -267,34 +283,6 @@ namespace cxxgui {
         extern symbol* volume_2_black();
 
         /*
-         * other
-         */
-
-        extern symbol* apple_logo_fill();
-
-        extern symbol* apple_logo_thin();
-        extern symbol* apple_logo_extralight();
-        extern symbol* apple_logo_light();
-        extern symbol* apple_logo();
-        extern symbol* apple_logo_medium();
-        extern symbol* apple_logo_semibold();
-        extern symbol* apple_logo_bold();
-        extern symbol* apple_logo_extrabold();
-        extern symbol* apple_logo_black();
-
-        extern symbol* windows_logo_fill();
-
-        extern symbol* windows_logo_thin();
-        extern symbol* windows_logo_extralight();
-        extern symbol* windows_logo_light();
-        extern symbol* windows_logo();
-        extern symbol* windows_logo_medium();
-        extern symbol* windows_logo_semibold();
-        extern symbol* windows_logo_bold();
-        extern symbol* windows_logo_extrabold();
-        extern symbol* windows_logo_black();
-
-        /*
          * ui_base
          */
 
@@ -310,17 +298,17 @@ namespace cxxgui {
         extern symbol* action_extrabold();
         extern symbol* action_black();
 
-        extern symbol* backward_fill();
+        extern symbol* bolt_fill();
 
-        extern symbol* backward_thin();
-        extern symbol* backward_extralight();
-        extern symbol* backward_light();
-        extern symbol* backward();
-        extern symbol* backward_medium();
-        extern symbol* backward_semibold();
-        extern symbol* backward_bold();
-        extern symbol* backward_extrabold();
-        extern symbol* backward_black();
+        extern symbol* bolt_thin();
+        extern symbol* bolt_extralight();
+        extern symbol* bolt_light();
+        extern symbol* bolt();
+        extern symbol* bolt_medium();
+        extern symbol* bolt_semibold();
+        extern symbol* bolt_bold();
+        extern symbol* bolt_extrabold();
+        extern symbol* bolt_black();
 
         extern symbol* checkmark_circle_fill();
 
@@ -334,8 +322,6 @@ namespace cxxgui {
         extern symbol* checkmark_circle_extrabold();
         extern symbol* checkmark_circle_black();
 
-        extern symbol* checkmark_fill();
-
         extern symbol* checkmark_thin();
         extern symbol* checkmark_extralight();
         extern symbol* checkmark_light();
@@ -345,30 +331,6 @@ namespace cxxgui {
         extern symbol* checkmark_bold();
         extern symbol* checkmark_extrabold();
         extern symbol* checkmark_black();
-
-        extern symbol* circle_fill();
-
-        extern symbol* circle_inset_fill();
-
-        extern symbol* circle_inset_thin();
-        extern symbol* circle_inset_extralight();
-        extern symbol* circle_inset_light();
-        extern symbol* circle_inset();
-        extern symbol* circle_inset_medium();
-        extern symbol* circle_inset_semibold();
-        extern symbol* circle_inset_bold();
-        extern symbol* circle_inset_extrabold();
-        extern symbol* circle_inset_black();
-
-        extern symbol* circle_thin();
-        extern symbol* circle_extralight();
-        extern symbol* circle_light();
-        extern symbol* circle();
-        extern symbol* circle_medium();
-        extern symbol* circle_semibold();
-        extern symbol* circle_bold();
-        extern symbol* circle_extrabold();
-        extern symbol* circle_black();
 
         extern symbol* cross_circle_fill();
 
@@ -381,8 +343,6 @@ namespace cxxgui {
         extern symbol* cross_circle_bold();
         extern symbol* cross_circle_extrabold();
         extern symbol* cross_circle_black();
-
-        extern symbol* cross_fill();
 
         extern symbol* cross_thin();
         extern symbol* cross_extralight();
@@ -430,21 +390,83 @@ namespace cxxgui {
         extern symbol* warning_extrabold();
         extern symbol* warning_black();
 
-        extern symbol* wifi_fill();
+        /*
+         * ui_connectivity
+         */
 
-        extern symbol* wifi_thin();
-        extern symbol* wifi_extralight();
-        extern symbol* wifi_light();
-        extern symbol* wifi();
-        extern symbol* wifi_medium();
-        extern symbol* wifi_semibold();
-        extern symbol* wifi_bold();
-        extern symbol* wifi_extrabold();
-        extern symbol* wifi_black();
+        extern symbol* bluetooth_thin();
+        extern symbol* bluetooth_extralight();
+        extern symbol* bluetooth_light();
+        extern symbol* bluetooth();
+        extern symbol* bluetooth_medium();
+        extern symbol* bluetooth_semibold();
+        extern symbol* bluetooth_bold();
+        extern symbol* bluetooth_extrabold();
+        extern symbol* bluetooth_black();
+
+        extern symbol* wifi_1_fill();
+
+        extern symbol* wifi_1_thin();
+        extern symbol* wifi_1_extralight();
+        extern symbol* wifi_1_light();
+        extern symbol* wifi_1();
+        extern symbol* wifi_1_medium();
+        extern symbol* wifi_1_semibold();
+        extern symbol* wifi_1_bold();
+        extern symbol* wifi_1_extrabold();
+        extern symbol* wifi_1_black();
+
+        extern symbol* wifi_2_fill();
+
+        extern symbol* wifi_2_thin();
+        extern symbol* wifi_2_extralight();
+        extern symbol* wifi_2_light();
+        extern symbol* wifi_2();
+        extern symbol* wifi_2_medium();
+        extern symbol* wifi_2_semibold();
+        extern symbol* wifi_2_bold();
+        extern symbol* wifi_2_extrabold();
+        extern symbol* wifi_2_black();
+
+        extern symbol* wifi_3_fill();
+
+        extern symbol* wifi_3_thin();
+        extern symbol* wifi_3_extralight();
+        extern symbol* wifi_3_light();
+        extern symbol* wifi_3();
+        extern symbol* wifi_3_medium();
+        extern symbol* wifi_3_semibold();
+        extern symbol* wifi_3_bold();
+        extern symbol* wifi_3_extrabold();
+        extern symbol* wifi_3_black();
 
         /*
          * ui_input
          */
+
+        extern symbol* slider_circle_fill();
+
+        extern symbol* slider_frame_thin();
+        extern symbol* slider_frame_extralight();
+        extern symbol* slider_frame_light();
+        extern symbol* slider_frame();
+        extern symbol* slider_frame_medium();
+        extern symbol* slider_frame_semibold();
+        extern symbol* slider_frame_bold();
+        extern symbol* slider_frame_extrabold();
+        extern symbol* slider_frame_black();
+
+        extern symbol* stepper_fill();
+
+        extern symbol* stepper_thin();
+        extern symbol* stepper_extralight();
+        extern symbol* stepper_light();
+        extern symbol* stepper();
+        extern symbol* stepper_medium();
+        extern symbol* stepper_semibold();
+        extern symbol* stepper_bold();
+        extern symbol* stepper_extrabold();
+        extern symbol* stepper_black();
 
         extern symbol* toggle_circle_checkmark_fill();
 
@@ -463,6 +485,58 @@ namespace cxxgui {
         extern symbol* toggle_frame_bold();
         extern symbol* toggle_frame_extrabold();
         extern symbol* toggle_frame_black();
+
+        /*
+         * ui_shapes
+         */
+
+        extern symbol* circle_fill();
+
+        extern symbol* circle_inset_fill();
+
+        extern symbol* circle_inset_thin();
+        extern symbol* circle_inset_extralight();
+        extern symbol* circle_inset_light();
+        extern symbol* circle_inset();
+        extern symbol* circle_inset_medium();
+        extern symbol* circle_inset_semibold();
+        extern symbol* circle_inset_bold();
+        extern symbol* circle_inset_extrabold();
+        extern symbol* circle_inset_black();
+
+        extern symbol* circle_thin();
+        extern symbol* circle_extralight();
+        extern symbol* circle_light();
+        extern symbol* circle();
+        extern symbol* circle_medium();
+        extern symbol* circle_semibold();
+        extern symbol* circle_bold();
+        extern symbol* circle_extrabold();
+        extern symbol* circle_black();
+
+        extern symbol* square_fill();
+
+        extern symbol* square_inset_fill();
+
+        extern symbol* square_inset_thin();
+        extern symbol* square_inset_extralight();
+        extern symbol* square_inset_light();
+        extern symbol* square_inset();
+        extern symbol* square_inset_medium();
+        extern symbol* square_inset_semibold();
+        extern symbol* square_inset_bold();
+        extern symbol* square_inset_extrabold();
+        extern symbol* square_inset_black();
+
+        extern symbol* square_thin();
+        extern symbol* square_extralight();
+        extern symbol* square_light();
+        extern symbol* square();
+        extern symbol* square_medium();
+        extern symbol* square_semibold();
+        extern symbol* square_bold();
+        extern symbol* square_extrabold();
+        extern symbol* square_black();
 
     }
 
