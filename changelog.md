@@ -1,3 +1,8 @@
+## r38
+
+- Updated shuffle symbol
+- Fixed click/hover area position bug
+
 ## r37
 
 - Redrawn most symbols to have unified proportions

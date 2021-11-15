@@ -34,7 +34,3 @@ There are currently few symbols, but more will be added as development continues
 Since Linux doesn't have a standardized system font across all distros, and since I am not going to use a different font library just to accomodate Linux users better, CXXGUI uses DejaVu Sans and DejaVu Sans Mono on Linux as default font (this is also the default font on Ubuntu), as such, you're going to have to install those two fonts if you don't have them.
 
 Alternatively, I'd just reccomend downloading [SF Pro Text](https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg) and [SF Mono](https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg) from [Apple's Website](https://developer.apple.com/fonts/) as they are honestly better fonts, and come in all weights. They come in DMG images, which can easily be mounted on Linux and the fonts can then be extracted from the .pkg inside, which is a XAR archive, which then contains the .otf fonts.
-
-# Known bugs
-
-- Click/hover area is not always exactly where it should be. Will be fixed next revision.

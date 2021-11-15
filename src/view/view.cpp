@@ -207,7 +207,7 @@ namespace cxxgui {
                     case alignment_t::bottom_trailing: { h_alignment = 2; v_alignment = 2; break; }
                 }
 
-                if(h_alignment != 0 || v_alignment != 0) {
+                if(style.alignment != alignment_t::top_leading) {
                     glPushMatrix();
 
                         glTranslatef(
@@ -248,7 +248,7 @@ namespace cxxgui {
 
                 glPopMatrix();
 
-                if(h_alignment != 0 || v_alignment != 0) {
+                if(style.alignment != alignment_t::top_leading) {
                     glPopMatrix();
                 }
 
@@ -860,6 +860,9 @@ namespace cxxgui {
                     int h_alignment = 0;
                     int v_alignment = 0;
 
+                    float cur_x_offset = 0.0f;
+                    float cur_y_offset = 0.0f;
+
                     switch(style.alignment) {
                         case alignment_t::top_leading:     { h_alignment = 0; v_alignment = 0; break; }
                         case alignment_t::top:             { h_alignment = 1; v_alignment = 0; break; }
@@ -872,7 +875,7 @@ namespace cxxgui {
                         case alignment_t::bottom_trailing: { h_alignment = 2; v_alignment = 2; break; }
                     }
 
-                    if(h_alignment != 0 || v_alignment != 0) {
+                    if(style.alignment != alignment_t::top_leading) {
                         glPushMatrix();
 
                             glTranslatef(
@@ -881,17 +884,17 @@ namespace cxxgui {
                                 0.0f
                             );
 
-                            x_off += (h_alignment == 0) ? 0 : ((h_alignment == 1) ? (w / 2) : w);
-                            y_off += (v_alignment == 0) ? 0 : ((v_alignment == 1) ? (h / 2) : h);
+                            cur_x_offset += (h_alignment == 0) ? 0 : ((h_alignment == 1) ? (w / 2) : w);
+                            cur_y_offset += (v_alignment == 0) ? 0 : ((v_alignment == 1) ? (h / 2) : h);
                     }
 
-                    float w = v->get_width(),
-                          h = v->get_height();
+                    float vw = v->get_width(),
+                          vh = v->get_height();
 
                     glPushMatrix();
 
-                        float x_alignment_offset = w,
-                              y_alignment_offset = h;
+                        float x_alignment_offset = vw,
+                              y_alignment_offset = vh;
 
                         if(dir == stack_direction::horizontal) x_alignment_offset = get_content_width();
                         if(dir == stack_direction::vertical)   y_alignment_offset = get_content_height();
@@ -908,21 +911,21 @@ namespace cxxgui {
                             z_offset
                         );
 
-                        x_off += x_offset - x_prev_offset - x_alignment_offset;
-                        y_off += y_offset - y_prev_offset - y_alignment_offset;
+                        cur_x_offset += x_offset - x_alignment_offset;
+                        cur_y_offset += y_offset - y_alignment_offset;
 
-                        v->do_render(__rel_x - x_off, __rel_y - y_off, __clicking);
+                        v->do_render(__rel_x - x_off - cur_x_offset, __rel_y - y_off - cur_y_offset, __clicking);
 
                     glPopMatrix();
 
-                    if(h_alignment != 0 || v_alignment != 0) {
+                    if(style.alignment != alignment_t::top_leading) {
                         glPopMatrix();
                     }
 
                     switch(dir) {
-                        case stack_direction::horizontal: { x_prev_offset = x_offset; x_offset += w; break; }
-                        case stack_direction::vertical:   { y_prev_offset = y_offset; y_offset += h; break; }
-                        case stack_direction::depth:                                                 break;
+                        case stack_direction::horizontal: { x_offset += vw; break; }
+                        case stack_direction::vertical:   { y_offset += vh; break; }
+                        case stack_direction::depth:                        break;
                     }
                 }
 

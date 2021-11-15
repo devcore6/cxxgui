@@ -160,59 +160,35 @@ namespace cxxgui {
         }
 
         if(texture_id != 0) {
-            glPushMatrix();
+            glEnable(GL_TEXTURE_2D);
 
-                glTranslatef(style.offset_x + style.margin_left,
-                             style.offset_y + style.margin_top,
-                             0.0f);
-                glRotatef(style.rotation, 0.0f, 0.0f, 1.0f);
+            // temporarily setting the alpha value in here
+            // as SDL_image doesn't support alpha in SVGs
 
-                float w = get_content_box_width();
-                float h = get_content_box_height();
+            glColor4f(1.0f, 1.0f, 1.0f, 255.0f / (color1 & 0xFF));
+            glBindTexture(GL_TEXTURE_2D, texture_id);
 
-                render_background();
-                glPushMatrix();
+            // why is this scaling needed???
 
-                    glTranslatef(style.border_left.stroke + style.padding_left,
-                                 style.border_top.stroke + style.padding_top,
-                                 0.0f);
+            glBegin(GL_QUADS);
 
-                    glEnable(GL_TEXTURE_2D);
+                glTexCoord2f(0.0f, 0.0f);
+                glVertex2f(0.0f, 0.0f);
 
-                    // temporarily setting the alpha value in here
-                    // as SDL_image doesn't support alpha in SVGs
+                glTexCoord2f(1.0f, 0.0f);
+                glVertex2f(width, 0.0f);
 
-                    glColor4f(1.0f, 1.0f, 1.0f, 255.0f / (color1 & 0xFF));
-                    glBindTexture(GL_TEXTURE_2D, texture_id);
+                glTexCoord2f(1.0f, 1.0f);
+                glVertex2f(width, height);
 
-                    // why is this scaling needed???
+                glTexCoord2f(0.0f, 1.0f);
+                glVertex2f(0.0f, height);
 
-                    glBegin(GL_QUADS);
+            glEnd();
 
-                        glTexCoord2f(0.0f, 0.0f);
-                        glVertex2f(0.0f, 0.0f);
+            glBindTexture(GL_TEXTURE_2D, 0);
 
-                        glTexCoord2f(1.0f, 0.0f);
-                        glVertex2f(width, 0.0f);
-
-                        glTexCoord2f(1.0f, 1.0f);
-                        glVertex2f(width, height);
-
-                        glTexCoord2f(0.0f, 1.0f);
-                        glVertex2f(0.0f, height);
-
-                    glEnd();
-
-                    glBindTexture(GL_TEXTURE_2D, 0);
-
-                    glDisable(GL_TEXTURE_2D);
-
-                glPopMatrix();
-
-                render_borders();
-
-            glPopMatrix();
-
+            glDisable(GL_TEXTURE_2D);
         }
     }
 
