@@ -1,9 +1,5 @@
 /*
  * Quick and dirty utility for generating symbols from SVGs
- * 
- * As I made this, I did realize that the thicknesses could've been incorporated into the
- * symbols renderer, instead of in this, but I already did this and it's technically
- * gonna be slightly faster since they're created ahead of time
  */
 
 #include <iostream>
@@ -56,8 +52,7 @@ int main(int argc, const char* argv[]) {
                     "\n"
                     "namespace cxxgui {\n"
                     "\n"
-                    "    namespace symbols {\n"
-                    "\n";
+                    "    namespace symbols {\n";
 
     for(const auto& folder : std::filesystem::directory_iterator("raw_svgs/")) {
         std::ofstream output;
@@ -67,7 +62,8 @@ int main(int argc, const char* argv[]) {
             exit(EXIT_FAILURE);
         }
 
-        symbols_list << "        /*\n"
+        symbols_list << "\n"
+                        "        /*\n"
                         "         * "
                      << folder.path().string().substr(9)
                      << "\n"
@@ -117,11 +113,11 @@ int main(int argc, const char* argv[]) {
             data = replace(data, "fill=\"white\"", "fill=\"none\"");
             data = replace(data, "fill=\"black\"", "fill=\"none\"");
             data = replace(data, "\"512pt\"", "\"512\"");
+            data = replace(data, "\"768pt\"", "\"768\"");
             data = replace(data, "stroke-width=\"128\"", "stroke-width=\"16\"");
             data = replace(data, "stroke-width=\"64\"", "stroke-width=\"16\"");
             data = replace(data, "stroke-linejoin=\"miter\"", "stroke-linejoin=\"round\"");
             data = replace(data, "stroke-linecap=\"square\"", "stroke-linecap=\"round\"");
-
             data = replace_until(data, "<defs>", "</defs>", "");
             data = replace_until(data, "<mask ", "</mask>", "");
             data = replace_until(data, "<g clip-path", ">", "<g>");
@@ -134,7 +130,7 @@ int main(int argc, const char* argv[]) {
             std::string symbol_name = svg.path().string().substr(folder.path().string().length() + 1);
             symbol_name = replace(symbol_name, ".", "_");
             symbol_name = symbol_name.substr(0, symbol_name.length() - 4);
-            
+
             std::ofstream svgout;
             svgout.open(std::string("../symbols/") + svg.path().string().substr(9), std::ios::out);
 
@@ -146,249 +142,15 @@ int main(int argc, const char* argv[]) {
             svgout << data;
             svgout.close();
 
-            if(symbol_name.substr(symbol_name.length() - 4) != "fill") {
-                std::string name = svg.path().string().substr(9);
-                name = name.substr(0, name.length() - 4) + ".thin.svg";
-
-                std::string old_name = symbol_name;
-                symbol_name = old_name + "_thin";
-
-                svgout.open(std::string("../symbols/") + name, std::ios::out);
-
-                if(!svgout.is_open()) {
-                    std::cerr << "Could not open file \"../symbols/" << name << "\"" << std::endl;
-                    exit(EXIT_FAILURE);
-                }
-
-                data = replace(data, "stroke-width=\"16\"", "stroke-width=\"4\"");
-
-                svgout << data;
-                svgout.close();
-
-                output << "        symbol* "
-                       << symbol_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << symbol_name
-                             << "();\n";
-
-                name = svg.path().string().substr(9);
-                name = name.substr(0, name.length() - 4) + ".extralight.svg";
-
-                symbol_name = old_name + "_extralight";
-
-                svgout.open(std::string("../symbols/") + name, std::ios::out);
-
-                if(!svgout.is_open()) {
-                    std::cerr << "Could not open file \"../symbols/" << name << "\"" << std::endl;
-                    exit(EXIT_FAILURE);
-                }
-
-                data = replace(data, "stroke-width=\"4\"", "stroke-width=\"8\"");
-
-                svgout << data;
-                svgout.close();
-
-                output << "        symbol* "
-                       << symbol_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << symbol_name
-                             << "();\n";
-
-                name = svg.path().string().substr(9);
-                name = name.substr(0, name.length() - 4) + ".light.svg";
-
-                symbol_name = old_name + "_light";
-
-                svgout.open(std::string("../symbols/") + name, std::ios::out);
-
-                if(!svgout.is_open()) {
-                    std::cerr << "Could not open file \"../symbols/" << name << "\"" << std::endl;
-                    exit(EXIT_FAILURE);
-                }
-
-                data = replace(data, "stroke-width=\"8\"", "stroke-width=\"12\"");
-
-                svgout << data;
-                svgout.close();
-
-                output << "        symbol* "
-                       << symbol_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << symbol_name
-                             << "();\n";
-
-                data = replace(data, "stroke-width=\"12\"", "stroke-width=\"16\"");
-
-                output << "        symbol* "
-                       << old_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << old_name
-                             << "();\n";
-
-                name = svg.path().string().substr(9);
-                name = name.substr(0, name.length() - 4) + ".medium.svg";
-
-                symbol_name = old_name + "_medium";
-
-                svgout.open(std::string("../symbols/") + name, std::ios::out);
-
-                if(!svgout.is_open()) {
-                    std::cerr << "Could not open file \"../symbols/" << name << "\"" << std::endl;
-                    exit(EXIT_FAILURE);
-                }
-
-                data = replace(data, "stroke-width=\"16\"", "stroke-width=\"20\"");
-
-                svgout << data;
-                svgout.close();
-
-                output << "        symbol* "
-                       << symbol_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << symbol_name
-                             << "();\n";
-
-                name = svg.path().string().substr(9);
-                name = name.substr(0, name.length() - 4) + ".semibold.svg";
-
-                symbol_name = old_name + "_semibold";
-
-                svgout.open(std::string("../symbols/") + name, std::ios::out);
-
-                if(!svgout.is_open()) {
-                    std::cerr << "Could not open file \"../symbols/" << name << "\"" << std::endl;
-                    exit(EXIT_FAILURE);
-                }
-
-                data = replace(data, "stroke-width=\"20\"", "stroke-width=\"24\"");
-
-                svgout << data;
-                svgout.close();
-
-                output << "        symbol* "
-                       << symbol_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << symbol_name
-                             << "();\n";
-
-                name = svg.path().string().substr(9);
-                name = name.substr(0, name.length() - 4) + ".bold.svg";
-
-                symbol_name = old_name + "_bold";
-
-                svgout.open(std::string("../symbols/") + name, std::ios::out);
-
-                if(!svgout.is_open()) {
-                    std::cerr << "Could not open file \"../symbols/" << name << "\"" << std::endl;
-                    exit(EXIT_FAILURE);
-                }
-
-                data = replace(data, "stroke-width=\"24\"", "stroke-width=\"28\"");
-
-                svgout << data;
-                svgout.close();
-
-                output << "        symbol* "
-                       << symbol_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << symbol_name
-                             << "();\n";
-
-                name = svg.path().string().substr(9);
-                name = name.substr(0, name.length() - 4) + ".extrabold.svg";
-
-                symbol_name = old_name + "_extrabold";
-
-                svgout.open(std::string("../symbols/") + name, std::ios::out);
-
-                if(!svgout.is_open()) {
-                    std::cerr << "Could not open file \"../symbols/" << name << "\"" << std::endl;
-                    exit(EXIT_FAILURE);
-                }
-
-                data = replace(data, "stroke-width=\"28\"", "stroke-width=\"32\"");
-
-                svgout << data;
-                svgout.close();
-
-                output << "        symbol* "
-                       << symbol_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << symbol_name
-                             << "();\n";
-
-                name = svg.path().string().substr(9);
-                name = name.substr(0, name.length() - 4) + ".black.svg";
-
-                symbol_name = old_name + "_black";
-
-                svgout.open(std::string("../symbols/") + name, std::ios::out);
-
-                if(!svgout.is_open()) {
-                    std::cerr << "Could not open file \"../symbols/" << name << "\"" << std::endl;
-                    exit(EXIT_FAILURE);
-                }
-
-                data = replace(data, "stroke-width=\"32\"", "stroke-width=\"36\"");
-
-                svgout << data;
-                svgout.close();
-
-                output << "        symbol* "
-                       << symbol_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << symbol_name
-                             << "();\n";
-            } else {
-                output << "        symbol* "
-                       << symbol_name
-                       << "() { return new symbol(\""
-                       << replace(data, "\"", "\\\"")
-                       << "\"); }\n";
-
-                symbols_list << "        extern symbol* "
-                             << symbol_name
-                             << "();\n";
-            }
-
-            output << "\n";
-            symbols_list << "\n";
+            output << "        symbol* "
+                   << symbol_name
+                   << "() { return new symbol(\""
+                   << replace(data, "\"", "\\\"")
+                   << "\"); }\n";
+
+            symbols_list << "        extern symbol* "
+                         << symbol_name
+                         << "();\n";
 
         }
 

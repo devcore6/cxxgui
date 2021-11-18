@@ -2,7 +2,7 @@
 
 namespace cxxgui {
 
-    enum class symbol_rendering_modes { monochrome, palette };
+    enum class symbol_rendering_modes { monochrome, hierarchical, palette };
 
     class symbol : public view {
     private:
@@ -17,6 +17,8 @@ namespace cxxgui {
         uint32_t color4 = color::accent_color;
         uint32_t color5 = color::accent_color;
 
+        uint16_t _weight = 16;
+
         float width = 0;
         float height = 0;
 
@@ -24,7 +26,7 @@ namespace cxxgui {
 
     protected:
         float get_content_width();
-        float get_content_height();
+        float get_content_height(); 
         
     public:
         void render();
@@ -38,10 +40,12 @@ namespace cxxgui {
         symbol* tertiary_color(uint32_t color) { color3 = color; return this; }
         symbol* quarternary_color(uint32_t color) { color4 = color; return this; }
         symbol* quinary_color(uint32_t color) { color5 = color; return this; }
+        
+        symbol* weight(uint16_t w) { _weight = w; return this; }
 
         symbol* symbol_rendering_mode(symbol_rendering_modes mode) { render_mode = mode; return this; }
 
-        symbol* size(float s) { style.width = s; style.height = s; return this; }
+        symbol* size(float s) { style.width = s * 1.5f; style.height = s; return this; }
 
     };
 

@@ -14,20 +14,40 @@ Documentation coming in the future once the project has progressed farther.
 
 ## Colors
 
+CXXGUI comes with a wide array of predefined colors to make it easier for you to come up with your own unique color scheme. You can of course also use any custom color you want.
+
 ![Colors](colors.svg "Colors")
 
 ## Symbols
 
-Each individual color of the symbols can be individually addressed by setting the rendering mode to palette.
+There are currently 128 symbols, but more will be added as development continues. Each symbol can be customized in color, size, thickness and rendering mode.
 
-There are currently few symbols, but more will be added as development continues. Each symbol also comes in 9 weights plus an extra filled variety.
+### Current symbols list
 
 ![ui_base](ui_base.png "ui_base")
-![ui_connectivity](ui_connectivity.png "ui_connectivity")
-![ui_input](ui_input.png "ui_input")
-![ui_shapes](ui_shapes.png "ui_shapes")
-![math](math.png "math")
+![ui_devices](ui_devices.png "ui_devices")
 ![media_controls](media_controls.png "media_controls")
+
+## Inputs
+
+Currently, there are 2 input methods, with more under development.
+
+The currently working input methods are:
+
+ - Toggle switches
+ - Steppers
+
+Input methods that still need to be implemented:
+
+ - Pickers
+ - Sliders
+ - Date pickers
+ - Color pickers
+ - Text fields
+ - Secure text fields
+ - Text editors
+
+![inputs](inputs.png "inputs")
 
 # Notes for Linux users
 

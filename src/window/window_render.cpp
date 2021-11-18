@@ -80,8 +80,19 @@ namespace cxxgui {
             SDL_GetWindowSize(window, &w, &h);
 
             bool clicking = false;
+            
+            uint8_t counter = 0;
 
             while(true) {
+                counter++;
+                if(counter == refresh_rate) {
+                    color::background = settings::is_dark_mode() ? color::black : color::white;
+                    color::foreground = settings::is_dark_mode() ? color::white : color::black;
+                    color::accent_color = settings::get_accent_color();
+
+                    counter = 0;
+                }
+
                 glClear(GL_COLOR_BUFFER_BIT);
 
                 glLoadIdentity();

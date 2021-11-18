@@ -1,3 +1,13 @@
+## r39
+
+- Added way more symbols
+- Added hierarchical symbol rendering mode
+- Made symbol weight customizable to any value
+- Changed symbols aspect ratio from 1:1 to 3:2
+- Redrawn all symbols to match new aspect ratio
+- Periodically check for dark mode / accent color updates
+- Removed some old symbols temporarily, these will be brought back soon in the new aspect ratio
+
 ## r38
 
 - Updated shuffle symbol

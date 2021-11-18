@@ -21,8 +21,8 @@ namespace cxxgui {
     float symbol::get_content_width() {
         float rendered_width = 32.0f;
 
-        if(style.width != 0.0f) rendered_width = style.width;
-        if(rendered_width < style.min_width) rendered_width = style.min_width;
+        if(style.height != 0.0f) rendered_width = style.width;
+        if(rendered_width < style.min_height) rendered_width = style.min_width;
         if(style.max_width != 0.0f && rendered_width > style.max_width)
             rendered_width = style.max_width;
 
@@ -53,15 +53,34 @@ namespace cxxgui {
                 color5 = color1;
             }
 
+            if(render_mode == symbol_rendering_modes::hierarchical) {
+                color2 = ((uint32_t)(((color1 >> 24) & 0xFF) * 0.6f)) << 24 |
+                         ((uint32_t)(((color1 >> 16) & 0xFF) * 0.6f)) << 16 |
+                         ((uint32_t)(((color1 >>  8) & 0xFF) * 0.6f)) <<  8 |
+                         ((uint32_t)(( color1        & 0xFF) * 0.6f));
+                color3 = ((uint32_t)(((color2 >> 24) & 0xFF) * 0.6f)) << 24 |
+                         ((uint32_t)(((color2 >> 16) & 0xFF) * 0.6f)) << 16 |
+                         ((uint32_t)(((color2 >>  8) & 0xFF) * 0.6f)) <<  8 |
+                         ((uint32_t)(( color2        & 0xFF) * 0.6f));
+                color4 = ((uint32_t)(((color3 >> 24) & 0xFF) * 0.6f)) << 24 |
+                         ((uint32_t)(((color3 >> 16) & 0xFF) * 0.6f)) << 16 |
+                         ((uint32_t)(((color3 >>  8) & 0xFF) * 0.6f)) <<  8 |
+                         ((uint32_t)(( color3        & 0xFF) * 0.6f));
+                color5 = ((uint32_t)(((color4 >> 24) & 0xFF) * 0.6f)) << 24 |
+                         ((uint32_t)(((color4 >> 16) & 0xFF) * 0.6f)) << 16 |
+                         ((uint32_t)(((color4 >>  8) & 0xFF) * 0.6f)) <<  8 |
+                         ((uint32_t)(( color4        & 0xFF) * 0.6f));
+            }
+
             float w = get_content_width();
-            float h = get_content_width();
+            float h = get_content_height();
 
             /*
              * Warning: jank alert
              * Weak minds look away
              */
 
-            float scale_factor = w / 512.0f;
+            float scale_factor = h / 512.0f;
 
             size_t pos = std::string::npos;
 
@@ -120,6 +139,12 @@ namespace cxxgui {
                 );
             }
 
+            if(_weight != 16)
+                while((pos = svg_data.find("stroke-width=\"16\"")) != std::string::npos) {
+                    svg_data.erase(pos + 14, 2);
+                    svg_data.insert(pos + 14, std::to_string(_weight));
+                }
+
             svg_data = modify_numbers<float>(svg_data, [scale_factor](float i) -> float { return i * scale_factor; }, true, svg_data.find("viewBox"));
 
             SDL_RWops* mem = SDL_RWFromConstMem(svg_data.data(), (int)svg_data.capacity());
@@ -160,35 +185,58 @@ namespace cxxgui {
         }
 
         if(texture_id != 0) {
-            glEnable(GL_TEXTURE_2D);
+            glPushMatrix();
 
-            // temporarily setting the alpha value in here
-            // as SDL_image doesn't support alpha in SVGs
+                glTranslatef(style.offset_x + style.margin_left,
+                             style.offset_y + style.margin_top,
+                             0.0f);
+                glRotatef(style.rotation, 0.0f, 0.0f, 1.0f);
 
-            glColor4f(1.0f, 1.0f, 1.0f, 255.0f / (color1 & 0xFF));
-            glBindTexture(GL_TEXTURE_2D, texture_id);
+                float w = get_content_box_width();
+                float h = get_content_box_height();
 
-            // why is this scaling needed???
+                render_background();
+                glPushMatrix();
 
-            glBegin(GL_QUADS);
+                    glTranslatef(style.border_left.stroke + style.padding_left,
+                                 style.border_top.stroke + style.padding_top,
+                                 0.0f);
 
-                glTexCoord2f(0.0f, 0.0f);
-                glVertex2f(0.0f, 0.0f);
+                    glEnable(GL_TEXTURE_2D);
 
-                glTexCoord2f(1.0f, 0.0f);
-                glVertex2f(width, 0.0f);
+                    // temporarily setting the alpha value in here
+                    // as SDL_image doesn't support alpha in SVGs
 
-                glTexCoord2f(1.0f, 1.0f);
-                glVertex2f(width, height);
+                    glColor4f(1.0f, 1.0f, 1.0f, 255.0f / (color1 & 0xFF));
+                    glBindTexture(GL_TEXTURE_2D, texture_id);
 
-                glTexCoord2f(0.0f, 1.0f);
-                glVertex2f(0.0f, height);
+                    // why is this scaling needed???
 
-            glEnd();
+                    glBegin(GL_QUADS);
 
-            glBindTexture(GL_TEXTURE_2D, 0);
+                        glTexCoord2f(0.0f, 0.0f);
+                        glVertex2f(0.0f, 0.0f);
 
-            glDisable(GL_TEXTURE_2D);
+                        glTexCoord2f(1.0f, 0.0f);
+                        glVertex2f(width, 0.0f);
+
+                        glTexCoord2f(1.0f, 1.0f);
+                        glVertex2f(width, height);
+
+                        glTexCoord2f(0.0f, 1.0f);
+                        glVertex2f(0.0f, height);
+
+                    glEnd();
+
+                    glBindTexture(GL_TEXTURE_2D, 0);
+
+                    glDisable(GL_TEXTURE_2D);
+
+                glPopMatrix();
+
+                render_borders();
+
+            glPopMatrix();
         }
     }
 
