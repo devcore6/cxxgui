@@ -9,6 +9,7 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL/SDL.h>
+#define GL_GLEXT_PROTOTYPES
 #include <SDL/SDL_opengl.h>
 #include <SDL/SDL_ttf.h>
 

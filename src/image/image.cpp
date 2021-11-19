@@ -5,6 +5,7 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL/SDL.h>
+#define GL_GLEXT_PROTOTYPES
 #include <SDL/SDL_opengl.h>
 #include <SDL/SDL_image.h>
 
@@ -12,10 +13,6 @@
 #include <cxxgui/style.hpp>
 #include <cxxgui/view.hpp>
 #include <cxxgui/image.hpp>
-
-#if defined(_WIN32) || defined(_WIN64)
-PFNGLGENERATEMIPMAPPROC glGenerateMipmap;
-#endif
 
 namespace cxxgui {
 	float image::get_content_width() {
@@ -75,12 +72,7 @@ namespace cxxgui {
 
                 glTexImage2D(GL_TEXTURE_2D, 0, surface->format->BytesPerPixel, surface->w, surface->h, 0, mode, GL_UNSIGNED_BYTE, surface->pixels);
 
-#if defined(_WIN32) || defined(_WIN64)
-                if(!glGenerateMipmap) glGenerateMipmap = (PFNGLGENERATEMIPMAPPROC)wglGetProcAddress("glGenerateMipmap");
-                if(glGenerateMipmap) glGenerateMipmap(GL_TEXTURE_2D);
-#else
                 glGenerateMipmap(GL_TEXTURE_2D);
-#endif
 
                 glBindTexture(GL_TEXTURE_2D, 0);
 

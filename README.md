@@ -49,6 +49,10 @@ Input methods that still need to be implemented:
 
 ![inputs](inputs.png "inputs")
 
+# Notes for macOS users
+
+M1 support is coming - currently, I'm waiting for SDL2_image and SDL2_ttf to be ported to M1, if this doesn't happen soon I will port them myself.
+
 # Notes for Linux users
 
 Since Linux doesn't have a standardized system font across all distros, and since I am not going to use a different font library just to accomodate Linux users better, CXXGUI uses DejaVu Sans and DejaVu Sans Mono on Linux as default font (this is also the default font on Ubuntu), as such, you're going to have to install those two fonts if you don't have them.

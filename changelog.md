@@ -1,3 +1,7 @@
+## r41
+
+- macOS support
+
 ## r40
 
 - Flipped the colors of volume_0 to match everything else

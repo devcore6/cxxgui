@@ -852,9 +852,6 @@ namespace cxxgui {
                       y_offset = 0.0f,
                       z_offset = 0.0f;
 
-                float x_prev_offset = 0.0f,
-                      y_prev_offset = 0.0f;
-
                 for(view* v : content) {
                     
                     int h_alignment = 0;

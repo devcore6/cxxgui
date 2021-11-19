@@ -1,5 +1,10 @@
 #pragma once
 
+// Apple Clang and Xcode still have some issues with concepts
+#ifdef __APPLE__
+# include <cxxgui/concepts.hpp>
+#endif
+
 namespace cxxgui {
 
     template<typename T>

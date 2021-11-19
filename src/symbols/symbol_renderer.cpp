@@ -72,15 +72,12 @@ namespace cxxgui {
                          ((uint32_t)(( color4        & 0xFF) * 0.6f));
             }
 
-            float w = get_content_width();
-            float h = get_content_height();
-
             /*
              * Warning: jank alert
              * Weak minds look away
              */
 
-            float scale_factor = h / 512.0f;
+            float scale_factor = get_content_height() / 512.0f;
 
             size_t pos = std::string::npos;
 
@@ -192,8 +189,6 @@ namespace cxxgui {
                              0.0f);
                 glRotatef(style.rotation, 0.0f, 0.0f, 1.0f);
 
-                float w = get_content_box_width();
-                float h = get_content_box_height();
 
                 render_background();
                 glPushMatrix();

@@ -188,8 +188,8 @@ namespace cxxgui {
             for(auto v : content) if(v) { delete v; v = nullptr; }
         }
 
-        bool overflow(bool enable) { scrollbar_x = enable; scrollbar_y = enable; }
-        bool overflow(bool enable_y, bool enable_x) { scrollbar_x = enable_x; scrollbar_y = enable_y; }
+        stack* overflow(bool enable) { scrollbar_x = enable; scrollbar_y = enable; return this; }
+        stack* overflow(bool enable_y, bool enable_x) { scrollbar_x = enable_x; scrollbar_y = enable_y; return this; }
 
     };
 

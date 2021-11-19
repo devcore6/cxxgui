@@ -1,5 +1,7 @@
+#include <cstdint>
 #include <cxxgui/settings.hpp>
 #include <cxxgui/color.hpp>
+#import <Availability.h>
 #import <CoreServices/CoreServices.h>
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
@@ -14,17 +16,15 @@ namespace cxxgui {
 
         bool is_dark_mode() {
             NSString *color_scheme = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
-            return (color_scheme == nil) ? false : (color_scheme == @"dark");
+            return (color_scheme == nil) ? false : ([color_scheme  isEqual: @"dark"]);
         }
 
         bool supports_transparency() {
-            int32_t majorVersion, minorVersion;
-
-            Gestalt(gestaltSystemVersionMajor, &majorVersion);
-            Gestalt(gestaltSystemVersionMinor, &minorVersion);
-            Gestalt(gestaltSystemVersionBugFix, &bugFixVersion);
-
-            return !(majorVersion < 10 || (majorVersion == 10 && minorVersion < 10));
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 1010
+            return true;
+#else
+            return false;
+#endif
         }
 
         bool has_transparency_enabled() {
@@ -35,18 +35,15 @@ namespace cxxgui {
 
 
         uint32_t get_accent_color() {
-            int32_t majorVersion, minorVersion;
-
-            Gestalt(gestaltSystemVersionMajor, &majorVersion);
-            Gestalt(gestaltSystemVersionMinor, &minorVersion);
-            Gestalt(gestaltSystemVersionBugFix, &bugFixVersion);
-
-            if(majorVersion < 10 || (majorVersion == 10 && minorVersion < 14)) return color::blue;
-
-            // I have no idea, I need to install macOS again and test it out for myself.
-            // It should be stored in AppleAccentColor, I believe
-
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 1014
+            NSColor *accent_color = NSColor.controlAccentColor;
+            return ((uint32_t)(accent_color.redComponent   * 255.0f) & 0xFF) << 24 |
+                   ((uint32_t)(accent_color.greenComponent * 255.0f) & 0xFF) << 16 |
+                   ((uint32_t)(accent_color.blueComponent  * 255.0f) & 0xFF) << 8 |
+                   ((uint32_t)(accent_color.alphaComponent * 255.0f) & 0xFF);
+#else
             return color::blue;
+#endif
         }
 
     }

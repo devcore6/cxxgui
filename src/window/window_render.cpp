@@ -9,7 +9,11 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
 
-#include <gl/GLU.h>
+#ifdef __APPLE__
+# include <OpenGL/glu.h>
+#else
+# include <gl/GLU.h>
+#endif
 
 #include <cxxgui/color.hpp>
 #include <cxxgui/style.hpp>
@@ -74,8 +78,6 @@ namespace cxxgui {
                               - content->style.margin_bottom;
 
         [this, event_handler, pos_x, pos_y, main_loop, data, refresh_rate]() { // Lambda to allow us to break through both loops at once
-            size_t x = pos_x, y = pos_y;
-
             int w, h;
             SDL_GetWindowSize(window, &w, &h);
 
