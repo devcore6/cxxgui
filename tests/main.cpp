@@ -7,7 +7,7 @@ class contentview : public view {
 public:
     contentview() {
 		body = new hstack {
-			new vstack {
+			/*new vstack {
 				new hstack {
 					(new toggle([](view*, bool) {}))->margin(8.0f),
 					(new toggle([](view*, bool) {}, true))->margin(8.0f)
@@ -16,7 +16,7 @@ public:
 					(new toggle([](view*, bool) {}))->margin(8.0f),
 					(new toggle([](view*, bool) {}, true))->margin(8.0f)
 				}
-			},
+			},*/
 			(new stepper<int>([](view*, int i) { std::cout << i << std::endl; }, 0, 10, 5))->margin(8.0f)
 		};
 	}

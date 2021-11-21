@@ -4,9 +4,15 @@ Making GUIs sucks, and I got tired of it. Either you're relying on stupid low-le
 
 And thus, CXXGUI was born. The goal was to make something **simple to use**, **powerful** and with great **cross-platform** support, without having to rely on different APIs for each system.
 
-The cross-platform goal is what drove the decision of using OpenGL since it has the best cross-platform support (since Vulkan is still not natively supported on macOS and I wasn't going to make a special version in Metal just for macOS).
-
 The end goal is to make something incredibly intuitive to work with, while remaining incredibly powerful. The syntax and design was somewhat inspired by [SwiftUI](https://developer.apple.com/xcode/swiftui/), while removing a lot of the limitations I encountered while messing around with SwiftUI.
+
+# Why OpenGL and SDL?
+
+OpenGL and SDL are convenient and easy to work with when getting started, which is why I am using both of them for the beginning, while the library is still heavily under development. Eventually, CXXGUI will transition to Vulkan and Metal.
+
+# Devices support?
+
+The goal of CXXGUI is to work on **every** platform, or at least on MOST of the common platforms. Currently there is Windows, Linux and macOS support, but as the library progresses I will add support for iOS, watchOS, tvOS, and eventually even Android. Is it necessary to add support for these mobile devices? Probably not, as there are already good app development frameworks for them (at least on the Apple side, I have no idea about the Android development side), but I still believe it would be convenient to be able to have the exact same code for your app on every device.
 
 # Documentation
 

@@ -7,3 +7,5 @@ x86/
 docs/
 raw_svgs/
 .DS_Store
+
+SDL

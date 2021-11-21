@@ -13,6 +13,7 @@
 #include <SDL/SDL_opengl.h>
 #include <SDL/SDL_ttf.h>
 
+#include "device-defs.hpp"
 #include "utilities.hpp"
 #include "settings.hpp"
 #include "color.hpp"

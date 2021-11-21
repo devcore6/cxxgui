@@ -1,3 +1,7 @@
+## r42
+
+- beginning of M1 mac support
+
 ## r41
 
 - macOS support
