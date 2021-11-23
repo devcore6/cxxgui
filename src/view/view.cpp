@@ -244,7 +244,14 @@ namespace cxxgui {
                     // as such, it's fine and it'll do for now.
                     // todo: change this later
 
-                    if(body) body->do_render(__rel_x - x_off, __rel_y - y_off, __clicking, __send_click, __last_x - x_off, __last_y - y_off);
+                    if(body) body->do_render(
+                        __rel_x - x_off,
+                        __rel_y - y_off,
+                        __clicking,
+                        __send_click,
+                        (int)(__last_x - x_off),
+                        (int)(__last_y - y_off)
+                    );
 
                 glPopMatrix();
 
@@ -260,16 +267,18 @@ namespace cxxgui {
 
     void view::do_render(float rel_x, float rel_y, bool clicking, bool sendclick, int lastx, int lasty) {
         if(sendclick) {
-            if(hovering((float)lastx, (float)lasty)) {
-                was_pressed = false;
-                if(click_action != nullptr) click_action(this, lastx, lasty, click_data);
-            }
+            if(press_reset) press_reset = false;
+            else {
+                if(hovering((float)lastx, (float)lasty)) {
+                    if(click_action != nullptr) click_action(this, (float)lastx, (float)lasty, click_data);
+                }
 
-            if(has_hover_style) rendered_style = &hover_style;
+                if(has_hover_style) rendered_style = &hover_style;
 
-            if(!was_hovering) {
-                was_hovering = true;
-                if(hover_action != nullptr) hover_action(this, rel_x, rel_y, hover_data);
+                if(!was_hovering) {
+                    was_hovering = true;
+                    if(hover_action != nullptr) hover_action(this, rel_x, rel_y, hover_data);
+                }
             }
         } else if(hovering(rel_x, rel_y)) {
             if(has_hover_style) rendered_style = &hover_style;
@@ -281,21 +290,15 @@ namespace cxxgui {
 
             if(clicking) {
                 if(has_active_style) rendered_style = &active_style;
-
-                if(!was_pressed)
-                    was_pressed = true;
-
-            } else if(was_pressed)  {
-                was_pressed = false;
-                if(click_action != nullptr) click_action(this, rel_x, rel_y, click_data);
             }
         } else {
+            if(clicking) press_reset = true;
+
             rendered_style = &style;
 
             if(was_hovering) {
 
                 was_hovering = false;
-                was_pressed = false;
                 if(leave_action != nullptr) leave_action(this, rel_x, rel_y, leave_data);
 
             }
@@ -926,7 +929,14 @@ namespace cxxgui {
                         cur_x_offset += x_offset - x_alignment_offset;
                         cur_y_offset += y_offset - y_alignment_offset;
 
-                        v->do_render(__rel_x - x_off - cur_x_offset, __rel_y - y_off - cur_y_offset, __clicking, __send_click, __last_x - x_off - cur_x_offset, __last_y - y_off - cur_y_offset);
+                        v->do_render(
+                            __rel_x - x_off - cur_x_offset,
+                            __rel_y - y_off - cur_y_offset,
+                            __clicking,
+                            __send_click,
+                            (int)(__last_x - x_off - cur_x_offset),
+                            (int)(__last_y - y_off - cur_y_offset)
+                        );
 
                     glPopMatrix();
 

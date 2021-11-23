@@ -16,7 +16,7 @@ namespace cxxgui {
         void* leave_data = nullptr;
         void* click_data = nullptr;
 
-        bool was_pressed = false;
+        bool press_reset = true;
         bool was_hovering = false;
 
         // this is an awful solution, but I can't be bothered editing all the individual render functions right now

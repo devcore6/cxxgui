@@ -1,3 +1,7 @@
+## r44
+
+- Improved click behavior
+
 ## r43
 
 - Fixed button click effect not being triggered sometimes when click occurred faster than refresh rate
