@@ -1,24 +1,27 @@
-#include <string>
-#include <vector>
-#include <initializer_list>
-#include <functional>
-#include <thread>
-#include <chrono>
+#include <cxxgui/device-defs.hpp>
+#ifdef __CXXGUI_DESKTOP__
 
-#define SDL_MAIN_HANDLED
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
+# include <string>
+# include <vector>
+# include <initializer_list>
+# include <functional>
+# include <thread>
+# include <chrono>
 
-#ifdef __APPLE__
-# include <OpenGL/glu.h>
-#else
-# include <gl/GLU.h>
-#endif
+# define SDL_MAIN_HANDLED
+# include <SDL/SDL.h>
+# include <SDL/SDL_opengl.h>
 
-#include <cxxgui/color.hpp>
-#include <cxxgui/style.hpp>
-#include <cxxgui/view.hpp>
-#include <cxxgui/window.hpp>
+# ifdef __APPLE__
+#  include <OpenGL/glu.h>
+# else
+#  include <gl/GLU.h>
+# endif
+
+# include <cxxgui/color.hpp>
+# include <cxxgui/style.hpp>
+# include <cxxgui/view.hpp>
+# include <cxxgui/window.hpp>
 
 namespace cxxgui {
 	void window_t::render(
@@ -82,8 +85,10 @@ namespace cxxgui {
             SDL_GetWindowSize(window, &w, &h);
 
             bool clicking = false;
+            bool send_click = true;
             
             uint8_t counter = 0;
+            int lastx = 0, lasty = 0;
 
             while(true) {
                 counter++;
@@ -122,7 +127,8 @@ namespace cxxgui {
                 glPushMatrix();
                     int mx = 0, my = 0;
                     SDL_GetMouseState(&mx, &my);
-                    content->do_render((float)mx, (float)my, clicking);
+                    content->do_render((float)mx, (float)my, clicking, send_click, lastx, lasty);
+                    send_click = false;
                 glPopMatrix();
 
                 glFlush();
@@ -139,7 +145,11 @@ namespace cxxgui {
                         }
 
                         case SDL_MOUSEBUTTONUP: {
-                            if(e.button.button == SDL_BUTTON_LEFT) clicking = false;
+                            if(e.button.button == SDL_BUTTON_LEFT) {
+                                clicking = false;
+                                send_click = true;
+                                SDL_GetMouseState(&lastx, &lasty);
+                            }
                             break;
                         }
 
@@ -190,3 +200,4 @@ namespace cxxgui {
         running = false;
     }
 }
+#endif

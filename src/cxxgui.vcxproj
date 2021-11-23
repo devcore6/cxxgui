@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="app\app_main.cpp" />
     <ClCompile Include="color\color-scheme.cpp" />
     <ClCompile Include="font\font.cpp" />
     <ClCompile Include="image\image.cpp" />
@@ -37,8 +38,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\animation.hpp" />
+    <ClInclude Include="include\cxxgui\app.hpp" />
     <ClInclude Include="include\cxxgui\color.hpp" />
+    <ClInclude Include="include\cxxgui\concepts.hpp" />
     <ClInclude Include="include\cxxgui\cxxgui.hpp" />
+    <ClInclude Include="include\cxxgui\device-defs.hpp" />
     <ClInclude Include="include\cxxgui\font.hpp" />
     <ClInclude Include="include\cxxgui\image.hpp" />
     <ClInclude Include="include\cxxgui\settings.hpp" />

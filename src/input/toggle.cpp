@@ -55,7 +55,7 @@ namespace cxxgui {
 
                 glTranslatef(
                     style.border_left.stroke + style.padding_left - 24.0f,
-                    style.border_top.stroke + style.padding_top,
+                    style.border_top.stroke + style.padding_top - 16.0f,
                     0.0f
                 );
 

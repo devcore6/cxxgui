@@ -1,3 +1,9 @@
+## r43
+
+- Fixed button click effect not being triggered sometimes when click occurred faster than refresh rate
+- Fixed bounding boxes on inputs
+- Beginning of apps stuff
+
 ## r42
 
 - beginning of M1 mac support

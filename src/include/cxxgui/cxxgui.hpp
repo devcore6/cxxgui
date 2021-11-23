@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <initializer_list>
 #include <functional>
+#include <optional>
 
 #define SDL_MAIN_HANDLED
 #include <SDL/SDL.h>
@@ -27,3 +28,4 @@
 #include "animation.hpp"
 #include "input.hpp"
 #include "window.hpp"
+#include "app.hpp"

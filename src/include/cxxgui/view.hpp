@@ -25,7 +25,10 @@ namespace cxxgui {
 
         float __rel_x = 0;
         float __rel_y = 0;
+        int __last_x = 0;
+        int __last_y = 0;
         bool __clicking = false;
+        bool __send_click = false;
 
         virtual float get_content_width();
         virtual float get_content_height();
@@ -37,7 +40,7 @@ namespace cxxgui {
         virtual bool hovering(float rel_x, float rel_y);
 
         virtual void render();
-        void do_render(float rel_x, float rel_y, bool clicking);
+        void do_render(float rel_x, float rel_y, bool clicking, bool send_click, int last_x, int last_y);
 
         virtual view* clone() { return new view(*this); }
 
