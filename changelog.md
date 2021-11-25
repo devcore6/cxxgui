@@ -1,3 +1,12 @@
+## r45
+
+- Added clipping rectangles to prevent content from overflowing in preparation for scrolling and scorllbars
+- Fixed text() being unable to parse line breaks
+- Fixed view::get_width() and view::get_height() adding the padding twice
+- Text color can now be changed after the fact
+- Added customizable line height
+- Added function to change alignment of view without having to change entire frame
+
 ## r44
 
 - Improved click behavior

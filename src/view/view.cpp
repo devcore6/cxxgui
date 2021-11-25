@@ -2,11 +2,15 @@
 #include <vector>
 #include <initializer_list>
 #include <functional>
+#include <iomanip>
+#include <sstream>
 
 #define SDL_MAIN_HANDLED
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
 
+#include <cxxgui/utilities.hpp>
+#include <cxxgui/gl.hpp>
 #include <cxxgui/color.hpp>
 #include <cxxgui/style.hpp>
 #include <cxxgui/view.hpp>
@@ -58,9 +62,7 @@ namespace cxxgui {
     float view::get_width() {
         return rendered_style->margin_left
              + rendered_style->border_left.stroke
-             + rendered_style->padding_left
              + get_content_box_width()
-             + rendered_style->padding_right
              + rendered_style->border_right.stroke
              + rendered_style->margin_right;
     }
@@ -68,9 +70,7 @@ namespace cxxgui {
     float view::get_height() {
         return rendered_style->margin_top
              + rendered_style->border_top.stroke
-             + rendered_style->padding_top
-             + get_content_box_height()
-             + rendered_style->padding_bottom
+             + get_content_box_height() 
              + rendered_style->border_bottom.stroke
              + rendered_style->margin_bottom;
     }
@@ -244,14 +244,19 @@ namespace cxxgui {
                     // as such, it's fine and it'll do for now.
                     // todo: change this later
 
-                    if(body) body->do_render(
-                        __rel_x - x_off,
-                        __rel_y - y_off,
-                        __clicking,
-                        __send_click,
-                        (int)(__last_x - x_off),
-                        (int)(__last_y - y_off)
-                    );
+                    if(body) {
+                        glClippingFrame((int)x_off, (int)y_off, (int)body->get_width(), (int)body->get_height());
+                        glPushClippingFrame();
+                            body->do_render(
+                                __rel_x - x_off,
+                                __rel_y - y_off,
+                                __clicking,
+                                __send_click,
+                                (int)(__last_x - x_off),
+                                (int)(__last_y - y_off)
+                            );
+                        glPopClippingFrame();
+                    }
 
                 glPopMatrix();
 
@@ -470,8 +475,13 @@ namespace cxxgui {
         return this;
     }
 
-    view* view::set_style(style_t s) {
-        style = s;
+    view* view::set_style(style_t new_style) {
+        style = new_style;
+        return this;
+    }
+
+    view* view::align(alignment_t alignment) {
+        style.alignment = alignment;
         return this;
     }
 
@@ -929,14 +939,17 @@ namespace cxxgui {
                         cur_x_offset += x_offset - x_alignment_offset;
                         cur_y_offset += y_offset - y_alignment_offset;
 
-                        v->do_render(
-                            __rel_x - x_off - cur_x_offset,
-                            __rel_y - y_off - cur_y_offset,
-                            __clicking,
-                            __send_click,
-                            (int)(__last_x - x_off - cur_x_offset),
-                            (int)(__last_y - y_off - cur_y_offset)
-                        );
+                        glClippingFrame((int)(x_off + cur_x_offset), (int)(y_off + cur_y_offset), (int)vw, (int)vh);
+                        glPushClippingFrame();
+                            v->do_render(
+                                __rel_x - x_off - cur_x_offset,
+                                __rel_y - y_off - cur_y_offset,
+                                __clicking,
+                                __send_click,
+                                (int)(__last_x - x_off - cur_x_offset),
+                                (int)(__last_y - y_off - cur_y_offset)
+                            );
+                        glPopClippingFrame();
 
                     glPopMatrix();
 

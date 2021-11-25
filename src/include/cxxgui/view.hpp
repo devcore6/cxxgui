@@ -40,7 +40,7 @@ namespace cxxgui {
         virtual bool hovering(float rel_x, float rel_y);
 
         virtual void render();
-        void do_render(float rel_x, float rel_y, bool clicking, bool send_click, int last_x, int last_y);
+        void do_render(float rel_x, float rel_y, bool clicking, bool send_click, int lastx, int lasty);
 
         virtual view* clone() { return new view(*this); }
 
@@ -55,6 +55,9 @@ namespace cxxgui {
         style_t active_style;
 
         style_t *rendered_style = &style;
+
+        bool scrollbar_x = false;
+        bool scrollbar_y = false;
 
     public:
         view* body = nullptr;
@@ -106,7 +109,12 @@ namespace cxxgui {
 
         view* rotation(float degrees);
 
-        view* set_style(style_t s);
+        view* set_style(style_t new_style);
+
+        view* align(alignment_t alignment);
+
+        view* overflow(bool enable) { scrollbar_x = enable; scrollbar_y = enable; return this; }
+        view* overflow(bool enable_y, bool enable_x) { scrollbar_x = enable_x; scrollbar_y = enable_y; return this; }
 
         /*
          * Layout on-hover
@@ -178,8 +186,8 @@ namespace cxxgui {
         float get_content_width();
         float get_content_height();
 
-        bool scrollbar_x = false;
-        bool scrollbar_y = false;
+        float scrollbar_x_pos = 0.0f;
+        float scrollbar_y_pos = 0.0f;
 
     public:
         void render();
@@ -190,9 +198,6 @@ namespace cxxgui {
         ~stack() {
             for(auto v : content) if(v) { delete v; v = nullptr; }
         }
-
-        stack* overflow(bool enable) { scrollbar_x = enable; scrollbar_y = enable; return this; }
-        stack* overflow(bool enable_y, bool enable_x) { scrollbar_x = enable_x; scrollbar_y = enable_y; return this; }
 
     };
 

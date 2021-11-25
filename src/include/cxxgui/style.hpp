@@ -52,6 +52,8 @@ namespace cxxgui {
         uint32_t    background_color            = color::clear;
         uint32_t    color                       = color::foreground;
 
+        float       line_height                 = 1.2f;
+
         float       width                       = 0.0f;
         float       height                      = 0.0f;
 

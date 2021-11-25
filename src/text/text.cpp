@@ -2,12 +2,15 @@
 #include <vector>
 #include <initializer_list>
 #include <functional>
+#include <iomanip>
+#include <sstream>
 
 #define SDL_MAIN_HANDLED
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
 #include <SDL/SDL_ttf.h>
 
+#include <cxxgui/utilities.hpp>
 #include <cxxgui/color.hpp>
 #include <cxxgui/style.hpp>
 #include <cxxgui/view.hpp>
@@ -20,56 +23,72 @@ namespace cxxgui {
 
     void text::render() {
         if(internal_font) {
-            if(texture_id == 0) {
-                SDL_Surface* surface;
-                if(style.max_width == 0.0f)
-                    surface = TTF_RenderUTF8_Blended(
-                        internal_font->font,
-                        t.c_str(),
-                        uint32_t_to_sdl_color(style.color)
-                    );
-                else
-                    surface = TTF_RenderUTF8_Blended_Wrapped(
-                        internal_font->font,
-                        t.c_str(),
-                        uint32_t_to_sdl_color(style.color),
-                        (uint32_t)style.max_width
-                    );
+            if(!texture_id) {
+                std::vector<std::string> data = split_str(t, std::string("\n"));
+                texture_count = data.size();
 
-                if(!surface) {
-                    return;
-                }
+                texture_id = new GLuint[texture_count];
+                widths = new int[texture_count];
+                heights = new int[texture_count];
 
-                int mode = GL_RGB;
-                if(surface->format->BytesPerPixel == 4) {
-                    if(surface->format->Rmask == 0x000000ff)
-                        mode = GL_RGBA;
+                glGenTextures((int)texture_count, texture_id);
+
+                for(size_t i = 0; i < data.size(); i++) {
+                    std::string str = data[i];
+
+                    SDL_Surface* surface;
+                    if(style.max_width == 0.0f)
+                        surface = TTF_RenderUTF8_Blended(
+                            internal_font->font,
+                            str.c_str(),
+                            uint32_t_to_sdl_color(0xFFFFFFFF)
+                        );
                     else
-                        mode = GL_BGRA;
-                } else {
-                    if(surface->format->Rmask == 0x000000ff)
-                        mode = GL_RGB;
-                    else
-                        mode = GL_BGR;
+                        surface = TTF_RenderUTF8_Blended_Wrapped(
+                            internal_font->font,
+                            str.c_str(),
+                            uint32_t_to_sdl_color(0xFFFFFFFF),
+                            (uint32_t)style.max_width
+                        );
+
+                    if(surface) {
+                        int mode = GL_RGB;
+                        if(surface->format->BytesPerPixel == 4) {
+                            if(surface->format->Rmask == 0x000000ff)
+                                mode = GL_RGBA;
+                            else
+                                mode = GL_BGRA;
+                        } else {
+                            if(surface->format->Rmask == 0x000000ff)
+                                mode = GL_RGB;
+                            else
+                                mode = GL_BGR;
+                        }
+
+                        glBindTexture(GL_TEXTURE_2D, texture_id[i]);
+
+                        glTexImage2D(GL_TEXTURE_2D, 0, surface->format->BytesPerPixel, surface->w, surface->h, 0, mode, GL_UNSIGNED_BYTE, surface->pixels);
+
+                        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+                        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+                        glBindTexture(GL_TEXTURE_2D, 0);
+
+                        if((float)surface->w > width) width = (float)surface->w;
+                        widths[i] = surface->w;
+                        heights[i] = surface->h;
+
+                        SDL_FreeSurface(surface);
+                    }
                 }
-
-                glGenTextures(1, &texture_id);
-                glBindTexture(GL_TEXTURE_2D, texture_id);
-
-                glTexImage2D(GL_TEXTURE_2D, 0, surface->format->BytesPerPixel, surface->w, surface->h, 0, mode, GL_UNSIGNED_BYTE, surface->pixels);
-
-                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-                glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-
-                glBindTexture(GL_TEXTURE_2D, 0);
-
-                width = (float)surface->w;
-                height = (float)surface->h;
-
-                SDL_FreeSurface(surface);
+                
+                height = 0.0f;
+                for(size_t i = 0; i < texture_count - 1; i++)
+                    height += style.line_height * heights[i];
+                height += heights[texture_count - 1];
             }
 
-            if(texture_id != 0) {
+            if(texture_id) {
                 glPushMatrix();
 
                     glTranslatef(style.offset_x + style.margin_left,
@@ -131,24 +150,36 @@ namespace cxxgui {
 
                             glEnable(GL_TEXTURE_2D);
 
-                            glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-                            glBindTexture(GL_TEXTURE_2D, texture_id);
+                            glColor4f(
+                                255.0f / ((style.color >> 24) & 0xFF),
+                                255.0f / ((style.color >> 16) & 0xFF),
+                                255.0f / ((style.color >>  8) & 0xFF),
+                                255.0f / ( style.color        & 0xFF)
+                            );
 
-                            glBegin(GL_QUADS);
+                            // todo: text alignment
+                            float cur_height = 0.0f;
+                            for(size_t i = 0; i < texture_count; i++) {
+                                glBindTexture(GL_TEXTURE_2D, texture_id[i]);
 
-                                glTexCoord2f(0.0f, 0.0f);
-                                glVertex2f(0.0f, 0.0f);
+                                glBegin(GL_QUADS);
 
-                                glTexCoord2f(1.0f, 0.0f);
-                                glVertex2f(width, 0.0f);
+                                    glTexCoord2f(0.0f, 0.0f);
+                                    glVertex2f(0.0f, cur_height);
 
-                                glTexCoord2f(1.0f, 1.0f);
-                                glVertex2f(width, height);
+                                    glTexCoord2f(1.0f, 0.0f);
+                                    glVertex2f((float)widths[i], cur_height);
 
-                                glTexCoord2f(0.0f, 1.0f);
-                                glVertex2f(0.0f, height);
+                                    glTexCoord2f(1.0f, 1.0f);
+                                    glVertex2f((float)widths[i], heights[i] + cur_height);
 
-                            glEnd();
+                                    glTexCoord2f(0.0f, 1.0f);
+                                    glVertex2f(0.0f, heights[i] + cur_height);
+
+                                glEnd();
+
+                                cur_height += heights[i] * style.line_height;
+                            }
 
                             glBindTexture(GL_TEXTURE_2D, 0);
 
@@ -172,8 +203,14 @@ namespace cxxgui {
 
     text* text::set_text(const char* str) {
         t = str;
-        if(texture_id != 0)
-            glDeleteTextures(1, &texture_id);
+        if(texture_id != nullptr) {
+            glDeleteTextures((int)texture_count, texture_id);
+            delete[] texture_id;
+            delete[] widths;
+            delete[] heights;
+            texture_id = nullptr;
+            widths = heights = nullptr;
+        }
         return this;
     }
 

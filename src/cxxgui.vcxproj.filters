@@ -17,6 +17,7 @@
     <ClCompile Include="symbols\ui_base.cpp" />
     <ClCompile Include="symbols\ui_devices.cpp" />
     <ClCompile Include="app\app_main.cpp" />
+    <ClCompile Include="gl\clipping.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\cxxgui\view.hpp" />
@@ -36,5 +37,6 @@
     <ClInclude Include="include\cxxgui\concepts.hpp" />
     <ClInclude Include="include\cxxgui\device-defs.hpp" />
     <ClInclude Include="include\cxxgui\app.hpp" />
+    <ClInclude Include="include\cxxgui\gl.hpp" />
   </ItemGroup>
 </Project>

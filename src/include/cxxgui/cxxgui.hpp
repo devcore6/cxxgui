@@ -16,6 +16,7 @@
 
 #include "device-defs.hpp"
 #include "utilities.hpp"
+#include "gl.hpp"
 #include "settings.hpp"
 #include "color.hpp"
 #include "style.hpp"

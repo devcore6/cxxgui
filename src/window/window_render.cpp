@@ -18,6 +18,8 @@
 #  include <gl/GLU.h>
 # endif
 
+# include <cxxgui/utilities.hpp>
+# include <cxxgui/gl.hpp>
 # include <cxxgui/color.hpp>
 # include <cxxgui/style.hpp>
 # include <cxxgui/view.hpp>
@@ -127,7 +129,11 @@ namespace cxxgui {
                 glPushMatrix();
                     int mx = 0, my = 0;
                     SDL_GetMouseState(&mx, &my);
-                    content->do_render((float)mx, (float)my, clicking, send_click, lastx, lasty);
+                    glClearClippingFrames();
+                    glClippingFrame(0, 0, w, h);
+                    glPushClippingFrame();
+                        content->do_render((float)mx, (float)my, clicking, send_click, lastx, lasty);
+                    glPopClippingFrame();
                     send_click = false;
                 glPopMatrix();
 

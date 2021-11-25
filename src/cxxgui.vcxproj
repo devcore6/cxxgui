@@ -22,6 +22,7 @@
     <ClCompile Include="app\app_main.cpp" />
     <ClCompile Include="color\color-scheme.cpp" />
     <ClCompile Include="font\font.cpp" />
+    <ClCompile Include="gl\clipping.cpp" />
     <ClCompile Include="image\image.cpp" />
     <ClCompile Include="input\toggle.cpp" />
     <ClCompile Include="settings\others.cpp" />
@@ -44,6 +45,7 @@
     <ClInclude Include="include\cxxgui\cxxgui.hpp" />
     <ClInclude Include="include\cxxgui\device-defs.hpp" />
     <ClInclude Include="include\cxxgui\font.hpp" />
+    <ClInclude Include="include\cxxgui\gl.hpp" />
     <ClInclude Include="include\cxxgui\image.hpp" />
     <ClInclude Include="include\cxxgui\settings.hpp" />
     <ClInclude Include="include\cxxgui\symbols.hpp" />
