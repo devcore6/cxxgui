@@ -1,3 +1,7 @@
+## r49
+
+- Fixed "Release" linking settings in VisualStudio
+
 ## r48
 
 - Fixed bug where the first click on a new view was ignored
