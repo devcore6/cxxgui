@@ -75,7 +75,7 @@ namespace cxxgui {
         view* on_leave(std::function<void(view*, float, float, void*)> callback, void* data = nullptr);
 
         /*
-         * Actiopn executed on click
+         * Action executed on click
          */
         view* on_click(std::function<void(view*, float, float, void*)> callback, void* data = nullptr);
 
@@ -198,6 +198,7 @@ namespace cxxgui {
         ~stack() {
             for(auto v : content) if(v) { delete v; v = nullptr; }
         }
+        void add(view* v) { content.push_back(v); }
 
     };
 

@@ -36,11 +36,16 @@ namespace cxxgui {
             title.c_str(),
             width,
             height,
-            body
+            body,
+            0,
+            event_handler,
+            refresh_rate,
+            opacity,
+            main_loop,
+            data
         );
 #endif
     }
-
     app::~app() {
 #ifdef __CXXGUI_DESKTOP__
 

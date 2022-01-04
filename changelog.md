@@ -1,3 +1,8 @@
+## r46
+
+- Added a way to add views to existing view stack
+- Added option to add event/main loop handlers to apps
+
 ## r45
 
 - Added clipping rectangles to prevent content from overflowing in preparation for scrolling and scorllbars
