@@ -37,7 +37,7 @@ namespace cxxgui {
                     std::string str = data[i];
 
                     SDL_Surface* surface;
-                    if(style.max_width == 0.0f)
+                    if(rendered_style->max_width == 0.0f)
                         surface = TTF_RenderUTF8_Blended(
                             internal_font->font,
                             str.c_str(),
@@ -48,7 +48,7 @@ namespace cxxgui {
                             internal_font->font,
                             str.c_str(),
                             uint32_t_to_sdl_color(0xFFFFFFFF),
-                            (uint32_t)style.max_width
+                            (uint32_t)rendered_style->max_width
                         );
 
                     if(surface) {
@@ -84,17 +84,17 @@ namespace cxxgui {
                 
                 height = 0.0f;
                 for(size_t i = 0; i < texture_count - 1; i++)
-                    height += style.line_height * heights[i];
+                    height += rendered_style->line_height * heights[i];
                 height += heights[texture_count - 1];
             }
 
             if(texture_id) {
                 glPushMatrix();
 
-                    glTranslatef(style.offset_x + style.margin_left,
-                                 style.offset_y + style.margin_top,
+                    glTranslatef(rendered_style->offset_x + rendered_style->margin_left,
+                                 rendered_style->offset_y + rendered_style->margin_top,
                                  0.0f);
-                    glRotatef(style.rotation, 0.0f, 0.0f, 1.0f);
+                    glRotatef(rendered_style->rotation, 0.0f, 0.0f, 1.0f);
 
                     float w = get_content_box_width();
                     float h = get_content_box_height();
@@ -102,14 +102,14 @@ namespace cxxgui {
                     render_background();
                     glPushMatrix();
 
-                        glTranslatef(style.border_left.stroke + style.padding_left,
-                                     style.border_top.stroke + style.padding_top,
+                        glTranslatef(rendered_style->border_left.stroke + rendered_style->padding_left,
+                                     rendered_style->border_top.stroke + rendered_style->padding_top,
                                      0.0f);
 
                         int h_alignment = 0;
                         int v_alignment = 0;
 
-                        switch(style.alignment) {
+                        switch(rendered_style->alignment) {
                             case alignment_t::top_leading:     { h_alignment = 0; v_alignment = 0; break; }
                             case alignment_t::top:             { h_alignment = 1; v_alignment = 0; break; }
                             case alignment_t::top_trailing:    { h_alignment = 2; v_alignment = 0; break; }
@@ -131,8 +131,8 @@ namespace cxxgui {
                                 );
                         }
 
-                        float x_alignment_offset = width + style.padding_left + style.padding_right,
-                              y_alignment_offset = height + style.padding_top + style.padding_bottom;
+                        float x_alignment_offset = width + rendered_style->padding_left + rendered_style->padding_right,
+                              y_alignment_offset = height + rendered_style->padding_top + rendered_style->padding_bottom;
 
                         glPushMatrix();
 
@@ -151,10 +151,10 @@ namespace cxxgui {
                             glEnable(GL_TEXTURE_2D);
 
                             glColor4f(
-                                255.0f / ((style.color >> 24) & 0xFF),
-                                255.0f / ((style.color >> 16) & 0xFF),
-                                255.0f / ((style.color >>  8) & 0xFF),
-                                255.0f / ( style.color        & 0xFF)
+                                ((rendered_style->color >> 24) & 0xFF) / 255.0f,
+                                ((rendered_style->color >> 16) & 0xFF) / 255.0f,
+                                ((rendered_style->color >>  8) & 0xFF) / 255.0f,
+                                ( rendered_style->color        & 0xFF) / 255.0f
                             );
 
                             // todo: text alignment
@@ -178,7 +178,7 @@ namespace cxxgui {
 
                                 glEnd();
 
-                                cur_height += heights[i] * style.line_height;
+                                cur_height += heights[i] * rendered_style->line_height;
                             }
 
                             glBindTexture(GL_TEXTURE_2D, 0);

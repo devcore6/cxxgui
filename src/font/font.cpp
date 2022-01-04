@@ -307,8 +307,8 @@ namespace cxxgui {
     
     font_t* large_title = font_t::try_load_font(&system, 40, 700, false, false);
     font_t* title       = font_t::try_load_font(&system, 32, 600, false, false);
-    font_t* headline    = font_t::try_load_font(&system, 16, 600, false, false);
-    font_t* subheadline = font_t::try_load_font(&system, 15, 400, false, false);
+    font_t* headline    = font_t::try_load_font(&system, 20, 600, false, false);
+    font_t* subheadline = font_t::try_load_font(&system, 18, 400, false, false);
     font_t* body        = font_t::try_load_font(&system, 16, 400, false, false);
     font_t* footnote    = font_t::try_load_font(&system, 14, 400, false, false);
     font_t* monospace   = font_t::try_load_font(&system, 16, 400, false, true);

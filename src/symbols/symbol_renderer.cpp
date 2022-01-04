@@ -202,7 +202,7 @@ namespace cxxgui {
                     // temporarily setting the alpha value in here
                     // as SDL_image doesn't support alpha in SVGs
 
-                    glColor4f(1.0f, 1.0f, 1.0f, 255.0f / (color1 & 0xFF));
+                    glColor4f(1.0f, 1.0f, 1.0f, (color1 & 0xFF) / 255.0f);
                     glBindTexture(GL_TEXTURE_2D, texture_id);
 
                     // why is this scaling needed???

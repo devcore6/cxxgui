@@ -1,3 +1,9 @@
+## r47
+
+- Fixed issue in text color rendering and symbol alpha rendering
+- Changed text rendering always using default style, even on hover and when active
+- Changed headline and subheadline font sizes
+
 ## r46
 
 - Added a way to add views to existing view stack
