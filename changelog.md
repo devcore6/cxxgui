@@ -1,3 +1,7 @@
+## r48
+
+- Fixed bug where the first click on a new view was ignored
+
 ## r47
 
 - Fixed issue in text color rendering and symbol alpha rendering

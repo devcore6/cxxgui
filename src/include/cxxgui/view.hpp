@@ -16,7 +16,7 @@ namespace cxxgui {
         void* leave_data = nullptr;
         void* click_data = nullptr;
 
-        bool press_reset = true;
+        bool press_reset = false;
         bool was_hovering = false;
 
         // this is an awful solution, but I can't be bothered editing all the individual render functions right now
@@ -62,7 +62,7 @@ namespace cxxgui {
     public:
         view* body = nullptr;
 
-        virtual ~view() { if(body) delete body; }
+        ~view() { if(body) delete body; body = nullptr; }
 
         /*
          * Action executed on hover
