@@ -1,3 +1,9 @@
+## r50
+
+- Added var_toggle, a perhaps more convenient way of using toggles for simple tasks
+- Added a way to get or flip a toggle's current value
+- Temporarily disabled clipping as it created some issues with over aggressive clipping
+
 ## r49
 
 - Fixed "Release" linking settings in VisualStudio

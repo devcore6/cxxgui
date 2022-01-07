@@ -5,6 +5,7 @@ namespace cxxgui {
     class toggle : public view {
     private:
         friend class symbol;
+        friend class var_toggle;
 
         symbol* frame_off = nullptr;
         symbol* frame_on = nullptr;
@@ -39,10 +40,20 @@ namespace cxxgui {
         toggle(std::function<void(view*, bool)> _f, bool checkmarks = false);
 
         void set_value(bool v);
+        void toggle_value();
+        bool get_value();
 
         ~toggle();
 
     };
+
+    inline toggle* var_toggle(bool* var, bool checkmarks = false) {
+        toggle* tog = new toggle([var](view*, bool v) {
+            *var = v;
+        }, checkmarks);
+        if(*var) tog->toggle_value();
+        return tog;
+    }
 
     class picker : public view {
 

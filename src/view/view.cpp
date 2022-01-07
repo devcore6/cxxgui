@@ -245,8 +245,8 @@ namespace cxxgui {
                     // todo: change this later
 
                     if(body) {
-                        glClippingFrame((int)x_off, (int)y_off, (int)body->get_width(), (int)body->get_height());
-                        glPushClippingFrame();
+                        //glClippingFrame((int)x_off, (int)y_off, (int)body->get_width(), (int)body->get_height());
+                        //glPushClippingFrame();
                             body->do_render(
                                 __rel_x - x_off,
                                 __rel_y - y_off,
@@ -255,7 +255,7 @@ namespace cxxgui {
                                 (int)(__last_x - x_off),
                                 (int)(__last_y - y_off)
                             );
-                        glPopClippingFrame();
+                        //glPopClippingFrame();
                     }
 
                 glPopMatrix();
@@ -939,8 +939,8 @@ namespace cxxgui {
                         cur_x_offset += x_offset - x_alignment_offset;
                         cur_y_offset += y_offset - y_alignment_offset;
 
-                        glClippingFrame((int)(x_off + cur_x_offset), (int)(y_off + cur_y_offset), (int)vw, (int)vh);
-                        glPushClippingFrame();
+                        //glClippingFrame((int)(x_off + cur_x_offset), (int)(y_off + cur_y_offset), (int)vw, (int)vh);
+                        //glPushClippingFrame();
                             v->do_render(
                                 __rel_x - x_off - cur_x_offset,
                                 __rel_y - y_off - cur_y_offset,
@@ -949,7 +949,7 @@ namespace cxxgui {
                                 (int)(__last_x - x_off - cur_x_offset),
                                 (int)(__last_y - y_off - cur_y_offset)
                             );
-                        glPopClippingFrame();
+                        //glPopClippingFrame();
 
                     glPopMatrix();
 

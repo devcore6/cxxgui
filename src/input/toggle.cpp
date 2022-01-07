@@ -148,6 +148,8 @@ namespace cxxgui {
     }
 
     void toggle::set_value(bool v) { if(v != state) toggle_action(this, 0.0f, 0.0f, nullptr); }
+    void toggle::toggle_value() { toggle_action(this, 0.0f, 0.0f, nullptr); }
+    bool toggle::get_value() { return state; }
 
     toggle::~toggle() {
         if(frame_off) delete frame_off;
