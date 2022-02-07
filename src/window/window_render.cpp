@@ -37,6 +37,7 @@ namespace cxxgui {
         float opacity,
         std::function<void(SDL_Event)> event_handler,
         std::function<bool(window_t*, void*)> main_loop,
+        std::function<bool(window_t*, void*)> post_loop,
         void* data
     ) {
         window = SDL_CreateWindow(title, (int)pos_x, (int)pos_y, (int)width, (int)height, flags | SDL_WINDOW_OPENGL);
@@ -82,7 +83,7 @@ namespace cxxgui {
                               - content->style.border_bottom.stroke
                               - content->style.margin_bottom;
 
-        [this, event_handler, pos_x, pos_y, main_loop, data, refresh_rate]() { // Lambda to allow us to break through both loops at once
+        [this, event_handler, pos_x, pos_y, main_loop, post_loop, data, refresh_rate]() { // Lambda to allow us to break through both loops at once
             int w, h;
             SDL_GetWindowSize(window, &w, &h);
 
@@ -136,6 +137,8 @@ namespace cxxgui {
                     glPopClippingFrame();
                     send_click = false;
                 glPopMatrix();
+
+                if(!post_loop(this, data)) return;
 
                 glFlush();
                 SDL_GL_SwapWindow(window);

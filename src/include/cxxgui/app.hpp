@@ -41,6 +41,7 @@ namespace cxxgui {
         uint16_t refresh_rate = 60;
         float opacity = 1.0f;
         std::function<bool(window_t*, void*)> main_loop = null_function;
+        std::function<bool(window_t*, void*)> post_loop = null_function;
         void* data = nullptr;
 
         void main();

@@ -32,6 +32,7 @@ namespace cxxgui {
             float opacity,
             std::function<void(SDL_Event)> event_handler,
             std::function<bool(window_t*, void*)> main_loop,
+            std::function<bool(window_t*, void*)> post_loop,
             void* data
         );
 
@@ -47,6 +48,7 @@ namespace cxxgui {
             uint16_t refresh_rate = 60,
             float opacity = 1.0f,
             std::function<bool(window_t*, void*)> main_loop = null_function,
+            std::function<bool(window_t*, void*)> post_loop = null_function,
             void* data = nullptr
         ) : content(v) {
             content->style.width = (float)width;
@@ -63,6 +65,7 @@ namespace cxxgui {
                 opacity,
                 event_handler,
                 main_loop,
+                post_loop,
                 data
             );
         }

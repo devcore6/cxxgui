@@ -42,6 +42,7 @@ namespace cxxgui {
             refresh_rate,
             opacity,
             main_loop,
+            post_loop,
             data
         );
 #endif
