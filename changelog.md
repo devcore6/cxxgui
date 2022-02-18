@@ -1,3 +1,8 @@
+## r55
+
+- Fixed "execution order" warning on some compilers for shared textures
+- Added copy constructor for shared textures
+
 ## r54
 
 - Shared textures now have width and height fields
