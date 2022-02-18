@@ -1,3 +1,16 @@
+## r53
+
+- Added images that are initializable from a previously initialized texture
+- Added shared textures to perhaps be used later
+
+## r52
+
+- Added post rendering callback function for apps and windows
+
+## r51
+
+- Fixed Windows image rendering
+
 ## r50
 
 - Added var_toggle, a perhaps more convenient way of using toggles for simple tasks

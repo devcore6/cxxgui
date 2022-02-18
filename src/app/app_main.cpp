@@ -27,7 +27,7 @@
 namespace cxxgui {
     void app::main() {
         if(body == nullptr) {
-            std::cerr << "app body must not be nullptr" << std::endl;
+            std::cerr << "app body must not be a null pointer" << std::endl;
             exit(EXIT_FAILURE);
         }
 

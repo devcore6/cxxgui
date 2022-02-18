@@ -50,7 +50,7 @@ namespace cxxgui {
     }
 
 	void image::render() {
-		if(path != "") {
+		if(path != "" || texture_id != 0) {
 			if(texture_id == 0) {
 				SDL_Surface* surface = IMG_Load(path.c_str());
 				if(!surface) return;
