@@ -1,3 +1,7 @@
+## r54
+
+- Shared textures now have width and height fields
+
 ## r53
 
 - Added images that are initializable from a previously initialized texture
