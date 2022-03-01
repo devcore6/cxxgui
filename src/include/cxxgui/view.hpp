@@ -6,6 +6,7 @@ namespace cxxgui {
     protected:
         friend class window_t;
         friend class stack;
+        friend class embeddable;
 
         view* parent = nullptr;
 

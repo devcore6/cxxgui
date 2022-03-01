@@ -1,3 +1,7 @@
+## r56
+
+- Added a custom embeddable view to allow including CXXGUI GUIs into windows that were not created through CXXGUI apps,
+
 ## r55
 
 - Fixed "execution order" warning on some compilers for shared textures

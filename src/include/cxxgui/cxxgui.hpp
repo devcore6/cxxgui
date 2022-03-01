@@ -30,3 +30,4 @@
 #include "input.hpp"
 #include "window.hpp"
 #include "app.hpp"
+#include "embeddable.hpp"
