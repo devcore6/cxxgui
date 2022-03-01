@@ -38,5 +38,6 @@
     <ClInclude Include="include\cxxgui\device-defs.hpp" />
     <ClInclude Include="include\cxxgui\app.hpp" />
     <ClInclude Include="include\cxxgui\gl.hpp" />
+    <ClInclude Include="include\cxxgui\embeddable.hpp" />
   </ItemGroup>
 </Project>

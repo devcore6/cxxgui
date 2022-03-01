@@ -1,3 +1,7 @@
+## r57
+
+- Updated VS project
+
 ## r56
 
 - Added a custom embeddable view to allow including CXXGUI GUIs into windows that were not created through CXXGUI apps,

@@ -46,6 +46,7 @@
     <ClInclude Include="include\cxxgui\device-defs.hpp" />
     <ClInclude Include="include\cxxgui\font.hpp" />
     <ClInclude Include="include\cxxgui\gl.hpp" />
+    <ClInclude Include="include\cxxgui\embeddable.hpp" />
     <ClInclude Include="include\cxxgui\image.hpp" />
     <ClInclude Include="include\cxxgui\settings.hpp" />
     <ClInclude Include="include\cxxgui\symbols.hpp" />
