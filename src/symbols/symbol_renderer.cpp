@@ -144,7 +144,7 @@ namespace cxxgui {
 
             svg_data = modify_numbers<float>(svg_data, [scale_factor](float i) -> float { return i * scale_factor; }, true, svg_data.find("viewBox"));
 
-            SDL_RWops* mem = SDL_RWFromConstMem(svg_data.data(), (int)svg_data.capacity());
+            SDL_RWops* mem = SDL_RWFromConstMem(svg_data.data(), (int)svg_data.size());
             if(!mem) return;
 
             SDL_Surface* surface = IMG_LoadSVG_RW(mem);
